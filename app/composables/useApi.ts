@@ -31,11 +31,27 @@ export const $api = $fetch.create({
         if (userStore.isLoggedIn && userStore.token) {
             options.headers = new Headers(options.headers);
             options.headers.set('Authorization', `Bearer ${userStore.token}`)
-        } else {
-            // 只有访问非白名单接口且没有 token 时才提示或处理
-            if (import.meta.client) {
-                // 可以选择在这里提示，或者干脆不提示让后端返回 401
+        }
+    },
+    onResponseError({ response }) {
+        if (import.meta.client && response.status === 401) {
+            // 使用全局变量或 useState 记录消息显示状态，防止重复弹出
+            const isShowingMessage = useState('is-auth-message-showing', () => false)
+            
+            if (!isShowingMessage.value) {
+                isShowingMessage.value = true
                 ElMessage.error("请先登录")
+                
+                // 2秒后重置状态
+                setTimeout(() => {
+                    isShowingMessage.value = false
+                }, 2000)
+                
+                // 只有在非登录页且非首页时才考虑跳转
+                const route = useRoute()
+                if (route.path !== '/login' && route.path !== '/') {
+                    navigateTo('/login')
+                }
             }
         }
     }

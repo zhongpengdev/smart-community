@@ -95,16 +95,14 @@ const loadingSubtitle = computed(() => {
 // 初始化加载流程
 onMounted(async () => {
     try {
-        // 验证权限
+        // 验证权限 (由中间件主要负责，这里作为兜底静默处理)
         if (!userStore.isLoggedIn) {
-            ElMessage.error('请先登录')
             router.push('/login')
             return
         }
 
-        // 检查角色权限 (roleId !== 4 表示非普通用户)
+        // 检查角色权限
         if (userStore.userRole?.roleId === 4) {
-            ElMessage.error('您没有权限访问后台管理')
             router.push('/')
             return
         }
@@ -113,7 +111,10 @@ onMounted(async () => {
         await startLoading(2300)
     } catch (error: any) {
         console.error('后台管理加载失败:', error)
-        ElMessage.error(error.message || '加载失败，请重试')
+        // 只有非认证相关的错误才在这里提示
+        if (userStore.isLoggedIn) {
+            ElMessage.error(error.message || '加载失败，请重试')
+        }
         router.push('/')
     }
 })

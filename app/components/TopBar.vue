@@ -152,11 +152,8 @@ const communityServices = [
 
 //canVisitSc
 const canVisitSc = computed(() => {
-  console.log('用户角色信息:', userStore.userRole);
-  console.log('所有角色:', userStore.userRoles);
 
   const roleTypeId = userStore.userRole?.roleId;
-  console.log('角色ID:', roleTypeId);
 
   // 未登录或角色ID为4（普通用户）时不显示后台管理入口
   if (!roleTypeId || roleTypeId === 4) return false;
