@@ -1,26 +1,53 @@
+﻿# Nuxt Agentic Platform | 智能体交互平台
+
+基于 Nuxt 3 构建的高性能、实时交互平台，集成了先进的 AI Agent 引擎与微服务网关架构。
+
+## 🚀 核心架构亮点
+
+### 1. 智能 Agent 引擎 (Agentic Workflow)
+- **流式响应交互**：基于 WebSocket 的全双工实时通信，支持 Token 级分块流式传输，实现极低延迟的 AI 对话体验。
+- **复杂工具编排**：深度集成自主工具调用 (Tool Calling) 能力，具备思考、调用、完成的全链路状态追踪及元数据缓存机制。
+- **多维会话持久化**：支持跨页面状态同步、上下文自动恢复及复杂的历史记录管理逻辑。
+
+### 2. 高性能网关与 API 调度
+- **多环境请求编排**：在业务核心 API 与 Agent 微服务之间实现动态路由调度。
+- **安全机制拦截器**：集中式 JWT 认证管理，支持非阻塞白名单机制及针对鉴权失效的**智能节流处理**（防止并发请求导致的弹窗堆叠）。
+- **高效响应式数据流**：封装深层 Composables，实现业务逻辑与 UI 的完全解耦及全局状态的高效分发。
+
+### 3. 全局实时通信层
+- **WebSocket 单例架构**：具备自动重连、心跳监测及事件驱动消息分发机制，确保长连接的健壮性。
+- **即时通知系统**：集成了系统公告、点对点私信、Agent 任务进度反馈的实时事件总线。
+
+### 4. 交易引擎与网关集成
+- **聚合支付接口**：可扩展的支付网关，支持支付宝、微信支付、内部钱包等多渠道流水处理。
+- **异步状态机**：基于高效轮询与乐观更新机制的订单状态机，确保分布式环境下的一致性体验。
+
+## 🛠️ 技术栈
+- **核心框架**：[Nuxt 3](https://nuxt.com/) (Vue 3, TypeScript)
+- **状态管理**：[Pinia](https://pinia.vuejs.org/)
+- **样式方案**：[Tailwind CSS](https://tailwindcss.com/)
+- **UI 组件**：[Element Plus](https://element-plus.org/) / Inspira UI
+- **实时技术**：WebSocket / EventStream / SSE
+
+## 📂 项目结构 (app/)
+```bash
+├── components/          # 原子组件与复杂业务模块
+│   ├── Agent/           # AI 智能体核心交互组件
+│   ├── Chat/            # 实时通信消息界面
+│   └── SuperCommunity/  # 高权限管理与数据看板
+├── composables/         # 业务逻辑封装与响应式状态
+│   ├── agent/           # 智能体调度与流式处理逻辑
+│   └── mall/            # 交易与支付业务逻辑
+├── middleware/          # 路由守卫与 RBAC 权限控制
+├── pages/               # 声明式路由与视图编排
+├── stores/              # Pinia 全局状态定义
+└── utils/               # 技术工具函数与 API 契约
 ```
-my-nuxt-project/
-├── .output/                # 构建输出目录 (不要动)
-├── .nuxt/                  # Nuxt 自动生成的临时文件 (不要动)
-├── app/                    # [核心] 前端 Vue 应用的所有代码
-│   ├── assets/             # 静态资源 (scss, images, fonts)
-│   ├── components/         # Vue 组件
-│   ├── composables/        # 自动导入的组合式函数 (hooks)
-│   ├── layouts/            # 布局文件
-│   ├── middleware/         # 路由中间件
-│   ├── pages/              # 页面路由
-│   ├── plugins/            # 客户端/服务端插件
-│   ├── utils/              # 辅助工具函数
-│   ├── app.vue             # 应用入口组件 (以前在根目录)
-│   └── router.options.ts   # 路由配置 (以前在根目录)
-├── layers/                 # [进阶] Nuxt Layers (类似微前端/模块化)
-├── modules/                # 本地开发的 Nuxt 模块
-├── public/                 # 纯静态文件 (favicon.ico, robots.txt)
-├── server/                 # [后端] Nitro 服务器代码
-│   ├── api/                # API 接口
-│   ├── middleware/         # 服务器中间件
-│   └── routes/             # 非 API 的服务端路由
-├── nuxt.config.ts          # 配置文件
-├── package.json
-└── tsconfig.json
-```
+
+## 🔐 安全与优化
+- **反馈节流机制**：全局响应拦截器具备状态感知能力，针对身份失效等异常实现毫秒级节流反馈。
+- **极致加载性能**：通过组件懒加载、静态资源预热、按需引入等手段优化整体加载性能。
+- **全链路类型安全**：基于 TypeScript 的严谨类型定义，确保大规模代码协作的可靠性。
+
+---
+*注：本项目定位为高性能 Agent 交互基座，支持快速接入各类大模型 API 及第三方微服务。*
