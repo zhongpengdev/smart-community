@@ -1,26 +1,11 @@
 <template>
-    <div class="h-[calc(100vh-3rem)] relative overflow-clip">
-        <!-- Stars Background (Dark Mode Only) -->
-        <InspiraCoSrartsbackground v-if="$colorMode.value === 'dark'" :factor="0.05" :speed="50" star-color="#fff"
-            class="h-full">
-            <div class="h-full flex flex-col relative">
-                <AgentSiderBarSiderBarCo />
-                <AgentHomepageContentCo :messages="messages" :agent-status="agentStatus" :tool-calls="toolCalls"
-                    class="flex-1 z-10" />
-                <div
-                    class="w-full flex justify-center px-4 pb-12 pt-2 z-10 shrink-0 bg-gradient-to-t to-transparent from-[#131314] via-[#131314]">
-                    <AgentHomepageInputCo :loading="isProcessing" @send="handleSendMessage" />
-                </div>
-            </div>
-        </InspiraCoSrartsbackground>
-
-        <!-- Plain White Background (Light Mode) -->
-        <div v-else class="h-full flex flex-col relative bg-white">
+    <div class="h-[calc(100vh-3rem)] relative overflow-clip bg-white dark:bg-black">
+        <div class="h-full flex flex-col relative">
             <AgentSiderBarSiderBarCo />
             <AgentHomepageContentCo :messages="messages" :agent-status="agentStatus" :tool-calls="toolCalls"
                 class="flex-1 z-10" />
             <div
-                class="w-full flex justify-center px-4 pb-12 pt-2 z-10 shrink-0 bg-gradient-to-t to-transparent from-white via-white">
+                class="w-full flex justify-center px-4 pb-12 pt-2 z-10 shrink-0 bg-gradient-to-t to-transparent from-white dark:from-black via-white dark:via-black">
                 <AgentHomepageInputCo :loading="isProcessing" @send="handleSendMessage" />
             </div>
         </div>
