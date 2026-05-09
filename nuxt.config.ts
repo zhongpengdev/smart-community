@@ -1,6 +1,6 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+﻿// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  // 必须把模块都写进去
+  // 模块配置
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   ],
 
   pinia: {
-    storesDirs: ['./stores/**'], // 自动导入 stores 文件夹下的 store
+    storesDirs: ['./stores/**'],
   },
 
   elementPlus: {
@@ -19,7 +19,7 @@ export default defineNuxtConfig({
   },
 
   colorMode: {
-    preference: 'system',
+    preference: 'system',        
     fallback: 'light',
     classSuffix: '',
     storageKey: 'nuxt-color-mode'
@@ -27,15 +27,34 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      apiBase: 'http://172.20.10.14:8080', // 默认值，会被 NUXT_PUBLIC_API_BASE 覆盖
-      agentBase: 'http://localhost:8001' // 默认值，会被 NUXT_PUBLIC_AGENT_BASE 覆盖
+      apiBase: 'http://172.20.10.14:8080',
+      agentBase: 'http://localhost:8001'
     }
   },
 
   future: {
-    compatibilityVersion: 4, // 既然你用 Nuxt 4 规范，建议开启这个
+    compatibilityVersion: 4,
   },
 
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: true }
+  devtools: { enabled: true },
+
+  vite: {
+    optimizeDeps: {
+      include: [
+        'element-plus',
+        'echarts',
+        '@vueuse/core',
+        'dayjs',
+        'clsx',
+        'tailwind-merge',
+        'element-plus/es/components/index'
+      ]
+    },
+    server: {
+      watch: {
+        usePolling: false
+      }
+    }
+  }
 })
