@@ -152,6 +152,12 @@
 <script setup lang="ts">
 import { ref, reactive, computed, onMounted } from 'vue'
 import { ElMessage, ElMessageBox, type FormInstance, type FormRules } from 'element-plus'
+import { 
+    getPermissionListApi, 
+    createPermissionApi, 
+    updatePermissionApi, 
+    deletePermissionApi 
+} from '~/utils/api'
 
 definePageMeta({
     layout: 'super-community',
@@ -166,9 +172,6 @@ interface Permission {
     description: string
     status: number
 }
-
-const config = useRuntimeConfig()
-const userStore = useUserStore()
 
 const loading = ref(false)
 const permissionList = ref<Permission[]>([])
@@ -207,10 +210,7 @@ const filteredPermissions = computed(() => {
 const fetchPermissionList = async () => {
     loading.value = true
     try {
-        const response = await fetch(`${config.public.apiBase}/api/permission/list`, {
-            headers: { 'Authorization': `Bearer ${userStore.token}` }
-        })
-        const res = await response.json()
+        const res = await getPermissionListApi() as any
         if (res.code === 200) {
             permissionList.value = res.data || []
         } else {
@@ -254,20 +254,10 @@ const handleSubmit = async () => {
         
         submitting.value = true
         try {
-            const url = isEdit.value
-                ? `${config.public.apiBase}/api/permission/${formData.permissionId}`
-                : `${config.public.apiBase}/api/permission/create`
+            const res = isEdit.value
+                ? await updatePermissionApi(formData.permissionId, formData) as any
+                : await createPermissionApi(formData) as any
             
-            const response = await fetch(url, {
-                method: isEdit.value ? 'PUT' : 'POST',
-                headers: {
-                    'Authorization': `Bearer ${userStore.token}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            })
-            
-            const res = await response.json()
             if (res.code === 200) {
                 ElMessage.success(isEdit.value ? '更新成功' : '创建成功')
                 dialogVisible.value = false
@@ -297,12 +287,7 @@ const handleDelete = async (permission: Permission) => {
             }
         )
         
-        const response = await fetch(`${config.public.apiBase}/api/permission/${permission.permissionId}`, {
-            method: 'DELETE',
-            headers: { 'Authorization': `Bearer ${userStore.token}` }
-        })
-        
-        const res = await response.json()
+        const res = await deletePermissionApi(permission.permissionId) as any
         if (res.code === 200) {
             ElMessage.success('删除成功')
             fetchPermissionList()
@@ -345,4 +330,3 @@ onMounted(() => {
     fetchPermissionList()
 })
 </script>
-

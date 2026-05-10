@@ -289,6 +289,14 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted, nextTick } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
+import { 
+    getAdminUsersApi, 
+    getAdminUserDetailsApi, 
+    updateAdminUserStatusApi, 
+    deleteAdminUserApi,
+    getRoleListApi,
+    assignUserRolesApi 
+} from '~/utils/api'
 
 definePageMeta({
     layout: 'super-community',
@@ -348,21 +356,13 @@ const queryParams = reactive({
 const fetchUserList = async () => {
     loading.value = true
     try {
-        const config = useRuntimeConfig()
-        const params = new URLSearchParams()
-        params.append('page', String(queryParams.page))
-        params.append('size', String(queryParams.size))
-        if (queryParams.keyword) params.append('keyword', queryParams.keyword)
-        if (queryParams.status !== null) params.append('status', String(queryParams.status))
-        if (queryParams.userType !== null) params.append('userType', String(queryParams.userType))
-
-        const response = await fetch(`${config.public.apiBase}/api/admin/users?${params.toString()}`, {
-            headers: {
-                'Authorization': `Bearer ${useUserStore().token}`
-            }
-        })
-
-        const res = await response.json()
+        const res = await getAdminUsersApi({
+            page: queryParams.page,
+            size: queryParams.size,
+            keyword: queryParams.keyword || undefined,
+            status: queryParams.status !== null ? queryParams.status : undefined,
+            userType: queryParams.userType !== null ? queryParams.userType : undefined
+        }) as any
 
         if (res.code === 200) {
             userList.value = res.data.records || []
@@ -372,7 +372,10 @@ const fetchUserList = async () => {
         }
     } catch (error: any) {
         console.error('获取用户列表失败:', error)
-        ElMessage.error('获取用户列表失败')
+        // 注意：全局拦截器已经处理了 401，这里只处理网络或其他业务错误
+        if (error.response?.status !== 401) {
+            ElMessage.error('获取用户列表失败')
+        }
     } finally {
         loading.value = false
     }
@@ -387,14 +390,7 @@ const handleSearch = () => {
 // 查看详情
 const handleView = async (user: User) => {
     try {
-        const config = useRuntimeConfig()
-        const response = await fetch(`${config.public.apiBase}/api/admin/users/${user.userId}`, {
-            headers: {
-                'Authorization': `Bearer ${useUserStore().token}`
-            }
-        })
-
-        const res = await response.json()
+        const res = await getAdminUserDetailsApi(user.userId) as any
 
         if (res.code === 200) {
             currentUser.value = res.data
@@ -423,17 +419,7 @@ const handleToggleStatus = async (user: User) => {
             }
         )
 
-        const config = useRuntimeConfig()
-        const response = await fetch(`${config.public.apiBase}/api/admin/users/${user.userId}/status`, {
-            method: 'PUT',
-            headers: {
-                'Authorization': `Bearer ${useUserStore().token}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ status: user.status === 1 ? 0 : 1 })
-        })
-
-        const res = await response.json()
+        const res = await updateAdminUserStatusApi(user.userId, user.status === 1 ? 0 : 1) as any
 
         if (res.code === 200) {
             ElMessage.success(`${action}成功`)
@@ -462,15 +448,7 @@ const handleDelete = async (user: User) => {
             }
         )
 
-        const config = useRuntimeConfig()
-        const response = await fetch(`${config.public.apiBase}/api/admin/users/${user.userId}`, {
-            method: 'DELETE',
-            headers: {
-                'Authorization': `Bearer ${useUserStore().token}`
-            }
-        })
-
-        const res = await response.json()
+        const res = await deleteAdminUserApi(user.userId) as any
 
         if (res.code === 200) {
             ElMessage.success('删除成功')
@@ -490,14 +468,7 @@ const handleDelete = async (user: User) => {
 const fetchAllRoles = async () => {
     roleLoading.value = true
     try {
-        const config = useRuntimeConfig()
-        const response = await fetch(`${config.public.apiBase}/api/permission/role/list`, {
-            headers: {
-                'Authorization': `Bearer ${useUserStore().token}`
-            }
-        })
-
-        const res = await response.json()
+        const res = await getRoleListApi() as any
 
         if (res.code === 200) {
             allRoles.value = (res.data || []).filter((r: Role) => r.status === 1)
@@ -522,7 +493,7 @@ const handleAssignRole = async (user: User) => {
 
     // 设置用户当前的角色
     if (user.roles && user.roles.length > 0) {
-        // roles 可能是字符串数组或对象数组，需要处理
+        // roles 可能是字符串数组 or 对象数组，需要处理
         selectedRoleIds.value = allRoles.value
             .filter((r: Role) => {
                 if (typeof user.roles[0] === 'string') {
@@ -541,20 +512,10 @@ const handleSubmitRoles = async () => {
 
     roleSubmitting.value = true
     try {
-        const config = useRuntimeConfig()
-        const response = await fetch(`${config.public.apiBase}/api/permission/user/assign-roles`, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${useUserStore().token}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                userId: selectedUser.value.userId,
-                roleIds: selectedRoleIds.value
-            })
-        })
-
-        const res = await response.json()
+        const res = await assignUserRolesApi({
+            userId: selectedUser.value.userId,
+            roleIds: selectedRoleIds.value
+        }) as any
 
         if (res.code === 200) {
             ElMessage.success('角色分配成功')

@@ -2435,6 +2435,50 @@ export const getAdminPropertyFeePaymentsApi = (data: {
 // ========== 用户角色管理 ==========
 
 /**
+ * 获取管理后台用户列表
+ */
+export const getAdminUsersApi = (params: {
+  page: number
+  size: number
+  keyword?: string
+  status?: number
+  userType?: number
+}) => {
+  return $api('/api/admin/users', {
+    method: 'GET',
+    params
+  })
+}
+
+/**
+ * 获取管理后台用户详情
+ */
+export const getAdminUserDetailsApi = (userId: string | number) => {
+  return $api(`/api/admin/users/${userId}`, {
+    method: 'GET'
+  })
+}
+
+/**
+ * 更新用户状态（冻结/解冻）
+ */
+export const updateAdminUserStatusApi = (userId: string | number, status: number) => {
+  return $api(`/api/admin/users/${userId}/status`, {
+    method: 'PUT',
+    body: { status }
+  })
+}
+
+/**
+ * 删除用户
+ */
+export const deleteAdminUserApi = (userId: string | number) => {
+  return $api(`/api/admin/users/${userId}`, {
+    method: 'DELETE'
+  })
+}
+
+/**
  * 获取所有角色列表
  */
 export const getRoleListApi = () => {
@@ -2458,11 +2502,124 @@ export const assignUserRolesApi = (data: {
 }
 
 /**
- * 获取用户的角色列表
+ * 获取角色的角色列表
  * @param userId 用户ID
  */
 export const getUserRolesApi = (userId: number) => {
   return $api(`/api/permission/user/${userId}/roles`, {
     method: 'GET'
+  })
+}
+
+// ========== 角色与权限管理 ==========
+
+/**
+ * 获取所有权限列表
+ */
+export const getPermissionListApi = () => {
+  return $api('/api/permission/list', {
+    method: 'GET'
+  })
+}
+
+/**
+ * 获取角色拥有的权限列表
+ */
+export const getRolePermissionsApi = (roleId: number) => {
+  return $api(`/api/permission/role/${roleId}/permissions`, {
+    method: 'GET'
+  })
+}
+
+/**
+ * 创建新角色
+ */
+export const createRoleApi = (data: {
+  roleName: string
+  roleCode: string
+  description?: string
+  status: number
+}) => {
+  return $api('/api/permission/role/create', {
+    method: 'POST',
+    body: data
+  })
+}
+
+/**
+ * 更新角色信息
+ */
+export const updateRoleApi = (roleId: number, data: {
+  roleName: string
+  roleCode: string
+  description?: string
+  status: number
+}) => {
+  return $api(`/api/permission/role/${roleId}`, {
+    method: 'PUT',
+    body: data
+  })
+}
+
+/**
+ * 删除角色
+ */
+export const deleteRoleApi = (roleId: number) => {
+  return $api(`/api/permission/role/${roleId}`, {
+    method: 'DELETE'
+  })
+}
+
+/**
+ * 为角色分配权限
+ */
+export const assignRolePermissionsApi = (data: {
+  roleId: number
+  permissionIds: number[]
+}) => {
+  return $api('/api/permission/role/assign-permissions', {
+    method: 'POST',
+    body: data
+  })
+}
+
+/**
+ * 创建新权限
+ */
+export const createPermissionApi = (data: {
+  permissionName: string
+  permissionCode: string
+  resourceType: string
+  description?: string
+  status: number
+}) => {
+  return $api('/api/permission/create', {
+    method: 'POST',
+    body: data
+  })
+}
+
+/**
+ * 更新权限信息
+ */
+export const updatePermissionApi = (permissionId: number, data: {
+  permissionName: string
+  permissionCode: string
+  resourceType: string
+  description?: string
+  status: number
+}) => {
+  return $api(`/api/permission/${permissionId}`, {
+    method: 'PUT',
+    body: data
+  })
+}
+
+/**
+ * 删除权限
+ */
+export const deletePermissionApi = (permissionId: number) => {
+  return $api(`/api/permission/${permissionId}`, {
+    method: 'DELETE'
   })
 }

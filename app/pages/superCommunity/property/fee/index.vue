@@ -101,172 +101,122 @@
                 </nav>
             </div>
 
-            <!-- 搜索筛选区域 -->
-            <div class="p-6 border-b border-slate-200 dark:border-slate-700">
-                <el-form :model="queryForm" inline class="flex flex-wrap gap-4">
-                    <el-form-item label="用户名" class="!mb-0">
-                        <el-input v-model="queryForm.userName" placeholder="搜索用户名" clearable style="width: 150px;"
-                            @keyup.enter="handleSearch">
-                            <template #prefix>
-                                <Icon name="lucide:search" size="14" class="text-slate-400" />
-                            </template>
-                        </el-input>
-                    </el-form-item>
-                    <el-form-item label="账期" class="!mb-0">
-                        <el-date-picker v-model="queryForm.billingPeriod" type="month" placeholder="选择账期"
-                            value-format="YYYY-MM" style="width: 140px;" />
-                    </el-form-item>
-                    <el-form-item label="状态" class="!mb-0">
-                        <el-select v-model="queryForm.status" placeholder="全部状态" clearable style="width: 120px;">
-                            <el-option label="全部" :value="undefined" />
-                            <el-option label="未缴" :value="0" />
-                            <el-option label="已缴" :value="1" />
-                            <el-option label="部分缴纳" :value="2" />
-                        </el-select>
-                    </el-form-item>
-                    <el-form-item label="逾期" class="!mb-0">
-                        <el-select v-model="queryForm.overdue" placeholder="全部" clearable style="width: 100px;">
-                            <el-option label="全部" :value="undefined" />
-                            <el-option label="是" :value="true" />
-                            <el-option label="否" :value="false" />
-                        </el-select>
-                    </el-form-item>
-                    <el-form-item class="!mb-0">
-                        <el-button type="primary" @click="handleSearch">
-                            <Icon name="lucide:search" size="14" class="mr-1" />搜索
-                        </el-button>
-                        <el-button @click="handleReset">
-                            <Icon name="lucide:rotate-ccw" size="14" class="mr-1" />重置
-                        </el-button>
-                    </el-form-item>
-                </el-form>
+            <!-- 筛选栏 -->
+            <div class="p-6 border-b border-slate-100 dark:border-slate-700">
+                <div class="flex flex-wrap gap-4">
+                    <el-input v-model="queryForm.userName" placeholder="搜索用户名" style="width: 200px;" clearable>
+                        <template #prefix><Icon name="lucide:search" size="14" /></template>
+                    </el-input>
+                    <el-date-picker v-model="queryForm.billingPeriod" type="month" placeholder="选择账期"
+                        value-format="YYYY-MM" style="width: 160px;" />
+                    <el-select v-model="queryForm.status" placeholder="状态" style="width: 120px;" clearable>
+                        <el-option label="待缴费" :value="0" />
+                        <el-option label="已缴费" :value="1" />
+                        <el-option label="部分缴纳" :value="2" />
+                    </el-select>
+                    <el-select v-model="queryForm.overdue" placeholder="是否逾期" style="width: 120px;" clearable>
+                        <el-option label="是" :value="true" />
+                        <el-option label="否" :value="false" />
+                    </el-select>
+                    <div class="flex gap-2">
+                        <el-button type="primary" @click="handleSearch">查询</el-button>
+                        <el-button @click="handleReset">重置</el-button>
+                    </div>
+                </div>
             </div>
 
-            <!-- 批量操作工具栏 -->
-            <div v-if="selectedBills.length > 0" class="px-6 py-3 bg-blue-50 dark:bg-blue-900/20 flex items-center gap-4">
-                <span class="text-sm text-blue-600">已选择 {{ selectedBills.length }} 条账单</span>
-                <el-button size="small" type="warning" @click="handleBatchReminder">
-                    <Icon name="lucide:bell" size="14" class="mr-1" />发送催缴通知
-                </el-button>
-                <el-button size="small" type="danger" @click="handleBatchDelete">
-                    <Icon name="lucide:trash-2" size="14" class="mr-1" />批量删除
-                </el-button>
-                <el-button size="small" @click="selectedBills = []">取消选择</el-button>
+            <!-- 操作工具栏 -->
+            <div v-if="selectedBills.length > 0" class="px-6 py-3 bg-blue-50 dark:bg-blue-900/10 flex items-center justify-between">
+                <span class="text-sm text-blue-600">已选中 {{ selectedBills.length }} 条账单</span>
+                <div class="flex gap-2">
+                    <el-button type="primary" size="small" @click="handleBatchReminder">批量发送催缴</el-button>
+                    <el-button type="danger" size="small" @click="handleBatchDelete">批量删除</el-button>
+                </div>
             </div>
 
-            <!-- 账单列表 -->
-            <el-table :data="billList" v-loading="loading" style="width: 100%"
-                @selection-change="handleSelectionChange">
-                <el-table-column type="selection" width="50" />
-                <el-table-column prop="billNo" label="账单编号" width="160">
-                    <template #default="{ row }">
-                        <span class="text-xs font-mono text-slate-500">{{ row.billNo }}</span>
-                    </template>
-                </el-table-column>
-                <el-table-column label="用户信息" width="160">
-                    <template #default="{ row }">
-                        <div>
-                            <p class="font-medium text-slate-800 dark:text-white">{{ row.userName || '-' }}</p>
-                            <p class="text-xs text-slate-400">{{ row.userPhone || '-' }}</p>
-                        </div>
-                    </template>
-                </el-table-column>
-                <el-table-column prop="billingPeriod" label="账期" width="100" align="center" />
-                <el-table-column label="费用明细" min-width="200">
-                    <template #default="{ row }">
-                        <div class="flex flex-wrap gap-1 text-xs">
-                            <span v-if="row.propertyFee" class="px-1.5 py-0.5 bg-blue-50 text-blue-600 rounded">物业 ¥{{ row.propertyFee }}</span>
-                            <span v-if="row.waterFee" class="px-1.5 py-0.5 bg-cyan-50 text-cyan-600 rounded">水费 ¥{{ row.waterFee }}</span>
-                            <span v-if="row.electricityFee" class="px-1.5 py-0.5 bg-yellow-50 text-yellow-600 rounded">电费 ¥{{ row.electricityFee }}</span>
-                            <span v-if="row.gasFee" class="px-1.5 py-0.5 bg-orange-50 text-orange-600 rounded">燃气 ¥{{ row.gasFee }}</span>
-                            <span v-if="row.parkingFee" class="px-1.5 py-0.5 bg-purple-50 text-purple-600 rounded">停车 ¥{{ row.parkingFee }}</span>
-                            <span v-if="row.otherFee" class="px-1.5 py-0.5 bg-slate-100 text-slate-600 rounded">其他 ¥{{ row.otherFee }}</span>
-                        </div>
-                    </template>
-                </el-table-column>
-                <el-table-column label="金额" width="140">
-                    <template #default="{ row }">
-                        <div>
-                            <p class="font-bold text-orange-600">¥{{ row.totalAmount?.toFixed(2) }}</p>
-                            <p v-if="row.paidAmount > 0" class="text-xs text-green-500">已缴 ¥{{ row.paidAmount?.toFixed(2) }}</p>
-                        </div>
-                    </template>
-                </el-table-column>
-                <el-table-column label="状态" width="100" align="center">
-                    <template #default="{ row }">
-                        <el-tag :type="getStatusType(row.status)" size="small">{{ row.statusText }}</el-tag>
-                        <el-tag v-if="row.overdue" type="danger" size="small" class="ml-1">逾期{{ row.overdueDays }}天</el-tag>
-                    </template>
-                </el-table-column>
-                <el-table-column prop="dueDate" label="截止日期" width="110">
-                    <template #default="{ row }">
-                        <span :class="row.overdue ? 'text-red-500' : ''">{{ row.dueDate?.split(' ')[0] || '-' }}</span>
-                    </template>
-                </el-table-column>
-                <el-table-column label="操作" width="160" fixed="right">
-                    <template #default="{ row }">
-                        <el-button type="primary" size="small" link @click="handleViewDetail(row)">
-                            <Icon name="lucide:eye" size="14" class="mr-1" />详情
-                        </el-button>
-                        <el-button type="warning" size="small" link @click="handleEditBill(row)" :disabled="row.status === 1">
-                            <Icon name="lucide:edit" size="14" class="mr-1" />编辑
-                        </el-button>
-                        <el-button type="danger" size="small" link @click="handleDeleteBill(row)" :disabled="row.paidAmount > 0">
-                            <Icon name="lucide:trash-2" size="14" />
-                        </el-button>
-                    </template>
-                </el-table-column>
-            </el-table>
+            <!-- 表格 -->
+            <div class="p-6">
+                <el-table :data="billList" v-loading="loading" @selection-change="handleSelectionChange">
+                    <el-table-column type="selection" width="55" />
+                    <el-table-column label="账单编号" prop="billNo" min-width="180" font-mono>
+                        <template #default="{ row }">
+                            <span class="text-xs font-mono">{{ row.billNo }}</span>
+                        </template>
+                    </el-table-column>
+                    <el-table-column label="用户信息" min-width="150">
+                        <template #default="{ row }">
+                            <div class="flex items-center gap-2">
+                                <span class="font-medium text-slate-800 dark:text-white">{{ row.userName }}</span>
+                                <span class="text-xs text-slate-500">{{ row.userPhone }}</span>
+                            </div>
+                        </template>
+                    </el-table-column>
+                    <el-table-column label="账期" prop="billingPeriod" width="100" />
+                    <el-table-column label="总金额" width="120">
+                        <template #default="{ row }">
+                            <span class="font-bold text-orange-600">¥{{ row.totalAmount?.toFixed(2) }}</span>
+                        </template>
+                    </el-table-column>
+                    <el-table-column label="已缴金额" width="120">
+                        <template #default="{ row }">
+                            <span :class="row.paidAmount > 0 ? 'text-green-600' : 'text-slate-400'">
+                                ¥{{ row.paidAmount?.toFixed(2) || '0.00' }}
+                            </span>
+                        </template>
+                    </el-table-column>
+                    <el-table-column label="截止日期" width="120">
+                        <template #default="{ row }">
+                            <span :class="row.overdue ? 'text-red-500 font-medium' : ''">
+                                {{ row.dueDate?.split(' ')[0] }}
+                            </span>
+                        </template>
+                    </el-table-column>
+                    <el-table-column label="状态" width="100">
+                        <template #default="{ row }">
+                            <el-tag :type="getStatusType(row.status)" size="small">
+                                {{ row.statusText }}
+                                <span v-if="row.overdue" class="ml-1 text-[10px]">(逾期)</span>
+                            </el-tag>
+                        </template>
+                    </el-table-column>
+                    <el-table-column label="操作" width="220" fixed="right">
+                        <template #default="{ row }">
+                            <div class="flex gap-2">
+                                <el-button size="small" link @click="handleViewDetail(row)">详情</el-button>
+                                <el-button size="small" link @click="handleEditBill(row)">编辑</el-button>
+                                <el-button v-if="row.status === 0" size="small" link type="primary" @click="handleBatchReminder">催缴</el-button>
+                                <el-button size="small" link type="danger" @click="handleDeleteBill(row)">删除</el-button>
+                            </div>
+                        </template>
+                    </el-table-column>
+                </el-table>
 
-            <!-- 分页 -->
-            <div class="p-4 flex justify-end border-t border-slate-200 dark:border-slate-700">
-                <el-pagination v-model:current-page="pagination.current" v-model:page-size="pagination.size"
-                    :page-sizes="[10, 20, 50, 100]" :total="pagination.total"
-                    layout="total, sizes, prev, pager, next, jumper" @size-change="fetchBillList"
-                    @current-change="fetchBillList" />
+                <!-- 分页 -->
+                <div class="mt-6 flex justify-end">
+                    <el-pagination v-model:current-page="pagination.current" v-model:page-size="pagination.size"
+                        :total="pagination.total" :page-sizes="[10, 20, 50]" layout="total, sizes, prev, pager, next"
+                        @current-change="handleSearch" @size-change="handleSearch" />
+                </div>
             </div>
         </div>
 
         <!-- 生成单个账单弹窗 -->
-        <el-dialog v-model="generateDialogVisible" title="生成账单" width="550px" :close-on-click-modal="false">
+        <el-dialog v-model="generateDialogVisible" title="生成单个账单" width="550px">
             <el-form :model="generateForm" label-width="100px" class="space-y-2">
-                <el-form-item label="选择用户" required>
-                    <el-select
-                        v-model="generateForm.userId"
-                        filterable
-                        remote
-                        reserve-keyword
-                        placeholder="输入用户名/手机号/邮箱搜索"
-                        :remote-method="searchUsers"
-                        :loading="userSearchLoading"
-                        style="width: 100%;"
-                        clearable
-                    >
-                        <el-option
-                            v-for="user in userSearchResults"
-                            :key="user.userId"
-                            :label="`${user.userName} (${user.phone || user.email || 'ID:' + user.userId})`"
-                            :value="user.userId"
-                        >
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <el-avatar :size="24" :src="user.avatar">{{ user.userName?.charAt(0) }}</el-avatar>
-                                    <span>{{ user.userName }}</span>
-                                </div>
-                                <span class="text-xs text-slate-400">{{ user.phone || user.email }}</span>
-                            </div>
-                        </el-option>
-                        <template #empty>
-                            <div class="py-4 text-center text-slate-400">
-                                <Icon name="lucide:search" size="24" class="mb-2 opacity-50" />
-                                <p class="text-sm">请输入关键词搜索用户</p>
-                            </div>
-                        </template>
+                <el-form-item label="搜索用户">
+                    <el-select v-model="generateForm.userId" filterable remote reserve-keyword placeholder="请输入手机号或姓名搜索"
+                        :remote-method="searchUsers" :loading="userSearchLoading" style="width: 100%;">
+                        <el-option v-for="user in userSearchResults" :key="user.userId"
+                            :label="`${user.userName} (${user.phone})`" :value="user.userId" />
                     </el-select>
                 </el-form-item>
-                <el-form-item label="账期" required>
+                <el-form-item label="账期">
                     <el-date-picker v-model="generateForm.billingPeriod" type="month" placeholder="选择账期"
                         value-format="YYYY-MM" style="width: 100%;" />
+                </el-form-item>
+                <el-form-item label="截止日期">
+                    <el-date-picker v-model="generateForm.dueDate" type="date" placeholder="选择截止日期"
+                        value-format="YYYY-MM-DD" style="width: 100%;" />
                 </el-form-item>
                 <el-divider content-position="left">费用项</el-divider>
                 <div class="grid grid-cols-2 gap-4">
@@ -289,34 +239,28 @@
                         <el-input-number v-model="generateForm.otherFee" :min="0" :precision="2" style="width: 100%;" />
                     </el-form-item>
                 </div>
-                <el-form-item label="截止日期">
-                    <el-date-picker v-model="generateForm.dueDate" type="date" placeholder="选择截止日期"
-                        value-format="YYYY-MM-DD" style="width: 100%;" />
-                </el-form-item>
             </el-form>
             <template #footer>
                 <el-button @click="generateDialogVisible = false">取消</el-button>
-                <el-button type="primary" :loading="submitting" @click="handleGenerateBill">生成账单</el-button>
+                <el-button type="primary" :loading="submitting" @click="handleGenerateBill">生成并保存</el-button>
             </template>
         </el-dialog>
 
         <!-- 批量生成账单弹窗 -->
-        <el-dialog v-model="batchGenerateDialogVisible" title="批量生成账单" width="600px" :close-on-click-modal="false">
-            <el-alert type="info" :closable="false" class="mb-4">
-                <template #title>
-                    <span>如果不指定用户ID，将为所有普通用户生成账单</span>
-                </template>
-            </el-alert>
+        <el-dialog v-model="batchGenerateDialogVisible" title="批量生成账单" width="550px">
+            <div class="mb-4 p-4 bg-orange-50 text-orange-600 rounded-lg text-sm">
+                提示：批量生成将为系统中所有活跃业主生成指定账期的账单。
+            </div>
             <el-form :model="batchGenerateForm" label-width="100px" class="space-y-2">
-                <el-form-item label="账期" required>
+                <el-form-item label="账期">
                     <el-date-picker v-model="batchGenerateForm.billingPeriod" type="month" placeholder="选择账期"
                         value-format="YYYY-MM" style="width: 100%;" />
                 </el-form-item>
-                <el-form-item label="截止日期" required>
+                <el-form-item label="截止日期">
                     <el-date-picker v-model="batchGenerateForm.dueDate" type="date" placeholder="选择截止日期"
                         value-format="YYYY-MM-DD" style="width: 100%;" />
                 </el-form-item>
-                <el-divider content-position="left">默认费用项（可选）</el-divider>
+                <el-divider content-position="left">基础费用（默认值）</el-divider>
                 <div class="grid grid-cols-2 gap-4">
                     <el-form-item label="物业费" class="!mb-2">
                         <el-input-number v-model="batchGenerateForm.propertyFee" :min="0" :precision="2" style="width: 100%;" />
@@ -458,6 +402,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref, reactive, computed, watch, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import {
     getAdminPropertyFeeStatisticsApi,
@@ -467,8 +412,9 @@ import {
     updateAdminPropertyFeeBillApi,
     deleteAdminPropertyFeeBillApi,
     batchDeleteAdminPropertyFeeBillApi,
-    sendPropertyFeeReminderApi
-} from '@/utils/api'
+    sendPropertyFeeReminderApi,
+    getAdminUsersApi
+} from '~/utils/api'
 
 definePageMeta({
     layout: 'super-community',
@@ -532,8 +478,6 @@ interface SearchUser {
 }
 const userSearchLoading = ref(false)
 const userSearchResults = ref<SearchUser[]>([])
-const config = useRuntimeConfig()
-const userStore = useUserStore()
 
 // 远程搜索用户
 const searchUsers = async (query: string) => {
@@ -544,18 +488,11 @@ const searchUsers = async (query: string) => {
     
     userSearchLoading.value = true
     try {
-        const params = new URLSearchParams()
-        params.append('page', '1')
-        params.append('size', '20')
-        params.append('keyword', query)
-        
-        const response = await fetch(`${config.public.apiBase}/api/admin/users?${params.toString()}`, {
-            headers: {
-                'Authorization': `Bearer ${userStore.token}`
-            }
-        })
-        
-        const res = await response.json()
+        const res = await getAdminUsersApi({
+            page: 1,
+            size: 20,
+            keyword: query
+        }) as any
         
         if (res.code === 200 && res.data?.records) {
             userSearchResults.value = res.data.records.map((u: any) => ({

@@ -154,7 +154,17 @@
 
 <script setup lang="ts">
 import { ref, reactive, onMounted, nextTick } from 'vue'
-import { ElMessage, ElMessageBox, type FormInstance, type FormRules } from 'element-plus'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import type { FormInstance, FormRules } from 'element-plus'
+import { 
+    getRoleListApi, 
+    getPermissionListApi, 
+    getRolePermissionsApi, 
+    createRoleApi, 
+    updateRoleApi, 
+    assignRolePermissionsApi, 
+    deleteRoleApi 
+} from '~/utils/api'
 
 definePageMeta({
     layout: 'super-community',
@@ -178,9 +188,6 @@ interface Permission {
     status: number
     children?: Permission[]
 }
-
-const config = useRuntimeConfig()
-const userStore = useUserStore()
 
 const loading = ref(false)
 const roleList = ref<Role[]>([])
@@ -211,10 +218,7 @@ const formRules: FormRules = {
 const fetchRoleList = async () => {
     loading.value = true
     try {
-        const response = await fetch(`${config.public.apiBase}/api/permission/role/list`, {
-            headers: { 'Authorization': `Bearer ${userStore.token}` }
-        })
-        const res = await response.json()
+        const res = await getRoleListApi() as any
         if (res.code === 200) {
             roleList.value = res.data || []
         } else {
@@ -231,10 +235,7 @@ const fetchRoleList = async () => {
 // 获取所有权限
 const fetchAllPermissions = async () => {
     try {
-        const response = await fetch(`${config.public.apiBase}/api/permission/list`, {
-            headers: { 'Authorization': `Bearer ${userStore.token}` }
-        })
-        const res = await response.json()
+        const res = await getPermissionListApi() as any
         if (res.code === 200) {
             // 将权限列表转换为树形结构
             permissionTreeData.value = buildPermissionTree(res.data || [])
@@ -261,7 +262,7 @@ const buildPermissionTree = (permissions: Permission[]) => {
     // 创建树形结构
     Object.keys(typeMap).forEach(type => {
         tree.push({
-            permissionId: -Date.now(),
+            permissionId: -Date.now() - Math.random(),
             permissionName: getResourceTypeName(type),
             permissionCode: type,
             resourceType: type,
@@ -287,10 +288,7 @@ const getResourceTypeName = (type: string) => {
 // 获取角色的权限
 const fetchRolePermissions = async (roleId: number) => {
     try {
-        const response = await fetch(`${config.public.apiBase}/api/permission/role/${roleId}/permissions`, {
-            headers: { 'Authorization': `Bearer ${userStore.token}` }
-        })
-        const res = await response.json()
+        const res = await getRolePermissionsApi(roleId) as any
         if (res.code === 200) {
             const permissions = (res.data || []).map((p: Permission) => p.permissionId)
             selectedPermissions.value = permissions
@@ -344,20 +342,10 @@ const handleSubmit = async () => {
         
         submitting.value = true
         try {
-            const url = isEdit.value
-                ? `${config.public.apiBase}/api/permission/role/${formData.roleId}`
-                : `${config.public.apiBase}/api/permission/role/create`
+            const res = isEdit.value
+                ? await updateRoleApi(formData.roleId, formData) as any
+                : await createRoleApi(formData) as any
             
-            const response = await fetch(url, {
-                method: isEdit.value ? 'PUT' : 'POST',
-                headers: {
-                    'Authorization': `Bearer ${userStore.token}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            })
-            
-            const res = await response.json()
             if (res.code === 200) {
                 ElMessage.success(isEdit.value ? '更新成功' : '创建成功')
                 dialogVisible.value = false
@@ -412,19 +400,11 @@ const handleSubmitPermissions = async () => {
         const halfCheckedKeys = permissionTreeRef.value.getHalfCheckedKeys()
         const permissionIds = [...checkedKeys, ...halfCheckedKeys].filter((id: number) => id > 0)
         
-        const response = await fetch(`${config.public.apiBase}/api/permission/role/assign-permissions`, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${userStore.token}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                roleId: currentRole.value.roleId,
-                permissionIds
-            })
-        })
+        const res = await assignRolePermissionsApi({
+            roleId: currentRole.value.roleId,
+            permissionIds
+        }) as any
         
-        const res = await response.json()
         if (res.code === 200) {
             ElMessage.success('权限分配成功')
             permissionDialogVisible.value = false
@@ -463,12 +443,7 @@ const handleDelete = async (role: Role) => {
             }
         )
         
-        const response = await fetch(`${config.public.apiBase}/api/permission/role/${role.roleId}`, {
-            method: 'DELETE',
-            headers: { 'Authorization': `Bearer ${userStore.token}` }
-        })
-        
-        const res = await response.json()
+        const res = await deleteRoleApi(role.roleId) as any
         if (res.code === 200) {
             ElMessage.success('删除成功')
             fetchRoleList()
@@ -496,4 +471,3 @@ onMounted(() => {
     overflow: hidden;
 }
 </style>
-
