@@ -141,8 +141,6 @@ export const useGlobalSearch = () => {
         searchState.hasSearched = true
         searchState.isOpen = true
 
-        // 模拟长时间加载效果
-        await new Promise(resolve => setTimeout(resolve, 1500))
 
         try {
             const [servicesResults, newsResults, forumResults] = await Promise.all([
