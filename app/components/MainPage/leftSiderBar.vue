@@ -1,21 +1,59 @@
 <template>
-  <div class="w-60 flex flex-col gap-4 shrink-0">
+  <div
+    class="sidebar-wrap flex flex-col gap-4 shrink-0 transition-[width] duration-300 overflow-hidden"
+    :class="collapsed ? 'sidebar-collapsed' : 'sidebar-expanded'"
+  >
+
+    <!-- Toggle Button — icon always centered in w-12 box -->
+    <div class="flex items-center">
+      <span class="w-12 flex items-center justify-center shrink-0">
+        <button
+          @click="collapsed = !collapsed"
+          class="p-1.5 rounded-lg text-slate-400 hover:text-[#ff5000] hover:bg-orange-50 dark:hover:bg-[#ff5000]/10 transition-colors duration-200"
+          :title="collapsed ? '展开侧边栏' : '折叠侧边栏'"
+        >
+          <Icon
+            :name="collapsed ? 'lucide:panel-left-open' : 'lucide:panel-left-close'"
+            size="18"
+          />
+        </button>
+      </span>
+    </div>
 
     <!-- Navigation Groups -->
-    <div v-for="group in menuGroups" :key="group.title"
-      class="bg-white dark:bg-white/5 rounded border border-slate-100 dark:border-white/5 overflow-hidden shadow-sm">
-      <div class="px-4 py-3 border-b border-slate-50 dark:border-white/5 bg-slate-50/50 dark:bg-white/5">
-        <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{{ group.title }}</h3>
-      </div>
-      <div class="p-2 flex flex-col gap-1">
-        <NuxtLink v-for="item in group.items" :key="item.path" :to="item.path" v-show="item.show !== false"
-          class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-slate-600 dark:text-slate-300 hover:bg-orange-50 dark:hover:bg-[#ff5000]/10 hover:text-[#ff5000] transition-all group relative"
-          active-class="active-nav bg-orange-50 dark:bg-[#ff5000]/10 text-[#ff5000] font-bold">
-          <Icon :name="item.icon" size="18" class="shrink-0 opacity-70 group-hover:opacity-100 transition-opacity" />
-          <span>{{ item.name }}</span>
+    <div
+      v-for="(group, idx) in menuGroups"
+      :key="idx"
+      class="bg-white dark:bg-white/5 rounded border border-slate-100 dark:border-white/5 overflow-hidden shadow-sm"
+    >
+      <div class="py-2 flex flex-col gap-1">
+        <NuxtLink
+          v-for="item in group.items"
+          :key="item.path"
+          :to="item.path"
+          v-show="item.show !== false"
+          class="nav-item flex items-center rounded-lg text-sm text-slate-600 dark:text-slate-300 hover:bg-orange-50 dark:hover:bg-[#ff5000]/10 hover:text-[#ff5000] transition-all duration-200 group relative"
+          active-class="active-nav bg-orange-50 dark:bg-[#ff5000]/10 text-[#ff5000] font-bold"
+          :title="collapsed ? item.name : ''"
+        >
+          <!-- Icon: always in fixed w-12 centered box — position never changes -->
+          <span class="w-12 py-3 flex items-center justify-center shrink-0">
+            <Icon :name="item.icon" size="18" class="opacity-70 group-hover:opacity-100 transition-opacity" />
+          </span>
+
+          <!-- Label: expands to the right, icon stays put -->
+          <span
+            class="whitespace-nowrap overflow-hidden transition-all duration-300 pr-3"
+            :style="collapsed ? 'max-width:0;opacity:0' : 'max-width:6rem;opacity:1'"
+          >
+            {{ item.name }}
+          </span>
+
           <!-- Active Indicator Dot -->
-          <div class="absolute right-2 w-1.5 h-1.5 rounded-full bg-[#ff5000] opacity-0 scale-0 transition-all nav-dot">
-          </div>
+          <div
+            v-show="!collapsed"
+            class="absolute right-2 w-1.5 h-1.5 rounded-full bg-[#ff5000] opacity-0 scale-0 transition-all nav-dot"
+          />
         </NuxtLink>
       </div>
     </div>
@@ -26,10 +64,11 @@
 <script setup lang="ts">
 const userStore = useUserStore()
 
+const collapsed = ref(true)
+
 // Navigation Groups Data
 const menuGroups = computed(() => [
   {
-    title: '社区服务',
     items: [
       { name: '社区论坛', path: '/service/community/forum', icon: 'lucide:layout-grid' },
       { name: '通知公告', path: '/service/community/news', icon: 'lucide:megaphone' },
@@ -40,7 +79,6 @@ const menuGroups = computed(() => [
     ]
   },
   {
-    title: '个人中心',
     items: [
       { name: '我的好友', path: '/service/community/friends', icon: 'lucide:user' },
       { name: '我的钱包', path: '/wallet', icon: 'lucide:wallet' },
@@ -57,6 +95,14 @@ const menuGroups = computed(() => [
 </script>
 
 <style scoped>
+.sidebar-expanded {
+  width: 9.5rem; /* icon(3rem) + text + breathing room */
+}
+
+.sidebar-collapsed {
+  width: 3rem; /* just wide enough for icons */
+}
+
 .active-nav .nav-dot {
   opacity: 1;
   scale: 1;

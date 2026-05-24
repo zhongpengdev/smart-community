@@ -20,7 +20,7 @@
                 </div>
 
                 <!-- 轮播区域 -->
-                <div class="flex-1 relative rounded-xl overflow-hidden group">
+                <div class="flex-1 relative rounded overflow-hidden group">
                     <!-- 当前轮播项 -->
                     <img
                         :src="bannerList[currentIndex]?.image"

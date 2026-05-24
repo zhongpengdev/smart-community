@@ -9,7 +9,7 @@ const colorMode = useColorMode()
 
     <div class="max-w-[1500px] mx-auto px-4 py-4 flex items-start gap-4">
 
-      <aside class="sticky top-[56px] shrink-0 w-60">
+      <aside class="shrink-0">
         <MainPageLeftSiderBar />
       </aside>
 

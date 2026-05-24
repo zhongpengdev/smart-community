@@ -1,7 +1,7 @@
 <template>
     <div class="relative w-full z-10">
         <div
-            class="flex items-center w-full h-11 pr-1 pl-4 rounded-lg bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 shadow-sm transition-all duration-300 focus-within:bg-white dark:focus-within:bg-slate-800 focus-within:ring-2 focus-within:ring-blue-500/20">
+            class="flex items-center w-full h-11 pr-1 pl-4 rounded bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 shadow-sm transition-all duration-300 focus-within:bg-white dark:focus-within:bg-slate-800 focus-within:ring-2 focus-within:ring-blue-500/20">
 
             <Icon name="lucide:search" class="w-4 h-4 text-slate-400 mr-2" />
 
@@ -15,7 +15,7 @@
             </div>
 
             <button @click="handleSearch" :disabled="searchState.loading || !searchState.query"
-                class="px-4 h-8 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-xs font-medium rounded-md shadow-sm transition-all duration-200 flex items-center gap-1.5">
+                class="px-4 h-8 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-xs font-medium rounded shadow-sm transition-all duration-200 flex items-center gap-1.5">
                 <span v-if="searchState.loading" class="animate-spin">
                     <Icon name="lucide:loader-2" class="w-3 h-3" />
                 </span>
