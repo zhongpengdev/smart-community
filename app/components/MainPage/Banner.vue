@@ -43,7 +43,7 @@
                             {{ bannerList[currentIndex]?.title }}
                         </h2>
                         <button
-                            class="w-fit px-5 py-1.5 rounded-full border-2 border-white/80 text-white text-sm font-medium hover:bg-white/20 transition-colors"
+                            class="w-fit px-5 py-1.5 rounded border-2 border-white/80 text-white text-sm font-medium hover:bg-white/20 transition-colors"
                         >
                             {{
                                 bannerList[currentIndex]?.buttonText ||
@@ -55,13 +55,13 @@
                     <!-- 左右箭头 -->
                     <button
                         @click="prevSlide"
-                        class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/10 hover:bg-white/30 flex items-center justify-center text-white backdrop-blur-sm transition-colors opacity-0 group-hover:opacity-100 z-20"
+                        class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded bg-white/10 hover:bg-white/30 flex items-center justify-center text-white backdrop-blur-sm transition-colors opacity-0 group-hover:opacity-100 z-20"
                     >
                         <Icon name="lucide:chevron-left" size="20" />
                     </button>
                     <button
                         @click="nextSlide"
-                        class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/10 hover:bg-white/30 flex items-center justify-center text-white backdrop-blur-sm transition-colors opacity-0 group-hover:opacity-100 z-20"
+                        class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded bg-white/10 hover:bg-white/30 flex items-center justify-center text-white backdrop-blur-sm transition-colors opacity-0 group-hover:opacity-100 z-20"
                     >
                         <Icon name="lucide:chevron-right" size="20" />
                     </button>
@@ -77,7 +77,7 @@
                             class="group/dot p-1"
                         >
                             <span
-                                class="block h-1 rounded-full transition-all duration-300 bg-white/40 group-hover/dot:bg-white/80"
+                                class="block h-1 rounded transition-all duration-300 bg-white/40 group-hover/dot:bg-white/80"
                                 :class="
                                     index === currentIndex
                                         ? 'w-6 bg-white'
