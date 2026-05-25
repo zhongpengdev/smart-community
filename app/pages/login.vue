@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="min-h-screen bg-[#f0f2f5] flex flex-col font-sans">
     <header class="w-full max-w-[1200px] mx-auto py-6 px-4 flex justify-between items-center">
       <div class="text-[#ff5000] text-3xl font-extrabold tracking-tighter">
@@ -10,32 +10,7 @@
       <div
         class="bg-white w-[950px] h-[500px] rounded-[20px] shadow-2xl shadow-slate-200/50 flex p-10 relative overflow-hidden">
 
-        <!-- Loading Overlay -->
-        <Transition name="fade">
-          <div v-if="loading"
-            class="absolute inset-0 z-50 bg-white/60 backdrop-blur-md flex flex-col items-center justify-center">
-            <div class="relative">
-              <!-- Outer glowing ring -->
-              <div class="absolute inset-0 rounded-full bg-[#ff5000]/20 animate-ping scale-150"></div>
-              <!-- Inner spinning ring -->
-              <div class="w-16 h-16 rounded-full border-4 border-slate-100 border-t-[#ff5000] animate-spin"></div>
-              <!-- Center icon -->
-              <div class="absolute inset-0 flex items-center justify-center text-[#ff5000]">
-                <Icon name="lucide:shield-check" size="24" class="animate-pulse" />
-              </div>
-            </div>
-            <div class="mt-6 flex flex-col items-center gap-2">
-              <span class="text-lg font-bold text-slate-800 tracking-tight">安全登录中</span>
-              <div class="flex gap-1">
-                <div class="w-1 h-1 rounded-full bg-[#ff5000] animate-bounce [animation-delay:-0.3s]"></div>
-                <div class="w-1 h-1 rounded-full bg-[#ff5000] animate-bounce [animation-delay:-0.15s]"></div>
-                <div class="w-1 h-1 rounded-full bg-[#ff5000] animate-bounce"></div>
-              </div>
-              <p class="text-xs text-slate-400 mt-2 font-medium uppercase tracking-[0.2em]">Authenticating with Neuedu
-                Service</p>
-            </div>
-          </div>
-        </Transition>
+
 
         <div class="flex-1 flex flex-col items-center justify-center border-r border-slate-100 pr-10">
           <h2 class="text-lg font-bold text-slate-700 mb-8">手机扫码登录</h2>
@@ -119,9 +94,9 @@
               </div>
             </div>
 
-            <el-button native-type="submit" type="primary" :loading="loading"
+            <el-button native-type="submit" type="primary" :loading="authLoading"
               class="!w-full !bg-[#ff5000] !hover:bg-[#ff4000] text-white !font-bold !h-11 !rounded-md text-base !shadow-lg !shadow-orange-200 !transition-colors">
-              {{ loading ? "登录中，请稍后..." : "登录" }}
+              {{ authLoading ? "登录中，请稍后..." : "登录" }}
             </el-button>
 
             <div class="flex justify-between text-xs text-slate-500 mt-2">
@@ -155,6 +130,7 @@
 
 <script setup lang="ts">
 import { sendResetPasswordEmailApi } from '@/utils/api'
+import { isValidPhone, isValidEmail } from '@/utils/rules'
 
 definePageMeta({
   layout: 'auth'
@@ -173,14 +149,16 @@ const form = reactive({
 });
 
 const { loginAction, loading: authLoading } = useAuth();
-const localLoading = ref(false);
-// 合并 loading 状态，确保加载特效能持续显示
-const loading = computed(() => authLoading.value || localLoading.value);
 
 const handleSendCode = async () => {
   if (!form.email) {
     ElMessage.warning('请先输入邮箱地址');
     return
+  }
+
+  if (!isValidEmail(form.email)) {
+    ElMessage.warning('请输入正确的邮箱格式');
+    return;
   }
 
   // Reuse the send verify code API (assuming it's generic)
@@ -216,28 +194,25 @@ const handleLogin = async () => {
       ElMessage.error("请填写手机号和密码");
       return;
     }
+    if (!isValidPhone(form.phone)) {
+      ElMessage.error("请输入正确的手机号码格式");
+      return;
+    }
     payload = { phone: form.phone, password: form.password }
   } else {
     if (!form.email || !form.verifyCode) {
       ElMessage.error("请填写邮箱和验证码");
       return;
     }
+    if (!isValidEmail(form.email)) {
+      ElMessage.error("请输入正确的邮箱格式");
+      return;
+    }
     payload = { email: form.email, verifyCode: form.verifyCode }
   }
 
-  localLoading.value = true;
-  const startTime = Date.now();
-
   try {
     await loginAction(payload, loginMethod.value);
-
-    // 计算耗时，确保 loading 效果至少显示 3 秒
-    const elapsedTime = Date.now() - startTime;
-    const minTime = 3000;
-    if (elapsedTime < minTime) {
-      await new Promise(resolve => setTimeout(resolve, minTime - elapsedTime));
-    }
-
     await navigateTo("/");
   } catch (err: any) {
     ElNotification({
@@ -245,20 +220,15 @@ const handleLogin = async () => {
       message: err.message || err,
       type: "error",
     });
-  } finally {
-    localLoading.value = false;
   }
 };
+
+// 清理验证码的定时器
+ onBeforeUnmount(() => {
+  if(timer) clearInterval(timer);
+ }) 
 </script>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
 
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
 </style>

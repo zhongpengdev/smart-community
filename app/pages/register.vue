@@ -117,6 +117,8 @@
 </template>
 
 <script setup lang="ts">
+import { isValidPhone, isValidEmail } from '@/utils/rules'
+
 definePageMeta({
   layout: 'auth'
 })
@@ -149,7 +151,20 @@ const handleRegister = async () => {
     return;
   }
 
-  // 3. 密码一致性检查
+  // 3. 格式规则校验
+  if (!isValidPhone(form.phone)) {
+    ElMessage.error("请输入正确的手机号码格式");
+    return;
+  }
+
+  if (form.email) {
+    if (!isValidEmail(form.email)) {
+      ElMessage.error("请输入正确的电子邮箱格式");
+      return;
+    }
+  }
+
+  // 4. 密码一致性检查
   if (form.password !== form.confirmPassword) {
     ElMessage.error("两次输入的密码不一致");
     return;
