@@ -1,4 +1,4 @@
-﻿// https://nuxt.com/docs/api/configuration/nuxt-config
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // 模块配置
   modules: [
@@ -42,13 +42,13 @@ export default defineNuxtConfig({
   vite: {
     optimizeDeps: {
       include: [
-        'element-plus',
-        'echarts',
+        // element-plus 和 echarts 移除全量预构建：
+        //   - element-plus 由 @element-plus/nuxt 按需自动导入处理
+        //   - echarts 待改为按需引入后再加回具体路径
         '@vueuse/core',
         'dayjs',
         'clsx',
         'tailwind-merge',
-        'element-plus/es/components/index'
       ]
     },
     server: {

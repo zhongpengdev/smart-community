@@ -51,14 +51,9 @@ export const useAuth = () => {
 
         const usersPermission = await getCurrentUser() as any;
 
-        console.log('获取用户权限信息:', usersPermission);
-
         if (usersPermission.code == 200) {
           const roles = usersPermission.data.roles;
           const permission = usersPermission.data.permissions;
-
-          console.log('用户角色:', roles);
-          console.log('用户权限:', permission);
 
           userStore.setRoles(roles);
           userStore.setPermissions(permission);

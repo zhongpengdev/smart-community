@@ -22,7 +22,11 @@ export const $api = $fetch.create({
         ];
 
         // 如果请求地址包含白名单中的路径，直接跳过 Token 注入
-        const isPublic = publicEndpoints.some(endpoint => request.toString().includes(endpoint));
+        // update:使用更严谨的判别方式。
+        const isPublic = publicEndpoints.some(endpoint => {
+            const path = request.toString();
+            return path.endsWith(endpoint) || path.includes('/' + endpoint + '/');
+        });
 
         if (isPublic) {
             return;

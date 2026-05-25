@@ -88,6 +88,7 @@ export const useUserStore = defineStore('user', () => {
   }
 }, {
   persist: {
+    // info storted in localStorage
     storage: import.meta.client ? localStorage : undefined,
   },
 }
