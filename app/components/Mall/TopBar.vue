@@ -1,6 +1,6 @@
 <template>
   <header
-    class="w-full bg-white dark:bg-[oklch(13%_0.028_261.692)] shadow-sm sticky top-18 z-[40] transition-colors duration-300">
+    class="w-full shadow-sm sticky top-18 z-[40] transition-colors duration-300">
     <div class="max-w-[1200px] mx-auto px-4 py-4 flex flex-col items-center justify-center gap-3">
 
       <div class="flex w-full max-w-[850px]">

@@ -60,8 +60,6 @@
                     <div class="flex items-center justify-between mb-8">
                         <div>
                             <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">账单明细</h3>
-                            <p class="text-[10px] text-slate-400 font-medium uppercase tracking-[0.2em] mt-0.5">
-                                Transaction History</p>
                         </div>
                     </div>
 

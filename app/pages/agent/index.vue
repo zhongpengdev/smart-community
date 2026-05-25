@@ -1,5 +1,5 @@
 <template>
-    <div class="h-[calc(100vh-3rem)] relative overflow-clip bg-white dark:bg-black">
+    <div class="h-[calc(100vh-3rem)] relative overflow-clip">
         <div class="h-full flex flex-col relative">
             <AgentSiderBarSiderBarCo />
             <AgentHomepageContentCo :messages="messages" :agent-status="agentStatus" :tool-calls="toolCalls"

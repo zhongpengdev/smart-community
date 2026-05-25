@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-slate-50 dark:bg-slate-900">
+    <div>
         <!-- Breadcrumb -->
         <div class="sticky top-10 z-10 bg-white dark:bg-slate-800 py-3 border-b border-slate-200 dark:border-slate-700">
             <div class="max-w-[1300px] mx-auto flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">

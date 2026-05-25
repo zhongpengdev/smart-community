@@ -1,6 +1,5 @@
 <template>
-    <div
-        class="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-200 transition-colors duration-300">
+    <div>
         <div class="max-w-[1500px] mx-auto px-4 py-4 flex items-start gap-4">
 
             <!-- Left Sidebar -->

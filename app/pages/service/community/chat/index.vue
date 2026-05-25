@@ -1,6 +1,6 @@
 <template>
     <div
-        class="h-screen overflow-hidden bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-200 transition-colors duration-300">
+        class="h-screen overflow-hidden">
         <div class="px-5 py-2 gap-2 max-w-[1500px] mx-auto h-[calc(100vh-50px)] flex items-start">
 
             <!-- Main Content -->
