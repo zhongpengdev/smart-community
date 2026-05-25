@@ -7,7 +7,7 @@
             <!-- Dialog Content -->
             <Transition name="scale">
                 <div v-if="show"
-                    class="relative w-full max-w-3xl bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden">
+                    class="relative w-full max-w-3xl bg-white dark:bg-slate-900 rounded shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden">
 
                     <!-- Header -->
                     <div class="px-8 pt-8 pb-4 flex justify-between items-center">

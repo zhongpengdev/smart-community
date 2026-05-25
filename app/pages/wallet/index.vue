@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-slate-50 dark:bg-slate-950">
+    <div>
         <!-- Header -->
         <div class="bg-white dark:bg-slate-900 px-4 py-4 sticky top-10 z-10">
             <div class="max-w-[1300px] mx-auto flex items-center gap-4">
@@ -11,7 +11,7 @@
             <!-- Balance Card -->
             <div class="lg:col-span-1 space-y-6">
                 <div
-                    class="bg-gradient-to-br from-[#ff5000] to-[#ff8c00] rounded-3xl p-8 text-white shadow-2xl shadow-orange-500/20 relative overflow-hidden h-[300px] flex flex-col justify-between">
+                    class="bg-gradient-to-br from-[#ff5000] to-[#ff8c00] rounded p-8 text-white shadow-2xl shadow-orange-500/20 relative overflow-hidden h-[300px] flex flex-col justify-between">
                     <div class="absolute top-0 right-0 p-8 opacity-20">
                         <Icon name="lucide:wallet" size="120" />
                     </div>
@@ -26,16 +26,16 @@
                     </div>
                     <div class="relative z-5 flex gap-4">
                         <button @click="showRecharge = true"
-                            class="flex-1 py-3 px-6 bg-white text-[#ff5000] rounded-2xl font-bold hover:bg-slate-50 transition-colors shadow-lg">充值</button>
+                            class="flex-1 py-3 px-6 bg-white text-[#ff5000] rounded font-bold hover:bg-slate-50 transition-colors shadow-lg">充值</button>
                         <button
-                            class="flex-1 py-3 px-6 bg-white/20 backdrop-blur-md text-white rounded-2xl font-bold hover:bg-white/30 transition-colors border border-white/30">转账</button>
+                            class="flex-1 py-3 px-6 bg-white/20 backdrop-blur-md text-white rounded font-bold hover:bg-white/30 transition-colors border border-white/30">转账</button>
                     </div>
                 </div>
 
                 <!-- Quick Stats -->
                 <div class="grid grid-cols-2 gap-4">
                     <div
-                        class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-100 dark:border-slate-800">
+                        class="bg-white dark:bg-slate-900 rounded p-6 border border-slate-100 dark:border-slate-800">
                         <p
                             class="text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider mb-2 text-opacity-80">
                             总消费</p>
@@ -43,7 +43,7 @@
                             }}</p>
                     </div>
                     <div
-                        class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-100 dark:border-slate-800">
+                        class="bg-white dark:bg-slate-900 rounded p-6 border border-slate-100 dark:border-slate-800">
                         <p
                             class="text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider mb-2 text-opacity-80">
                             总充值</p>
@@ -56,7 +56,7 @@
             <!-- Transaction History -->
             <div class="lg:col-span-2">
                 <div
-                    class="bg-white dark:bg-slate-900 rounded-[2rem] p-8 border border-slate-100 dark:border-slate-800 min-h-[500px]">
+                    class="bg-white dark:bg-slate-900 rounded p-8 border border-slate-100 dark:border-slate-800 min-h-[500px]">
                     <div class="flex items-center justify-between mb-8">
                         <div>
                             <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">账单明细</h3>

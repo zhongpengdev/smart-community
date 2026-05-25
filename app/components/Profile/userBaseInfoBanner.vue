@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-gradient-to-r from-[#FFF9F5] to-white dark:from-slate-800 dark:to-slate-900 border border-transparent dark:border-white/5 rounded-2xl p-6 shadow-sm">
+    class="bg-gradient-to-r from-[#FFF9F5] to-white dark:from-slate-800 dark:to-slate-900 border border-transparent dark:border-white/5 rounded p-6 shadow-sm">
     <div class="flex items-start gap-6">
       <!-- 头像区域 -->
       <el-upload class="avatar-uploader shrink-0" :show-file-list="false" :auto-upload="true"

@@ -2,7 +2,7 @@
   <div class="flex gap-3 h-48 select-none">
 
     <div
-      class="flex-[2] bg-white dark:bg-slate-900 rounded-2xl p-4 flex flex-col justify-between border border-slate-100 dark:border-white/5 shadow-sm">
+      class="flex-[2] bg-white dark:bg-slate-900 rounded p-4 flex flex-col justify-between border border-slate-100 dark:border-white/5 shadow-sm">
       <div class="flex items-center justify-between cursor-pointer hover:text-[#ff5000] transition-colors group">
         <span class="font-bold text-slate-800 dark:text-slate-200">我的订单</span>
         <NuxtLink to="/service/mall/mo" class="hover:text-[#ff5000] transition-colors flex items-center gap-0.5">

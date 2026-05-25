@@ -1,6 +1,6 @@
 <!-- 论坛界面 -->
 <template>
-    <div class="min-h-screen bg-slate-50 dark:bg-slate-950 pb-20">
+    <div class="pb-20">
         <!-- Header with Back Button (reusing some style or creating simple one) -->
         <div
             class="sticky top-0 z-10 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50">

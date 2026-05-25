@@ -1,5 +1,5 @@
 <template>
-    <div class="p-6 space-y-6 bg-slate-100 dark:bg-slate-950 min-h-screen">
+    <div class="p-6 space-y-6">
         <!-- Page Header -->
         <div class="flex items-center justify-between mb-2">
             <div>

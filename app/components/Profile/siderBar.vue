@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-48 shrink-0 bg-white dark:bg-slate-900 border border-slate-100 dark:border-white/5 rounded-xl py-4 select-none shadow-sm">
+    class="w-48 shrink-0 bg-white dark:bg-slate-900 border border-slate-100 dark:border-white/5 rounded py-4 select-none shadow-sm">
 
     <div v-for="(item, index) in menuItems" :key="index" class="mb-1">
 

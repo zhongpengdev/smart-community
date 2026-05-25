@@ -2,7 +2,7 @@
     <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
         <!-- Header -->
         <div class="px-6 py-4 dark:border-slate-800">
-            <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Explore Communities</h2>
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white">探索社区</h2>
         </div>
 
         <!-- Category Tabs -->
@@ -65,7 +65,7 @@
             <div class="flex justify-center mt-6">
                 <button
                     class="px-6 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-600 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                    Show more
+                    展示更多
                 </button>
             </div>
         </div>
