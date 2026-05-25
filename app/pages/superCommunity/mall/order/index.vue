@@ -13,7 +13,7 @@
         </div>
 
         <!-- 搜索筛选区域 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+        <div class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm">
             <el-form :model="queryForm" inline>
                 <el-form-item label="订单号">
                     <el-input
@@ -85,7 +85,7 @@
         </div>
 
         <!-- 订单列表 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden">
+        <div class="bg-white dark:bg-slate-800 rounded shadow-sm overflow-hidden">
             <el-table
                 :data="orderList"
                 v-loading="loading"
@@ -321,28 +321,28 @@
             <div v-if="statisticsData" class="space-y-6">
                 <!-- 概览统计 -->
                 <div class="grid grid-cols-4 gap-4">
-                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-6 text-white shadow-lg">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded p-6 text-white shadow-lg">
                         <div class="flex items-center justify-between mb-2">
                             <span class="text-sm opacity-90">总订单数</span>
                             <Icon name="lucide:shopping-cart" size="24" class="opacity-80" />
                         </div>
                         <div class="text-3xl font-bold">{{ statisticsData.totalOrders || 0 }}</div>
                     </div>
-                    <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-lg p-6 text-white shadow-lg">
+                    <div class="bg-gradient-to-br from-green-500 to-green-600 rounded p-6 text-white shadow-lg">
                         <div class="flex items-center justify-between mb-2">
                             <span class="text-sm opacity-90">已完成</span>
                             <Icon name="lucide:check-circle" size="24" class="opacity-80" />
                         </div>
                         <div class="text-3xl font-bold">{{ statisticsData.completedOrders || 0 }}</div>
                     </div>
-                    <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg p-6 text-white shadow-lg">
+                    <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded p-6 text-white shadow-lg">
                         <div class="flex items-center justify-between mb-2">
                             <span class="text-sm opacity-90">待处理</span>
                             <Icon name="lucide:clock" size="24" class="opacity-80" />
                         </div>
                         <div class="text-3xl font-bold">{{ statisticsData.pendingOrders || 0 }}</div>
                     </div>
-                    <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg p-6 text-white shadow-lg">
+                    <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded p-6 text-white shadow-lg">
                         <div class="flex items-center justify-between mb-2">
                             <span class="text-sm opacity-90">总金额</span>
                             <Icon name="lucide:currency-yen" size="24" class="opacity-80" />
@@ -352,11 +352,11 @@
                 </div>
 
                 <!-- 按状态统计 -->
-                <div v-if="statisticsData.statusCount" class="bg-slate-50 dark:bg-slate-700 rounded-lg p-6">
+                <div v-if="statisticsData.statusCount" class="bg-slate-50 dark:bg-slate-700 rounded p-6">
                     <h3 class="text-lg font-bold mb-4 text-slate-800 dark:text-white">按状态统计</h3>
                     <div class="grid grid-cols-3 gap-4">
                         <div v-for="(count, status) in statisticsData.statusCount" :key="status" 
-                            class="bg-white dark:bg-slate-800 rounded-lg p-4 border border-slate-200 dark:border-slate-600">
+                            class="bg-white dark:bg-slate-800 rounded p-4 border border-slate-200 dark:border-slate-600">
                             <div class="text-sm text-slate-500 dark:text-slate-400 mb-1">{{ getStatusName(status) }}</div>
                             <div class="text-2xl font-bold text-slate-800 dark:text-white">{{ count }}</div>
                         </div>
@@ -364,11 +364,11 @@
                 </div>
 
                 <!-- 按类型统计 -->
-                <div v-if="statisticsData.typeCount" class="bg-slate-50 dark:bg-slate-700 rounded-lg p-6">
+                <div v-if="statisticsData.typeCount" class="bg-slate-50 dark:bg-slate-700 rounded p-6">
                     <h3 class="text-lg font-bold mb-4 text-slate-800 dark:text-white">按类型统计</h3>
                     <div class="grid grid-cols-4 gap-4">
                         <div v-for="(count, type) in statisticsData.typeCount" :key="type"
-                            class="bg-white dark:bg-slate-800 rounded-lg p-4 border border-slate-200 dark:border-slate-600">
+                            class="bg-white dark:bg-slate-800 rounded p-4 border border-slate-200 dark:border-slate-600">
                             <div class="text-sm text-slate-500 dark:text-slate-400 mb-1">{{ getTypeName(type) }}</div>
                             <div class="text-2xl font-bold text-slate-800 dark:text-white">{{ count }}</div>
                         </div>
@@ -376,7 +376,7 @@
                 </div>
 
                 <!-- 其他统计数据 -->
-                <div class="bg-slate-50 dark:bg-slate-700 rounded-lg p-6">
+                <div class="bg-slate-50 dark:bg-slate-700 rounded p-6">
                     <h3 class="text-lg font-bold mb-4 text-slate-800 dark:text-white">其他统计</h3>
                     <div class="space-y-2 text-sm">
                         <div v-for="(value, key) in getOtherStats()" :key="key" 

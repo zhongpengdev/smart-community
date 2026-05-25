@@ -3,14 +3,14 @@
         <!-- 统计卡片 -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div v-for="stat in statCards" :key="stat.title"
-                class="bg-white dark:bg-slate-800 rounded-xl p-5 shadow-sm border border-slate-100 dark:border-slate-700">
+                class="bg-white dark:bg-slate-800 rounded p-5 shadow-sm border border-slate-100 dark:border-slate-700">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-xs text-slate-400 uppercase tracking-wider">{{ stat.title }}</p>
                         <p class="text-2xl font-bold mt-2" :class="stat.color">{{ stat.value }}</p>
                         <p v-if="stat.subtext" class="text-xs text-slate-400 mt-1">{{ stat.subtext }}</p>
                     </div>
-                    <div class="w-12 h-12 rounded-xl flex items-center justify-center" :class="stat.bgColor">
+                    <div class="w-12 h-12 rounded flex items-center justify-center" :class="stat.bgColor">
                         <Icon :name="stat.icon" size="24" :class="stat.iconColor" />
                     </div>
                 </div>
@@ -21,7 +21,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <!-- 板块帖子统计 -->
             <div
-                class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-100 dark:border-slate-700">
+                class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm border border-slate-100 dark:border-slate-700">
                 <h3 class="font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
                     <Icon name="lucide:bar-chart-2" size="18" class="text-purple-500" />
                     板块帖子分布
@@ -31,7 +31,7 @@
 
             <!-- 热门板块排行 -->
             <div
-                class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-100 dark:border-slate-700">
+                class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm border border-slate-100 dark:border-slate-700">
                 <h3 class="font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
                     <Icon name="lucide:trending-up" size="18" class="text-orange-500" />
                     热门板块排行
@@ -42,7 +42,7 @@
 
         <!-- 板块列表 -->
         <div
-            class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden">
+            class="bg-white dark:bg-slate-800 rounded shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden">
             <div class="p-5 border-b border-slate-100 dark:border-slate-700 flex items-center justify-between">
                 <h3 class="font-bold text-slate-800 dark:text-white flex items-center gap-2">
                     <Icon name="lucide:layout-grid" size="18" class="text-indigo-500" />
@@ -72,7 +72,7 @@
                             <td class="px-4 py-3">
                                 <div class="flex items-center gap-2">
                                     <div
-                                        class="w-8 h-8 rounded-lg bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center">
+                                        class="w-8 h-8 rounded bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center">
                                         <Icon name="lucide:message-square" size="16" class="text-purple-500" />
                                     </div>
                                     <span class="font-medium text-slate-800 dark:text-white">{{ section.sectionName
@@ -85,7 +85,7 @@
                                 <span class="font-bold text-purple-600">{{ section.postCount || 0 }}</span>
                             </td>
                             <td class="px-4 py-3">
-                                <span class="px-2 py-1 rounded-full text-xs"
+                                <span class="px-2 py-1 rounded text-xs"
                                     :class="section.status === 1 ? 'bg-green-100 text-green-600' : 'bg-slate-100 text-slate-600'">
                                     {{ section.status === 1 ? '启用' : '禁用' }}
                                 </span>

@@ -1,6 +1,6 @@
 <template>
     <div
-        class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-100 dark:border-slate-700 sticky top-28 shadow-sm">
+        class="bg-white dark:bg-slate-800 p-6 rounded border border-slate-100 dark:border-slate-700 sticky top-28 shadow-sm">
         <h2
             class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 pb-4 border-b border-slate-100 dark:border-slate-700">
             订单结算
@@ -40,7 +40,7 @@
         </div>
 
         <button @click="$emit('checkout')"
-            class="w-full mt-6 bg-[#ff5000] hover:bg-[#e64a00] text-white py-3 rounded-xl font-bold shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+            class="w-full mt-6 bg-[#ff5000] hover:bg-[#e64a00] text-white py-3 rounded font-bold shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
             :disabled="selectedList.length === 0">
             加入订单
         </button>

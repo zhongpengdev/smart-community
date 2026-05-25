@@ -10,7 +10,7 @@
                 <div class="flex items-center gap-4">
                     <button
                         @click="$router.back()"
-                        class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-500"
+                        class="w-8 h-8 flex items-center justify-center rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-500"
                     >
                         <Icon name="lucide:arrow-left" size="20" />
                     </button>
@@ -27,7 +27,7 @@
         >
             <!-- Main Post Area -->
             <div
-                class="min-w-0 bg-white dark:bg-slate-900 rounded-xl shadow-sm overflow-hidden min-h-[400px]"
+                class="min-w-0 bg-white dark:bg-slate-900 rounded shadow-sm overflow-hidden min-h-[400px]"
             >
                 <!-- Loading -->
                 <div
@@ -35,7 +35,7 @@
                     class="p-10 flex flex-col items-center justify-center space-y-4"
                 >
                     <div
-                        class="w-10 h-10 border-4 border-slate-200 border-t-[#ff5000] rounded-full animate-spin"
+                        class="w-10 h-10 border-4 border-slate-200 border-t-[#ff5000] rounded animate-spin"
                     ></div>
                     <span class="text-slate-400">加载中...</span>
                 </div>
@@ -64,7 +64,7 @@
                                 post.userAvatar ||
                                 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
                             "
-                            class="w-10 h-10 rounded-full object-cover border border-slate-100 dark:border-slate-800"
+                            class="w-10 h-10 rounded object-cover border border-slate-100 dark:border-slate-800"
                         />
                         <div class="flex flex-col">
                             <span
@@ -81,7 +81,7 @@
                             </div>
                         </div>
                         <button
-                            class="ml-auto px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-[#056de8] dark:text-blue-400 text-xs font-bold rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors"
+                            class="ml-auto px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-[#056de8] dark:text-blue-400 text-xs font-bold rounded hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors"
                         >
                             + 关注
                         </button>
@@ -101,7 +101,7 @@
                             <!-- TODO: Handle image list splitting if string, or loop if array -->
                             <!-- Assuming images might be string separated by comma or array. API doc says 'images': null.
                                  If it's a string "url1,url2", we split. -->
-                            <!-- <img v-for="(img, idx) in imageList" :key="idx" :src="img" class="rounded-lg w-full object-cover shadow-sm" /> -->
+                            <!-- <img v-for="(img, idx) in imageList" :key="idx" :src="img" class="rounded w-full object-cover shadow-sm" /> -->
                         </div>
                     </div>
 
@@ -112,7 +112,7 @@
                         <div class="flex items-center gap-6">
                             <button
                                 @click="handleLike"
-                                class="flex items-center gap-2 px-4 py-2 rounded-full transition-all group"
+                                class="flex items-center gap-2 px-4 py-2 rounded transition-all group"
                                 :class="
                                     post.isLiked
                                         ? 'bg-blue-50 text-[#056de8] dark:bg-blue-900/20 dark:text-blue-400'
@@ -135,7 +135,7 @@
 
                             <button
                                 @click="handleCollect"
-                                class="flex items-center gap-2 px-4 py-2 rounded-full transition-all group"
+                                class="flex items-center gap-2 px-4 py-2 rounded transition-all group"
                                 :class="
                                     post.isCollected
                                         ? 'bg-orange-50 text-[#ff5000] dark:bg-orange-900/20 dark:text-[#ff5000]'
@@ -183,7 +183,7 @@
             <!-- Right Sidebar -->
             <div class="hidden lg:block space-y-4">
                 <div
-                    class="bg-white dark:bg-slate-900 rounded-xl shadow-sm p-4 sticky top-20"
+                    class="bg-white dark:bg-slate-900 rounded shadow-sm p-4 sticky top-20"
                 >
                     <h3
                         class="font-bold text-slate-800 dark:text-white mb-4 text-sm uppercase tracking-wider opacity-50"
@@ -193,7 +193,7 @@
                     <div class="flex items-center gap-3 mb-4">
                         <img
                             :src="post?.userAvatar"
-                            class="w-12 h-12 rounded-full object-cover"
+                            class="w-12 h-12 rounded object-cover"
                         />
                         <div>
                             <div

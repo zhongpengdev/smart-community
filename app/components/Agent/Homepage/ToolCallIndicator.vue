@@ -1,6 +1,6 @@
 <template>
     <div 
-        class="flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-300"
+        class="flex items-center gap-2 px-3 py-2 rounded transition-all duration-300"
         :class="[
             status === 'calling' 
                 ? 'bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 animate-pulse-subtle' 
@@ -9,7 +9,7 @@
     >
         <!-- Icon -->
         <div 
-            class="w-6 h-6 rounded-md flex items-center justify-center shrink-0 transition-all"
+            class="w-6 h-6 rounded flex items-center justify-center shrink-0 transition-all"
             :class="[
                 status === 'calling'
                     ? 'bg-blue-100 dark:bg-blue-800/40'

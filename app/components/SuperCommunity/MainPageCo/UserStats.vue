@@ -1,8 +1,8 @@
 <template>
-    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-100 dark:border-slate-700">
+    <div class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm border border-slate-100 dark:border-slate-700">
         <div class="flex items-center justify-between mb-5">
             <h3 class="font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center">
+                <div class="w-8 h-8 rounded bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center">
                     <Icon name="lucide:users" size="18" class="text-blue-500" />
                 </div>
                 用户统计

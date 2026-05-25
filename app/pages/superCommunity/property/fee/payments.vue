@@ -14,7 +14,7 @@
         </div>
 
         <!-- 搜索筛选区域 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+        <div class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm">
             <el-form :model="queryForm" inline class="flex flex-wrap gap-4">
                 <el-form-item label="用户ID" class="!mb-0">
                     <el-input-number v-model="queryForm.userId" placeholder="用户ID" :controls="false"
@@ -50,7 +50,7 @@
         </div>
 
         <!-- 缴费记录列表 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden">
+        <div class="bg-white dark:bg-slate-800 rounded shadow-sm overflow-hidden">
             <el-table :data="paymentList" v-loading="loading" style="width: 100%">
                 <el-table-column prop="paymentNo" label="缴费编号" width="180">
                     <template #default="{ row }">

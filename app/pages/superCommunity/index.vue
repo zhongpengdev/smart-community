@@ -9,7 +9,7 @@
             <div class="flex items-center gap-3">
                 <span class="text-xs text-slate-400">最后更新: {{ lastUpdate || '未加载' }}</span>
                 <button @click="refreshData"
-                    class="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg text-sm hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg shadow-blue-500/25">
+                    class="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded text-sm hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg shadow-blue-500/25">
                     <Icon name="lucide:refresh-cw" size="16" :class="{ 'animate-spin': loading }" />
                     刷新数据
                 </button>
@@ -18,12 +18,12 @@
 
         <!-- Error State -->
         <div v-if="error"
-            class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-6 text-center">
+            class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded p-6 text-center">
             <Icon name="lucide:alert-circle" size="48" class="text-red-500 mx-auto mb-3" />
             <h3 class="text-lg font-bold text-red-600 dark:text-red-400 mb-2">数据加载失败</h3>
             <p class="text-sm text-red-500 dark:text-red-400 mb-4">{{ error }}</p>
             <button @click="refreshData"
-                class="px-4 py-2 bg-red-600 text-white rounded-lg text-sm hover:bg-red-700 transition-colors">
+                class="px-4 py-2 bg-red-600 text-white rounded text-sm hover:bg-red-700 transition-colors">
                 重新加载
             </button>
         </div>
@@ -32,13 +32,13 @@
         <div v-else-if="loading && !dashboardData" class="space-y-6">
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 <div v-for="i in 6" :key="i"
-                    class="bg-white dark:bg-slate-800 rounded-xl p-5 shadow-sm animate-pulse">
+                    class="bg-white dark:bg-slate-800 rounded p-5 shadow-sm animate-pulse">
                     <div class="h-3 bg-slate-200 dark:bg-slate-700 rounded w-16 mb-3"></div>
                     <div class="h-6 bg-slate-200 dark:bg-slate-700 rounded w-12 mb-2"></div>
                     <div class="h-3 bg-slate-200 dark:bg-slate-700 rounded w-20"></div>
                 </div>
             </div>
-            <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm animate-pulse">
+            <div class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm animate-pulse">
                 <div class="h-5 bg-slate-200 dark:bg-slate-700 rounded w-32 mb-4"></div>
                 <div class="grid grid-cols-4 gap-4">
                     <div v-for="i in 4" :key="i" class="space-y-2">
@@ -49,7 +49,7 @@
             </div>
             <div class="grid grid-cols-2 gap-6">
                 <div v-for="i in 2" :key="i"
-                    class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm animate-pulse">
+                    class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm animate-pulse">
                     <div class="h-5 bg-slate-200 dark:bg-slate-700 rounded w-28 mb-4"></div>
                     <div class="h-24 bg-slate-200 dark:bg-slate-700 rounded"></div>
                 </div>
@@ -61,14 +61,14 @@
             <!-- 核心指标概览 -->
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 <div v-for="stat in coreStats" :key="stat.title"
-                    class="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-shadow group">
+                    class="bg-white dark:bg-slate-800 rounded p-4 shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-shadow group">
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-xs text-slate-400 uppercase tracking-wider">{{ stat.title }}</p>
                             <p class="text-xl font-bold mt-1" :class="stat.color">{{ stat.value }}</p>
                             <p v-if="stat.subtext" class="text-xs text-slate-400 mt-1">{{ stat.subtext }}</p>
                         </div>
-                        <div class="w-10 h-10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110"
+                        <div class="w-10 h-10 rounded flex items-center justify-center transition-transform group-hover:scale-110"
                             :class="stat.bgColor">
                             <Icon :name="stat.icon" size="20" :class="stat.iconColor" />
                         </div>
@@ -100,12 +100,12 @@
         </template>
 
         <!-- Empty State (No data and not loading) -->
-        <div v-else class="bg-white dark:bg-slate-800 rounded-xl p-12 text-center">
+        <div v-else class="bg-white dark:bg-slate-800 rounded p-12 text-center">
             <Icon name="lucide:database" size="48" class="text-slate-300 mx-auto mb-3" />
             <h3 class="text-lg font-medium text-slate-600 dark:text-slate-300 mb-2">暂无数据</h3>
             <p class="text-sm text-slate-400 mb-4">点击刷新按钮加载数据</p>
             <button @click="refreshData"
-                class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700 transition-colors">
+                class="px-4 py-2 bg-blue-600 text-white rounded text-sm hover:bg-blue-700 transition-colors">
                 加载数据
             </button>
         </div>

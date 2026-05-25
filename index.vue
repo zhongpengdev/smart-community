@@ -5,7 +5,7 @@
       <div class="container mx-auto px-6 py-4 flex items-center justify-between">
         <!-- 社区Logo + 名称 -->
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">东软</div>
+          <div class="w-10 h-10 bg-blue-600 rounded flex items-center justify-center text-white font-bold">东软</div>
           <h1 class="text-xl font-bold text-gray-800">东软智慧社区论坛</h1>
         </div>
 
@@ -16,7 +16,7 @@
             @keyup.enter="handleSearch"
             type="text"
             placeholder="搜索帖子/关键词..."
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
           <button @click="handleSearch" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-blue-600">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -27,11 +27,11 @@
 
         <!-- 功能按钮 -->
         <div class="flex items-center gap-4">
-          <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+          <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
             发布新帖
           </button>
           <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+            <div class="w-8 h-8 bg-gray-300 rounded"></div>
             <span class="text-gray-700">住户123</span>
           </div>
         </div>
@@ -42,13 +42,13 @@
     <main class="container mx-auto px-6 py-8 flex gap-8">
       <!-- 左侧分类侧边栏（PC端固定宽度） -->
       <aside class="w-64 shrink-0">
-        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+        <div class="bg-white rounded shadow-sm border border-gray-200 p-4">
           <h2 class="font-bold text-gray-800 mb-4 border-b border-gray-100 pb-2">论坛分类</h2>
           <ul>
             <li v-for="category in categories" :key="category.id" class="mb-2">
               <button
                 @click="activeCategoryId = category.id"
-                class="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors"
+                class="w-full text-left px-3 py-2 rounded hover:bg-gray-100 transition-colors"
                 :class="{ 'bg-blue-50 text-blue-600 font-medium': activeCategoryId === category.id }"
               >
                 {{ category.name }}
@@ -58,7 +58,7 @@
         </div>
 
         <!-- 社区统计（PC端补充信息） -->
-        <div class="mt-4 bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+        <div class="mt-4 bg-white rounded shadow-sm border border-gray-200 p-4">
           <h2 class="font-bold text-gray-800 mb-4 border-b border-gray-100 pb-2">社区统计</h2>
           <div class="space-y-2 text-gray-600">
             <p>总帖子数：{{ totalPosts }}</p>
@@ -76,7 +76,7 @@
             {{ activeCategoryId === 'all' ? '全部帖子' : categories.find(c => c.id === activeCategoryId)?.name }}
             <span class="text-gray-500 text-sm font-normal ml-2">共 {{ filteredPosts.length }} 条</span>
           </h2>
-          <select class="border border-gray-300 rounded-lg px-3 py-1 text-sm">
+          <select class="border border-gray-300 rounded px-3 py-1 text-sm">
             <option>最新发布</option>
             <option>最多回复</option>
             <option>最多阅读</option>
@@ -88,7 +88,7 @@
           <div
             v-for="post in paginatedPosts"
             :key="post.id"
-            class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow"
+            class="bg-white rounded shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow"
           >
             <!-- 帖子头部（分类 + 标题） -->
             <div class="mb-3">
@@ -107,7 +107,7 @@
             <div class="flex items-center justify-between text-gray-500 text-sm">
               <div class="flex items-center gap-4">
                 <div class="flex items-center gap-2">
-                  <div class="w-6 h-6 bg-gray-300 rounded-full"></div>
+                  <div class="w-6 h-6 bg-gray-300 rounded"></div>
                   <span>{{ post.author }}</span>
                 </div>
                 <span>{{ post.createTime }}</span>

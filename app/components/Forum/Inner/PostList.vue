@@ -31,7 +31,7 @@
 
                 <div class="flex-1">
                     <div class="flex items-center gap-2 mb-2 text-sm text-slate-800 dark:text-slate-200 font-bold">
-                        <img :src="post.userAvatar" class="w-5 h-5 rounded-full object-cover" />
+                        <img :src="post.userAvatar" class="w-5 h-5 rounded object-cover" />
                         <span>{{ post.userName }}</span>
                         <span class="text-slate-400 font-normal md:hidden">· {{ formatDate(post.createTime) }}</span>
                     </div>

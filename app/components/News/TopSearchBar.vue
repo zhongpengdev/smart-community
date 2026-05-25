@@ -6,13 +6,13 @@
                 <!-- Dropdown -->
                 <div class="relative group shrink-0">
                     <button
-                        class="h-full px-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 border-r-0 rounded-l-md flex items-center gap-2 text-slate-700 dark:text-slate-200 hover:text-[#ff5000] dark:hover:text-[#ff5000] transition-colors text-sm font-medium">
+                        class="h-full px-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 border-r-0 rounded-md flex items-center gap-2 text-slate-700 dark:text-slate-200 hover:text-[#ff5000] dark:hover:text-[#ff5000] transition-colors text-sm font-medium">
                         <span>{{ queryParams.searchScope === 'TITLE' ? '标题' : '全部' }}</span>
                         <Icon name="lucide:chevron-down" size="14" class="text-slate-400 group-hover:text-[#ff5000]" />
                     </button>
                     <!-- Dropdown Menu -->
                     <div
-                        class="absolute top-full left-0 w-32 bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 rounded-md mt-1 hidden group-hover:block z-20 py-1">
+                        class="absolute top-full left-0 w-32 bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 rounded mt-1 hidden group-hover:block z-20 py-1">
                         <div @click="updateParam('searchScope', 'ALL')"
                             class="px-4 py-2 hover:bg-orange-50 dark:hover:bg-slate-700 hover:text-[#ff5000] text-sm cursor-pointer dark:text-slate-200">
                             全部</div>
@@ -35,7 +35,7 @@
 
                 <!-- Search Button -->
                 <button @click="handleSearch"
-                    class="w-20 bg-[#1e40af] hover:bg-[#1e3a8a] text-white flex items-center justify-center rounded-r-md transition-colors">
+                    class="w-20 bg-[#1e40af] hover:bg-[#1e3a8a] text-white flex items-center justify-center rounded-md transition-colors">
                     <Icon name="lucide:search" size="20" />
                 </button>
             </div>

@@ -16,7 +16,7 @@
         <div class="max-w-[1300px] mx-auto px-4 mt-8">
             <div v-if="loading && cartList.length === 0" class="space-y-4">
                 <div v-for="i in 3" :key="i"
-                    class="bg-white dark:bg-slate-800 p-6 rounded-md animate-pulse h-32 border border-slate-100 dark:border-slate-700">
+                    class="bg-white dark:bg-slate-800 p-6 rounded animate-pulse h-32 border border-slate-100 dark:border-slate-700">
                 </div>
             </div>
 
@@ -39,14 +39,14 @@
             </div>
 
             <div v-else
-                class="py-20 text-center bg-white dark:bg-slate-800 rounded-md border border-slate-100 dark:border-slate-700">
+                class="py-20 text-center bg-white dark:bg-slate-800 rounded border border-slate-100 dark:border-slate-700">
                 <div
-                    class="w-16 h-16 bg-slate-50 dark:bg-slate-700/50 rounded-md flex items-center justify-center mx-auto mb-3 text-slate-300 dark:text-slate-500 border border-slate-100 dark:border-slate-600">
+                    class="w-16 h-16 bg-slate-50 dark:bg-slate-700/50 rounded flex items-center justify-center mx-auto mb-3 text-slate-300 dark:text-slate-500 border border-slate-100 dark:border-slate-600">
                     <Icon name="lucide:shopping-cart" size="32" />
                 </div>
                 <p class="text-slate-400 text-sm mb-4">购物车空空如也</p>
                 <NuxtLink to="/service/mall"
-                    class="inline-flex items-center justify-center px-6 py-2 bg-[#ff5000] text-white rounded-full hover:bg-[#e64a00] transition-colors text-sm font-bold">
+                    class="inline-flex items-center justify-center px-6 py-2 bg-[#ff5000] text-white rounded hover:bg-[#e64a00] transition-colors text-sm font-bold">
                     去逛逛
                 </NuxtLink>
             </div>

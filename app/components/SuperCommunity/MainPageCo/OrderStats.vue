@@ -1,8 +1,8 @@
 <template>
-    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-100 dark:border-slate-700">
+    <div class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm border border-slate-100 dark:border-slate-700">
         <div class="flex items-center justify-between mb-5">
             <h3 class="font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-green-50 dark:bg-green-900/20 flex items-center justify-center">
+                <div class="w-8 h-8 rounded bg-green-50 dark:bg-green-900/20 flex items-center justify-center">
                     <Icon name="lucide:shopping-cart" size="18" class="text-green-500" />
                 </div>
                 订单统计
@@ -15,7 +15,7 @@
         </div>
 
         <!-- 交易金额概览 -->
-        <div class="grid grid-cols-3 gap-4 mb-5 p-4 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/10 dark:to-emerald-900/10 rounded-xl">
+        <div class="grid grid-cols-3 gap-4 mb-5 p-4 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/10 dark:to-emerald-900/10 rounded">
             <div class="text-center">
                 <p class="text-xs text-slate-500 mb-1">今日交易额</p>
                 <p class="text-xl font-bold text-green-600">¥{{ formatMoney(props.data?.todayAmount) }}</p>
@@ -60,35 +60,35 @@
                 <div class="space-y-2">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-orange-400"></span>
+                            <span class="w-2 h-2 rounded bg-orange-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">待付款</span>
                         </div>
                         <span class="font-bold text-orange-500">{{ props.data?.pendingPaymentOrders || 0 }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                            <span class="w-2 h-2 rounded bg-blue-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">已付款</span>
                         </div>
                         <span class="font-bold text-blue-500">{{ props.data?.paidOrders || 0 }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                            <span class="w-2 h-2 rounded bg-cyan-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">待取货</span>
                         </div>
                         <span class="font-bold text-cyan-500">{{ props.data?.waitingPickupOrders || 0 }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-green-400"></span>
+                            <span class="w-2 h-2 rounded bg-green-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">已完成</span>
                         </div>
                         <span class="font-bold text-green-500">{{ props.data?.completedOrders || 0 }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-slate-400"></span>
+                            <span class="w-2 h-2 rounded bg-slate-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">已取消</span>
                         </div>
                         <span class="font-bold text-slate-500">{{ props.data?.cancelledOrders || 0 }}</span>

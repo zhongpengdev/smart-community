@@ -26,7 +26,7 @@
 
         <!-- 统计卡片 -->
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">账单总数</p>
@@ -35,7 +35,7 @@
                     <Icon name="lucide:file-text" size="28" class="opacity-80" />
                 </div>
             </div>
-            <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">未缴账单</p>
@@ -44,7 +44,7 @@
                     <Icon name="lucide:clock" size="28" class="opacity-80" />
                 </div>
             </div>
-            <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-green-500 to-green-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">已缴账单</p>
@@ -53,7 +53,7 @@
                     <Icon name="lucide:check-circle" size="28" class="opacity-80" />
                 </div>
             </div>
-            <div class="bg-gradient-to-br from-red-500 to-red-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-red-500 to-red-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">逾期账单</p>
@@ -62,7 +62,7 @@
                     <Icon name="lucide:alert-triangle" size="28" class="opacity-80" />
                 </div>
             </div>
-            <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">总收缴率</p>
@@ -71,7 +71,7 @@
                     <Icon name="lucide:percent" size="28" class="opacity-80" />
                 </div>
             </div>
-            <div class="bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-cyan-500 to-cyan-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">已收金额</p>
@@ -83,7 +83,7 @@
         </div>
 
         <!-- Tab 切换 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm">
+        <div class="bg-white dark:bg-slate-800 rounded shadow-sm">
             <div class="border-b border-slate-200 dark:border-slate-700">
                 <nav class="flex gap-6 px-6" aria-label="Tabs">
                     <button v-for="tab in tabs" :key="tab.key" @click="activeTab = tab.key"
@@ -93,7 +93,7 @@
                             : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'">
                         {{ tab.label }}
                         <span v-if="tab.count !== undefined"
-                            class="ml-2 px-2 py-0.5 rounded-full text-xs"
+                            class="ml-2 px-2 py-0.5 rounded text-xs"
                             :class="activeTab === tab.key ? 'bg-blue-100 text-blue-600' : 'bg-slate-100 text-slate-600'">
                             {{ tab.count }}
                         </span>
@@ -248,7 +248,7 @@
 
         <!-- 批量生成账单弹窗 -->
         <el-dialog v-model="batchGenerateDialogVisible" title="批量生成账单" width="550px">
-            <div class="mb-4 p-4 bg-orange-50 text-orange-600 rounded-lg text-sm">
+            <div class="mb-4 p-4 bg-orange-50 text-orange-600 rounded text-sm">
                 提示：批量生成将为系统中所有活跃业主生成指定账期的账单。
             </div>
             <el-form :model="batchGenerateForm" label-width="100px" class="space-y-2">
@@ -353,27 +353,27 @@
                 </div>
                 <el-divider />
                 <div class="grid grid-cols-3 gap-4 text-sm">
-                    <div class="p-3 bg-blue-50 rounded-lg">
+                    <div class="p-3 bg-blue-50 rounded">
                         <p class="text-slate-500">物业费</p>
                         <p class="text-lg font-bold text-blue-600">¥{{ currentBill.propertyFee?.toFixed(2) || '0.00' }}</p>
                     </div>
-                    <div class="p-3 bg-cyan-50 rounded-lg">
+                    <div class="p-3 bg-cyan-50 rounded">
                         <p class="text-slate-500">水费</p>
                         <p class="text-lg font-bold text-cyan-600">¥{{ currentBill.waterFee?.toFixed(2) || '0.00' }}</p>
                     </div>
-                    <div class="p-3 bg-yellow-50 rounded-lg">
+                    <div class="p-3 bg-yellow-50 rounded">
                         <p class="text-slate-500">电费</p>
                         <p class="text-lg font-bold text-yellow-600">¥{{ currentBill.electricityFee?.toFixed(2) || '0.00' }}</p>
                     </div>
-                    <div class="p-3 bg-orange-50 rounded-lg">
+                    <div class="p-3 bg-orange-50 rounded">
                         <p class="text-slate-500">燃气费</p>
                         <p class="text-lg font-bold text-orange-600">¥{{ currentBill.gasFee?.toFixed(2) || '0.00' }}</p>
                     </div>
-                    <div class="p-3 bg-purple-50 rounded-lg">
+                    <div class="p-3 bg-purple-50 rounded">
                         <p class="text-slate-500">停车费</p>
                         <p class="text-lg font-bold text-purple-600">¥{{ currentBill.parkingFee?.toFixed(2) || '0.00' }}</p>
                     </div>
-                    <div class="p-3 bg-slate-50 rounded-lg">
+                    <div class="p-3 bg-slate-50 rounded">
                         <p class="text-slate-500">其他费用</p>
                         <p class="text-lg font-bold text-slate-600">¥{{ currentBill.otherFee?.toFixed(2) || '0.00' }}</p>
                     </div>

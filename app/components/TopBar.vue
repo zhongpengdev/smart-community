@@ -17,14 +17,14 @@
       <div class="flex items-center gap-1 ml-5">
 
         <NuxtLink to="/agent"
-          class="h-7 px-3 flex items-center gap-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-orange-50 dark:hover:bg-orange-950/20 hover:text-[#ff5000] transition-all text-xs font-semibold"
+          class="h-7 px-3 flex items-center gap-1.5 rounded text-slate-600 dark:text-slate-300 hover:bg-orange-50 dark:hover:bg-orange-950/20 hover:text-[#ff5000] transition-all text-xs font-semibold"
           active-class="bg-orange-50 dark:bg-orange-950/30 !text-[#ff5000]">
           <Icon name="lucide:bot" size="14" />
           智能体
         </NuxtLink>
 
         <NuxtLink to="/service/mall"
-          class="h-7 px-3 flex items-center gap-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-orange-50 dark:hover:bg-orange-950/20 hover:text-[#ff5000] transition-all text-xs font-semibold"
+          class="h-7 px-3 flex items-center gap-1.5 rounded text-slate-600 dark:text-slate-300 hover:bg-orange-50 dark:hover:bg-orange-950/20 hover:text-[#ff5000] transition-all text-xs font-semibold"
           active-class="bg-orange-50 dark:bg-orange-950/30 !text-[#ff5000]">
           <Icon name="lucide:shopping-cart" size="14" />
           商城
@@ -32,7 +32,7 @@
 
         <div class="relative group h-7">
           <div
-            class="h-full px-3 flex items-center gap-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-orange-50 dark:hover:bg-orange-950/20 hover:text-[#ff5000] transition-all text-xs font-semibold cursor-pointer">
+            class="h-full px-3 flex items-center gap-1.5 rounded text-slate-600 dark:text-slate-300 hover:bg-orange-50 dark:hover:bg-orange-950/20 hover:text-[#ff5000] transition-all text-xs font-semibold cursor-pointer">
             <Icon name="lucide:grid" size="14" />
             社区服务
             <Icon name="lucide:chevron-down" size="12" class="transition-transform group-hover:rotate-180 opacity-50" />
@@ -41,7 +41,7 @@
           <div
             class="absolute top-full left-0 pt-1.5 w-[440px] invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300 transform origin-top-left scale-95 group-hover:scale-100 z-[1001]">
             <div
-              class="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-5 grid grid-cols-2 gap-6 ring-1 ring-slate-200/50 dark:ring-white/5">
+              class="bg-white dark:bg-slate-900 rounded shadow-2xl border border-slate-100 dark:border-slate-800 p-5 grid grid-cols-2 gap-6 ring-1 ring-slate-200/50 dark:ring-white/5">
               <div v-for="category in communityServices" :key="category.title" class="flex flex-col gap-3">
                 <div
                   class="flex items-center gap-2 text-[10px] font-black text-slate-400 uppercase tracking-[0.1em] pb-1.5 border-b border-slate-50 dark:border-white/5">
@@ -50,7 +50,7 @@
                 </div>
                 <div class="flex flex-col gap-0.5">
                   <NuxtLink v-for="item in category.items" :key="item.name" :to="item.path"
-                    class="px-2.5 py-2 rounded-xl text-[13px] text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-white/5 hover:text-[#ff5000] transition-all flex items-center justify-between group/item">
+                    class="px-2.5 py-2 rounded text-[13px] text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-white/5 hover:text-[#ff5000] transition-all flex items-center justify-between group/item">
                     {{ item.name }}
                     <Icon name="lucide:arrow-right" size="12"
                       class="opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-[#ff5000]" />
@@ -85,7 +85,7 @@
       <NotificationsDropdown v-if="userStore.isLoggedIn" />
 
       <button @click="toggleTheme"
-        class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-[#ff5000] transition-all">
+        class="w-8 h-8 flex items-center justify-center rounded hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-[#ff5000] transition-all">
         <Icon v-if="colorMode.value === 'dark'" name="lucide:moon" size="14" />
         <Icon v-else name="lucide:sun" size="14" />
       </button>

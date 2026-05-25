@@ -1,5 +1,5 @@
 <template>
-    <div :class="['flex items-center bg-white dark:bg-slate-800 border-2 border-[#ff5000] rounded-xl overflow-hidden transition-all', containerClass]"
+    <div :class="['flex items-center bg-white dark:bg-slate-800 border-2 border-[#ff5000] rounded overflow-hidden transition-all', containerClass]"
         :style="{ width: props.width, height: props.height }">
         <div class="flex-1 flex items-center pl-4 pr-2 h-full">
             <input v-model="internalQuery" type="text" :placeholder="placeholder"
@@ -13,7 +13,7 @@
             </button>
         </div>
         <button @click="handleSearch"
-            class="bg-gradient-to-r from-[#ff9000] to-[#ff5000] text-white font-bold px-6 hover:brightness-95 transition-all text-sm flex items-center justify-center shrink-0 rounded-lg m-0.5 h-[calc(100%-4px)]">
+            class="bg-gradient-to-r from-[#ff9000] to-[#ff5000] text-white font-bold px-6 hover:brightness-95 transition-all text-sm flex items-center justify-center shrink-0 rounded m-0.5 h-[calc(100%-4px)]">
             {{ buttonText }}
         </button>
     </div>

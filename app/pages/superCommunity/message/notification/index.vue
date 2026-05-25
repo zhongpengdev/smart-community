@@ -14,28 +14,28 @@
 
         <!-- 统计卡片 -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-6 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded p-6 text-white shadow-lg">
                 <div class="flex items-center justify-between mb-2">
                     <span class="text-sm opacity-90">总通知数</span>
                     <Icon name="lucide:bell" size="24" class="opacity-80" />
                 </div>
                 <div class="text-3xl font-bold">{{ statistics.totalNotifications || 0 }}</div>
             </div>
-            <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg p-6 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded p-6 text-white shadow-lg">
                 <div class="flex items-center justify-between mb-2">
                     <span class="text-sm opacity-90">未读通知</span>
                     <Icon name="lucide:bell-ring" size="24" class="opacity-80" />
                 </div>
                 <div class="text-3xl font-bold">{{ statistics.unreadNotifications || 0 }}</div>
             </div>
-            <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-lg p-6 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-green-500 to-green-600 rounded p-6 text-white shadow-lg">
                 <div class="flex items-center justify-between mb-2">
                     <span class="text-sm opacity-90">已读通知</span>
                     <Icon name="lucide:bell-off" size="24" class="opacity-80" />
                 </div>
                 <div class="text-3xl font-bold">{{ statistics.readNotifications || 0 }}</div>
             </div>
-            <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg p-6 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded p-6 text-white shadow-lg">
                 <div class="flex items-center justify-between mb-2">
                     <span class="text-sm opacity-90">今日新增</span>
                     <Icon name="lucide:trending-up" size="24" class="opacity-80" />
@@ -45,7 +45,7 @@
         </div>
 
         <!-- 搜索筛选区域 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+        <div class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm">
             <el-form :model="queryForm" inline class="flex flex-wrap gap-4">
                 <el-form-item label="用户ID" class="!mb-0">
                     <el-input
@@ -117,7 +117,7 @@
         </div>
 
         <!-- 通知列表 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden">
+        <div class="bg-white dark:bg-slate-800 rounded shadow-sm overflow-hidden">
             <el-table
                 :data="notificationList"
                 v-loading="loading"

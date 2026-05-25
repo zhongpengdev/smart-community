@@ -78,7 +78,7 @@
 
                         <el-tooltip content="立即支付" placement="left" :show-after="200">
                             <button @click="handlePayClick(bill)"
-                                class="w-10 h-10 rounded-full bg-[#ff5000] hover:bg-[#e64a00] text-white flex items-center justify-center shadow-sm hover:shadow-md transition-all active:scale-95 group/btn">
+                                class="w-10 h-10 rounded bg-[#ff5000] hover:bg-[#e64a00] text-white flex items-center justify-center shadow-sm hover:shadow-md transition-all active:scale-95 group/btn">
                                 <Icon name="lucide:credit-card" size="18"
                                     class="group-hover/btn:scale-110 transition-transform" />
                             </button>

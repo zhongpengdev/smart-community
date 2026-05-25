@@ -1,8 +1,8 @@
 <template>
-    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-100 dark:border-slate-700">
+    <div class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm border border-slate-100 dark:border-slate-700">
         <div class="flex items-center justify-between mb-5">
             <h3 class="font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-violet-50 dark:bg-violet-900/20 flex items-center justify-center">
+                <div class="w-8 h-8 rounded bg-violet-50 dark:bg-violet-900/20 flex items-center justify-center">
                     <Icon name="lucide:message-square" size="18" class="text-violet-500" />
                 </div>
                 论坛统计
@@ -16,19 +16,19 @@
 
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
             <!-- 核心指标卡片 -->
-            <div class="p-4 bg-gradient-to-br from-violet-50 to-purple-50 dark:from-violet-900/10 dark:to-purple-900/10 rounded-xl text-center">
+            <div class="p-4 bg-gradient-to-br from-violet-50 to-purple-50 dark:from-violet-900/10 dark:to-purple-900/10 rounded text-center">
                 <p class="text-2xl font-bold text-violet-600">{{ props.data?.totalPosts || 0 }}</p>
                 <p class="text-xs text-slate-500 mt-1">帖子总数</p>
             </div>
-            <div class="p-4 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/10 dark:to-cyan-900/10 rounded-xl text-center">
+            <div class="p-4 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/10 dark:to-cyan-900/10 rounded text-center">
                 <p class="text-2xl font-bold text-blue-600">{{ props.data?.totalComments || 0 }}</p>
                 <p class="text-xs text-slate-500 mt-1">评论总数</p>
             </div>
-            <div class="p-4 bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/10 dark:to-rose-900/10 rounded-xl text-center">
+            <div class="p-4 bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/10 dark:to-rose-900/10 rounded text-center">
                 <p class="text-2xl font-bold text-pink-600">{{ formatNumber(props.data?.totalViews) }}</p>
                 <p class="text-xs text-slate-500 mt-1">总浏览量</p>
             </div>
-            <div class="p-4 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/10 dark:to-orange-900/10 rounded-xl text-center">
+            <div class="p-4 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/10 dark:to-orange-900/10 rounded text-center">
                 <p class="text-2xl font-bold text-amber-600">{{ formatNumber(props.data?.totalLikes) }}</p>
                 <p class="text-xs text-slate-500 mt-1">总点赞数</p>
             </div>
@@ -60,21 +60,21 @@
                 <div class="space-y-2">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                            <span class="w-2 h-2 rounded bg-amber-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">待审核</span>
                         </div>
                         <span class="font-bold text-amber-500">{{ props.data?.pendingPosts || 0 }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
+                            <span class="w-2 h-2 rounded bg-yellow-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">精华帖</span>
                         </div>
                         <span class="font-bold text-yellow-500">{{ props.data?.essencePosts || 0 }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-red-400"></span>
+                            <span class="w-2 h-2 rounded bg-red-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">置顶帖</span>
                         </div>
                         <span class="font-bold text-red-500">{{ props.data?.topPosts || 0 }}</span>

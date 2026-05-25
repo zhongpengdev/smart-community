@@ -2,10 +2,10 @@
     <div class="space-y-4">
         <!-- Select All Header (Global) -->
         <div
-            class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-100 dark:border-slate-700 flex items-center justify-between">
+            class="bg-white dark:bg-slate-800 p-4 rounded border border-slate-100 dark:border-slate-700 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <div @click="emit('toggleSelectAll')"
-                    class="w-5 h-5 rounded-full border flex items-center justify-center cursor-pointer transition-colors"
+                    class="w-5 h-5 rounded border flex items-center justify-center cursor-pointer transition-colors"
                     :class="isAllSelected ? 'bg-[#ff5000] border-[#ff5000]' : 'border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700'">
                     <Icon name="lucide:check" size="14" class="text-white" v-if="isAllSelected" />
                 </div>
@@ -17,13 +17,13 @@
 
         <!-- Store Groups -->
         <div v-for="store in groupedCartList" :key="store.storeId"
-            class="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 overflow-hidden">
+            class="bg-white dark:bg-slate-800 rounded border border-slate-100 dark:border-slate-700 overflow-hidden">
 
             <!-- Store Header -->
             <div
                 class="px-5 py-3 border-b border-slate-50 dark:border-slate-700/50 flex items-center gap-3 bg-slate-50/50 dark:bg-slate-800/50">
                 <div @click="toggleStoreSelection(store.storeId)"
-                    class="w-5 h-5 rounded-full border flex items-center justify-center cursor-pointer transition-colors"
+                    class="w-5 h-5 rounded border flex items-center justify-center cursor-pointer transition-colors"
                     :class="isStoreSelected(store.storeId) ? 'bg-[#ff5000] border-[#ff5000]' : 'border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700'">
                     <Icon name="lucide:check" size="14" class="text-white" v-if="isStoreSelected(store.storeId)" />
                 </div>
@@ -40,7 +40,7 @@
                     <!-- Item Checkbox -->
                     <div class="flex items-start pt-8">
                         <div @click="emit('toggleSelection', item.cartId)"
-                            class="w-5 h-5 rounded-full border flex items-center justify-center cursor-pointer transition-colors"
+                            class="w-5 h-5 rounded border flex items-center justify-center cursor-pointer transition-colors"
                             :class="selectedIds.includes(item.cartId) ? 'bg-[#ff5000] border-[#ff5000]' : 'border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700'">
                             <Icon name="lucide:check" size="14" class="text-white"
                                 v-if="selectedIds.includes(item.cartId)" />
@@ -49,7 +49,7 @@
 
                     <!-- Item Image -->
                     <div
-                        class="w-28 h-28 bg-slate-50 dark:bg-slate-900 rounded-lg overflow-hidden shrink-0 border border-slate-100 dark:border-slate-700">
+                        class="w-28 h-28 bg-slate-50 dark:bg-slate-900 rounded overflow-hidden shrink-0 border border-slate-100 dark:border-slate-700">
                         <img v-if="item.coverImg" :src="item.coverImg" class="w-full h-full object-cover" />
                         <div v-else class="w-full h-full flex items-center justify-center text-slate-300">
                             <Icon name="lucide:image" size="24" />
@@ -82,7 +82,7 @@
                                 <!-- Stepper -->
                                 <div class="flex items-center border border-slate-200 dark:border-slate-600 rounded">
                                     <button @click="emit('quantityChange', item, -1)"
-                                        class="w-7 h-7 flex items-center justify-center bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-600 disabled:opacity-50 transition-colors border-r border-slate-200 dark:border-slate-600 rounded-l"
+                                        class="w-7 h-7 flex items-center justify-center bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-600 disabled:opacity-50 transition-colors border-r border-slate-200 dark:border-slate-600 rounded"
                                         :disabled="item.quantity <= 1 || item.loading">
                                         -
                                     </button>
@@ -90,7 +90,7 @@
                                         @change="(e: any) => emit('quantityUpdate', item, parseInt(e.target.value))"
                                         class="w-10 text-center bg-transparent border-none text-sm font-medium text-slate-800 dark:text-slate-100 focus:outline-none [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none py-1" />
                                     <button @click="emit('quantityChange', item, 1)"
-                                        class="w-7 h-7 flex items-center justify-center bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-600 disabled:opacity-50 transition-colors border-l border-slate-200 dark:border-slate-600 rounded-r"
+                                        class="w-7 h-7 flex items-center justify-center bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-600 disabled:opacity-50 transition-colors border-l border-slate-200 dark:border-slate-600 rounded"
                                         :disabled="item.loading">
                                         +
                                     </button>

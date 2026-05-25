@@ -16,7 +16,7 @@
           <h2 class="text-lg font-bold text-slate-700 mb-8">手机扫码登录</h2>
 
           <div
-            class="w-40 h-40 border border-slate-200 rounded-lg p-2 bg-white relative group cursor-pointer shadow-sm hover:shadow-md transition-all">
+            class="w-40 h-40 border border-slate-200 rounded p-2 bg-white relative group cursor-pointer shadow-sm hover:shadow-md transition-all">
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.neuedu.com"
               alt="Login QR Code"
               class="w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
@@ -50,7 +50,7 @@
                   <Icon name="lucide:mail" size="20" />
                 </div>
                 <input type="email" placeholder="请输入邮箱地址" v-model="form.email"
-                  class="w-full bg-[#e8f0fe] text-slate-700 h-12 pl-10 pr-4 rounded-md outline-none focus:ring-1 focus:ring-[#ff5000] placeholder:text-slate-400 text-sm transition-all" />
+                  class="w-full bg-[#e8f0fe] text-slate-700 h-12 pl-10 pr-4 rounded outline-none focus:ring-1 focus:ring-[#ff5000] placeholder:text-slate-400 text-sm transition-all" />
               </div>
 
               <div class="flex gap-3">
@@ -59,10 +59,10 @@
                     <Icon name="lucide:shield-check" size="20" />
                   </div>
                   <input type="text" placeholder="验证码" v-model="form.verifyCode"
-                    class="w-full bg-[#e8f0fe] text-slate-700 h-12 pl-10 pr-4 rounded-md outline-none focus:ring-1 focus:ring-[#ff5000] placeholder:text-slate-400 text-sm transition-all" />
+                    class="w-full bg-[#e8f0fe] text-slate-700 h-12 pl-10 pr-4 rounded outline-none focus:ring-1 focus:ring-[#ff5000] placeholder:text-slate-400 text-sm transition-all" />
                 </div>
                 <button type="button" :disabled="countdown > 0" @click="handleSendCode"
-                  class="h-12 px-4 rounded-md bg-[#ff5000]/10 text-[#ff5000] text-sm font-medium hover:bg-[#ff5000]/20 disabled:opacity-50 disabled:cursor-not-allowed transition-colors whitespace-nowrap">
+                  class="h-12 px-4 rounded bg-[#ff5000]/10 text-[#ff5000] text-sm font-medium hover:bg-[#ff5000]/20 disabled:opacity-50 disabled:cursor-not-allowed transition-colors whitespace-nowrap">
                   {{ countdown > 0 ? `${countdown}s 后重发` : '获取验证码' }}
                 </button>
               </div>
@@ -78,7 +78,7 @@
                   </svg>
                 </div>
                 <input type="text" placeholder="用户手机号" v-model="form.phone"
-                  class="w-full bg-[#e8f0fe] text-slate-700 h-12 pl-10 pr-4 rounded-md outline-none focus:ring-1 focus:ring-[#ff5000] placeholder:text-slate-400 text-sm transition-all" />
+                  class="w-full bg-[#e8f0fe] text-slate-700 h-12 pl-10 pr-4 rounded outline-none focus:ring-1 focus:ring-[#ff5000] placeholder:text-slate-400 text-sm transition-all" />
               </div>
 
               <div class="relative">
@@ -90,12 +90,12 @@
                   </svg>
                 </div>
                 <input type="password" v-model="form.password" placeholder="登录密码"
-                  class="w-full bg-[#e8f0fe] text-slate-700 h-12 pl-10 pr-4 rounded-md outline-none focus:ring-1 focus:ring-[#ff5000] placeholder:text-slate-400 text-sm transition-all" />
+                  class="w-full bg-[#e8f0fe] text-slate-700 h-12 pl-10 pr-4 rounded outline-none focus:ring-1 focus:ring-[#ff5000] placeholder:text-slate-400 text-sm transition-all" />
               </div>
             </div>
 
             <el-button native-type="submit" type="primary" :loading="authLoading"
-              class="!w-full !bg-[#ff5000] !hover:bg-[#ff4000] text-white !font-bold !h-11 !rounded-md text-base !shadow-lg !shadow-orange-200 !transition-colors">
+              class="!w-full !bg-[#ff5000] !hover:bg-[#ff4000] text-white !font-bold !h-11 !rounded text-base !shadow-lg !shadow-orange-200 !transition-colors">
               {{ authLoading ? "登录中，请稍后..." : "登录" }}
             </el-button>
 

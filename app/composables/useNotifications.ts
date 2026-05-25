@@ -180,7 +180,7 @@ export const useNotifications = () => {
                     message: h('div', { class: 'flex items-center gap-3' }, [
                         h('img', {
                             src: wsMessage.fromUserAvatar || '/default-avatar.png',
-                            class: 'w-10 h-10 rounded-full object-cover',
+                            class: 'w-10 h-10 rounded object-cover',
                             style: 'flex-shrink: 0;'
                         }),
                         h('div', { class: 'flex-1 min-w-0' }, [

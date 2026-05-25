@@ -34,7 +34,7 @@
     <!-- 退出登录按钮 -->
     <div class="mt-4 px-4 border-t border-slate-100 dark:border-white/10 pt-4">
       <button @click="handleLogout"
-        class="w-full flex items-center justify-center gap-2 py-2.5 text-sm font-medium text-slate-600 hover:text-red-500 hover:bg-red-50 dark:text-slate-400 dark:hover:bg-white/5 dark:hover:text-red-400 rounded-lg transition-colors">
+        class="w-full flex items-center justify-center gap-2 py-2.5 text-sm font-medium text-slate-600 hover:text-red-500 hover:bg-red-50 dark:text-slate-400 dark:hover:bg-white/5 dark:hover:text-red-400 rounded transition-colors">
         <Icon name="lucide:log-out" size="16" />
         退出登录
       </button>

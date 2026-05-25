@@ -8,7 +8,7 @@
 
         <!-- 统计卡片 -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">总登记数</p>
@@ -17,7 +17,7 @@
                     <Icon name="lucide:users" size="32" class="opacity-80" />
                 </div>
             </div>
-            <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">待审核</p>
@@ -26,7 +26,7 @@
                     <Icon name="lucide:clock" size="32" class="opacity-80" />
                 </div>
             </div>
-            <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-green-500 to-green-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">已通过</p>
@@ -35,7 +35,7 @@
                     <Icon name="lucide:check-circle" size="32" class="opacity-80" />
                 </div>
             </div>
-            <div class="bg-gradient-to-br from-red-500 to-red-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-red-500 to-red-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">已拒绝</p>
@@ -47,7 +47,7 @@
         </div>
 
         <!-- 搜索筛选区域 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+        <div class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm">
             <el-form :model="queryForm" inline class="flex flex-wrap gap-4">
                 <el-form-item label="审核状态" class="!mb-0">
                     <el-select
@@ -94,7 +94,7 @@
         </div>
 
         <!-- 访客列表 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden">
+        <div class="bg-white dark:bg-slate-800 rounded shadow-sm overflow-hidden">
             <!-- 批量操作 -->
             <div class="p-4 border-b border-slate-200 dark:border-slate-700 flex items-center gap-4" v-if="selectedRows.length > 0">
                 <span class="text-sm text-slate-600 dark:text-slate-300">已选择 {{ selectedRows.length }} 项</span>

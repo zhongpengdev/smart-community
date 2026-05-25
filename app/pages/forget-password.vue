@@ -23,7 +23,7 @@
                             <Icon name="lucide:mail" size="20" />
                         </div>
                         <input type="email" placeholder="请输入您的邮箱地址" v-model="form.email"
-                            class="w-full bg-[#e8f0fe] text-slate-700 h-12 pl-10 pr-4 rounded-md outline-none focus:ring-1 focus:ring-[#ff5000] placeholder:text-slate-400 text-sm transition-all" />
+                            class="w-full bg-[#e8f0fe] text-slate-700 h-12 pl-10 pr-4 rounded outline-none focus:ring-1 focus:ring-[#ff5000] placeholder:text-slate-400 text-sm transition-all" />
                     </div>
 
                     <!-- Verify Code Input -->
@@ -33,10 +33,10 @@
                                 <Icon name="lucide:shield-check" size="20" />
                             </div>
                             <input type="text" placeholder="验证码" v-model="form.verifyCode"
-                                class="w-full bg-[#e8f0fe] text-slate-700 h-12 pl-10 pr-4 rounded-md outline-none focus:ring-1 focus:ring-[#ff5000] placeholder:text-slate-400 text-sm transition-all" />
+                                class="w-full bg-[#e8f0fe] text-slate-700 h-12 pl-10 pr-4 rounded outline-none focus:ring-1 focus:ring-[#ff5000] placeholder:text-slate-400 text-sm transition-all" />
                         </div>
                         <button type="button" :disabled="countdown > 0" @click="sendVerifyCode"
-                            class="h-12 px-6 rounded-md bg-[#ff5000]/10 text-[#ff5000] text-sm font-medium hover:bg-[#ff5000]/20 disabled:opacity-50 disabled:cursor-not-allowed transition-colors whitespace-nowrap">
+                            class="h-12 px-6 rounded bg-[#ff5000]/10 text-[#ff5000] text-sm font-medium hover:bg-[#ff5000]/20 disabled:opacity-50 disabled:cursor-not-allowed transition-colors whitespace-nowrap">
                             {{ countdown > 0 ? `${countdown}s 后重新发送` : '获取验证码' }}
                         </button>
                     </div>
@@ -47,7 +47,7 @@
                             <Icon name="lucide:lock" size="20" />
                         </div>
                         <input type="password" placeholder="请输入新密码" v-model="form.newPassword"
-                            class="w-full bg-[#e8f0fe] text-slate-700 h-12 pl-10 pr-4 rounded-md outline-none focus:ring-1 focus:ring-[#ff5000] placeholder:text-slate-400 text-sm transition-all" />
+                            class="w-full bg-[#e8f0fe] text-slate-700 h-12 pl-10 pr-4 rounded outline-none focus:ring-1 focus:ring-[#ff5000] placeholder:text-slate-400 text-sm transition-all" />
                     </div>
 
                     <!-- Confirm Password -->
@@ -56,11 +56,11 @@
                             <Icon name="lucide:lock" size="20" />
                         </div>
                         <input type="password" placeholder="请确认新密码" v-model="form.confirmPassword"
-                            class="w-full bg-[#e8f0fe] text-slate-700 h-12 pl-10 pr-4 rounded-md outline-none focus:ring-1 focus:ring-[#ff5000] placeholder:text-slate-400 text-sm transition-all" />
+                            class="w-full bg-[#e8f0fe] text-slate-700 h-12 pl-10 pr-4 rounded outline-none focus:ring-1 focus:ring-[#ff5000] placeholder:text-slate-400 text-sm transition-all" />
                     </div>
 
                     <el-button native-type="submit" type="primary" :loading="loading"
-                        class="!w-full !bg-[#ff5000] !hover:bg-[#ff4000] text-white !font-bold !h-11 !rounded-md text-base !shadow-lg !shadow-orange-200 !transition-colors !mt-8">
+                        class="!w-full !bg-[#ff5000] !hover:bg-[#ff4000] text-white !font-bold !h-11 !rounded text-base !shadow-lg !shadow-orange-200 !transition-colors !mt-8">
                         {{ loading ? "提交中..." : "重置密码" }}
                     </el-button>
 

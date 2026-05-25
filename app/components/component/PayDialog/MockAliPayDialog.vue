@@ -7,7 +7,7 @@
                     <!-- Mock Alipay Logo Text -->
                     <div class="flex items-center gap-1">
                         <div
-                            class="bg-[#02a9f1] text-white w-8 h-8 flex items-center justify-center font-bold rounded-sm text-lg">
+                            class="bg-[#02a9f1] text-white w-8 h-8 flex items-center justify-center font-bold rounded text-lg">
                             支</div>
                         <div class="text-2xl font-bold text-[#4d4d4d]">收银台</div>
                     </div>
@@ -37,7 +37,7 @@
                     <div class="border-2 border-[#85c3ff] bg-[#eef7ff] p-5 mb-6 relative">
                         <!-- Selection Dot -->
                         <div
-                            class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-[5px] border-[#02a9f1] bg-white">
+                            class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 rounded border-[5px] border-[#02a9f1] bg-white">
                         </div>
 
                         <div class="pl-8 flex items-center justify-between">
@@ -115,7 +115,7 @@
 
         <!-- Paying Modal -->
         <div v-if="isPaying" class="fixed inset-0 bg-black/30 z-[999] flex items-center justify-center">
-            <div class="bg-white rounded-lg px-8 py-6 flex flex-col items-center gap-4 shadow-xl min-w-[200px]">
+            <div class="bg-white rounded px-8 py-6 flex flex-col items-center gap-4 shadow-xl min-w-[200px]">
                 <Icon name="svg-spinners:ring-resize" class="text-[#02a9f1]" size="32" />
                 <p class="font-bold text-gray-700">正在支付中...</p>
             </div>

@@ -12,7 +12,7 @@
                     <div v-if="productImages.length > 0"
                         class="hidden md:flex flex-col gap-3 max-h-[460px] overflow-y-auto">
                         <div v-for="(img, index) in productImages" :key="img.imageId"
-                            class="w-16 h-16 rounded-lg border-2 overflow-hidden cursor-pointer transition-all shrink-0"
+                            class="w-16 h-16 rounded border-2 overflow-hidden cursor-pointer transition-all shrink-0"
                             :class="activeImage === img.imageUrl ? 'border-[#ff5000]' : 'border-transparent hover:border-slate-200'"
                             @click="activeImage = img.imageUrl">
                             <img :src="img.imageUrl" class="w-full h-full object-cover">
@@ -21,7 +21,7 @@
 
                     <!-- Main Image -->
                     <div
-                        class="flex-1 aspect-square bg-[#f9f9f9] dark:bg-slate-900 rounded-xl overflow-hidden relative group border border-slate-100 dark:border-slate-700">
+                        class="flex-1 aspect-square bg-[#f9f9f9] dark:bg-slate-900 rounded overflow-hidden relative group border border-slate-100 dark:border-slate-700">
                         <img v-if="activeImage" :src="activeImage" class="w-full h-full object-contain"
                             :alt="product?.productName">
                         <div v-else-if="loading" class="w-full h-full animate-pulse bg-slate-100 dark:bg-slate-800">
@@ -37,15 +37,15 @@
                     </h1>
 
                     <p
-                        class="text-sm text-slate-500 dark:text-slate-400 mb-6 bg-slate-50 dark:bg-slate-900/50 p-3 rounded-lg border border-slate-100 dark:border-slate-800">
+                        class="text-sm text-slate-500 dark:text-slate-400 mb-6 bg-slate-50 dark:bg-slate-900/50 p-3 rounded border border-slate-100 dark:border-slate-800">
                         {{ product?.description }}
                     </p>
 
                     <!-- Price Card -->
                     <div
-                        class="bg-gradient-to-r from-[#ff0036] to-[#ff5000] rounded-xl p-5 text-white mb-6 relative overflow-hidden">
+                        class="bg-gradient-to-r from-[#ff0036] to-[#ff5000] rounded p-5 text-white mb-6 relative overflow-hidden">
                         <div class="flex items-baseline gap-1 relative z-10">
-                            <span class="text-xs font-bold bg-white/20 px-1.5 py-0.5 rounded-sm mr-1">天天特价</span>
+                            <span class="text-xs font-bold bg-white/20 px-1.5 py-0.5 rounded mr-1">天天特价</span>
                             <span class="text-sm font-sans">¥</span>
                             <span class="text-4xl font-black">{{ String(product?.price || 0).split('.')[0] }}</span>
                             <span
@@ -73,11 +73,11 @@
                                 <div v-if="product?.availableStores?.length" class="space-y-2">
                                     <div v-for="store in product.availableStores" :key="store.storeId"
                                         @click="selectedStoreId = store.storeId"
-                                        class="p-3 rounded-lg border cursor-pointer transition-all"
+                                        class="p-3 rounded border cursor-pointer transition-all"
                                         :class="selectedStoreId === store.storeId ? 'border-[#ff5000] bg-orange-50 dark:bg-orange-900/20' : 'border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 hover:border-orange-200'">
                                         <div class="flex items-center justify-between mb-1">
                                             <div class="flex items-center gap-2">
-                                                <div class="w-3 h-3 rounded-full border border-slate-300 flex items-center justify-center"
+                                                <div class="w-3 h-3 rounded border border-slate-300 flex items-center justify-center"
                                                     :class="selectedStoreId === store.storeId ? 'border-[#ff5000] bg-[#ff5000]' : ''">
                                                     <Icon v-if="selectedStoreId === store.storeId" name="lucide:check"
                                                         size="8" class="text-white" />
@@ -106,7 +106,7 @@
                             <Icon name="lucide:shopping-bag" size="18" class="text-slate-400" />
                             <div class="flex items-center gap-4">
                                 <span class="text-slate-500 shrink-0">购买数量</span>
-                                <div class="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 rounded-lg p-1">
+                                <div class="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 rounded p-1">
                                     <button @click="quantity > 1 && quantity--"
                                         class="w-7 h-7 flex items-center justify-center bg-white dark:bg-slate-700 rounded shadow-sm text-slate-800 dark:text-slate-200 font-bold text-lg disabled:opacity-50 hover:bg-slate-50 transition-colors"
                                         :disabled="quantity <= 1">
@@ -142,7 +142,7 @@
 
         <!-- Floating Bottom Bar -->
         <div
-            class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-32px)] max-w-[500px] h-16 bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] border border-white/20 dark:border-slate-700/50 z-[200] px-4 flex items-center justify-between">
+            class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-32px)] max-w-[500px] h-16 bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl rounded shadow-[0_10px_40px_rgba(0,0,0,0.15)] border border-white/20 dark:border-slate-700/50 z-[200] px-4 flex items-center justify-between">
             <div class="flex items-center gap-6 px-2">
                 <div class="flex flex-col items-center gap-0.5 cursor-pointer transition-colors group"
                     @click="handleCollect(product?.productId)">
@@ -155,7 +155,7 @@
                 </div>
             </div>
 
-            <div class="flex-1 max-w-[280px] flex h-11 rounded-xl overflow-hidden shadow-sm">
+            <div class="flex-1 max-w-[280px] flex h-11 rounded overflow-hidden shadow-sm">
                 <button @click="handleAddToCart"
                     class="flex-1 bg-gradient-to-r from-orange-400 to-orange-500 text-white font-bold text-sm hover:brightness-110 active:scale-95 transition-all">
                     加入购物车

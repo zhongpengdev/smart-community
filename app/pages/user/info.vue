@@ -5,9 +5,9 @@
 
         <div class="flex-1 min-w-0">
             <div
-                class="bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-sm border border-slate-100 dark:border-slate-800">
+                class="bg-white dark:bg-slate-900 rounded p-8 shadow-sm border border-slate-100 dark:border-slate-800">
                 <h2 class="text-xl font-bold mb-8 flex items-center gap-2">
-                    <div class="w-1 h-6 bg-[#ff5000] rounded-full"></div>
+                    <div class="w-1 h-6 bg-[#ff5000] rounded"></div>
                     编辑个人信息
                 </h2>
 
@@ -52,7 +52,7 @@
 
                             <el-form-item class="pt-4">
                                 <el-button type="primary" color="#ff5000" :loading="infoLoading"
-                                    class="!w-full !rounded-lg !h-10 !text-base" @click="submitInfoForm">
+                                    class="!w-full !rounded !h-10 !text-base" @click="submitInfoForm">
                                     保存基本信息
                                 </el-button>
                             </el-form-item>
@@ -82,7 +82,7 @@
 
                             <el-form-item class="pt-4">
                                 <el-button type="primary" plain color="#ff5000" :loading="pwdLoading"
-                                    class="!w-full !rounded-lg !h-10 !text-base hover:!bg-orange-50"
+                                    class="!w-full !rounded !h-10 !text-base hover:!bg-orange-50"
                                     @click="submitPwdForm">
                                     修改密码
                                 </el-button>

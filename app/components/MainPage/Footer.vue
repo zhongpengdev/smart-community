@@ -19,7 +19,7 @@
 
             <div class="relative group cursor-pointer">
               <div
-                class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center group-hover:bg-[#07c160] transition-colors">
+                class="w-8 h-8 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center group-hover:bg-[#07c160] transition-colors">
                 <Icon name="ri:wechat-fill" size="18"
                   class="text-slate-600 dark:text-slate-400 group-hover:text-white" />
               </div>
@@ -32,12 +32,12 @@
             </div>
 
             <a href="#"
-              class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-[#e6162d] group transition-colors">
+              class="w-8 h-8 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-[#e6162d] group transition-colors">
               <Icon name="ri:weibo-fill" size="18" class="text-slate-600 dark:text-slate-400 group-hover:text-white" />
             </a>
 
             <a href="#"
-              class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-black group transition-colors">
+              class="w-8 h-8 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-black group transition-colors">
               <Icon name="ri:tiktok-fill" size="18" class="text-slate-600 dark:text-slate-400 group-hover:text-white" />
             </a>
           </div>

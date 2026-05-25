@@ -7,9 +7,9 @@
 
         <div v-else-if="orderData" class="space-y-6">
             <!-- Status Header -->
-            <div class="bg-slate-50 dark:bg-white/5 p-4 rounded-xl flex items-center justify-between">
+            <div class="bg-slate-50 dark:bg-white/5 p-4 rounded flex items-center justify-between">
                 <div class="flex items-center gap-3">
-                    <div :class="getStatusIconClass(orderData.status)" class="p-2 rounded-lg">
+                    <div :class="getStatusIconClass(orderData.status)" class="p-2 rounded">
                         <Icon :name="getStatusIcon(orderData.status)" size="20" />
                     </div>
                     <div>
@@ -28,8 +28,8 @@
                 <h4 class="text-sm font-bold text-slate-800 dark:text-slate-100 mb-3 px-1">商品清单</h4>
                 <div class="space-y-3">
                     <div v-for="product in orderData.products" :key="product.productId"
-                        class="flex items-center gap-4 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-50 dark:border-white/5 shadow-sm">
-                        <img :src="product.productImage" class="w-16 h-16 rounded-lg object-cover" />
+                        class="flex items-center gap-4 bg-white dark:bg-slate-800 p-3 rounded border border-slate-50 dark:border-white/5 shadow-sm">
+                        <img :src="product.productImage" class="w-16 h-16 rounded object-cover" />
                         <div class="flex-1 min-w-0">
                             <h5 class="text-sm font-medium text-slate-800 dark:text-slate-100 truncate">{{
                                 product.productName }}</h5>

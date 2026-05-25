@@ -13,7 +13,7 @@
             <div class="flex-1">
                 <div class="relative">
                     <textarea v-model="commentContent" ref="commentInputRef"
-                        class="w-full h-24 p-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg resize-none focus:outline-none focus:ring-1 focus:ring-[#ff5000] focus:border-[#ff5000] transition-all text-sm"
+                        class="w-full h-24 p-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded resize-none focus:outline-none focus:ring-1 focus:ring-[#ff5000] focus:border-[#ff5000] transition-all text-sm"
                         :placeholder="replyTarget
                             ? `回复 ${replyTarget.userName}:`
                             : '写下你的评论...'
@@ -27,7 +27,7 @@
                     <button @click="handleSubmit" :disabled="!commentContent.trim() || submitting"
                         class="px-6 py-1.5 bg-[#056de8] text-white rounded text-sm font-bold hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2">
                         <span v-if="submitting"
-                            class="animate-spin w-4 h-4 border-2 border-white/30 border-t-white rounded-full"></span>
+                            class="animate-spin w-4 h-4 border-2 border-white/30 border-t-white rounded"></span>
                         发表评论
                     </button>
                 </div>
@@ -117,7 +117,7 @@
             <!-- Loading Skeleton -->
             <div v-if="commentsLoading" class="space-y-6">
                 <div v-for="i in 3" :key="i" class="flex gap-3 animate-pulse">
-                    <div class="w-10 h-10 bg-slate-200 dark:bg-slate-700 rounded-full shrink-0"></div>
+                    <div class="w-10 h-10 bg-slate-200 dark:bg-slate-700 rounded shrink-0"></div>
                     <div class="flex-1 space-y-2 py-1">
                         <div class="h-3 bg-slate-200 dark:bg-slate-700 rounded w-1/4"></div>
                         <div class="h-3 bg-slate-200 dark:bg-slate-700 rounded w-3/4"></div>

@@ -183,7 +183,7 @@ onBeforeUnmount(() => {
 
 <template>
     <form
-        class="relative mx-auto h-12 w-full max-w-xl overflow-hidden rounded-full bg-white shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),_0px_1px_0px_0px_rgba(25,28,33,0.02),_0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200 dark:bg-zinc-800"
+        class="relative mx-auto h-12 w-full max-w-xl overflow-hidden rounded bg-white shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),_0px_1px_0px_0px_rgba(25,28,33,0.02),_0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200 dark:bg-zinc-800"
         :class="[vanishingText && 'bg-gray-50']" @submit.prevent="handleSubmit">
         <!-- Canvas Element -->
         <canvas ref="canvasRef"
@@ -192,12 +192,12 @@ onBeforeUnmount(() => {
 
         <!-- Text Input -->
         <input ref="inputRef" v-model="vanishingText" :disabled="animating" type="text"
-            class="relative z-50 size-full rounded-full border-none bg-transparent pr-20 pl-4 text-sm text-black focus:ring-0 focus:outline-none sm:pl-10 sm:text-base dark:text-white"
+            class="relative z-50 size-full rounded border-none bg-transparent pr-20 pl-4 text-sm text-black focus:ring-0 focus:outline-none sm:pl-10 sm:text-base dark:text-white"
             :class="{ 'text-transparent dark:text-transparent': animating }" @keydown.enter="handleKeyDown" />
 
         <!-- Submit Button -->
         <button :disabled="!vanishingText" type="submit"
-            class="absolute top-1/2 right-2 z-50 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-black transition duration-200 disabled:bg-gray-100 dark:bg-zinc-900 dark:disabled:bg-zinc-700">
+            class="absolute top-1/2 right-2 z-50 flex size-8 -translate-y-1/2 items-center justify-center rounded bg-black transition duration-200 disabled:bg-gray-100 dark:bg-zinc-900 dark:disabled:bg-zinc-700">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                 class="size-4 text-gray-300">
@@ -213,7 +213,7 @@ onBeforeUnmount(() => {
         </button>
 
         <!-- Placeholder Text -->
-        <div class="pointer-events-none absolute inset-0 flex items-center rounded-full">
+        <div class="pointer-events-none absolute inset-0 flex items-center rounded">
             <Transition v-show="!vanishingText" mode="out-in" enter-active-class="transition duration-300 ease-out"
                 leave-active-class="transition duration-300 ease-in" enter-from-class="opacity-0 translate-y-4"
                 enter-to-class="opacity-100 translate-y-0" leave-from-class="opacity-100 translate-y-0"

@@ -3,9 +3,9 @@
         <!-- Loading State -->
         <div v-if="loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div v-for="i in 6" :key="i" 
-                class="bg-white dark:bg-white/5 rounded-xl border border-slate-100 dark:border-white/5 p-6 animate-pulse">
+                class="bg-white dark:bg-white/5 rounded border border-slate-100 dark:border-white/5 p-6 animate-pulse">
                 <div class="flex items-center gap-4">
-                    <div class="w-16 h-16 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+                    <div class="w-16 h-16 rounded bg-slate-200 dark:bg-slate-700"></div>
                     <div class="flex-1 space-y-2">
                         <div class="h-4 bg-slate-200 dark:bg-slate-700 rounded w-3/4"></div>
                         <div class="h-3 bg-slate-200 dark:bg-slate-700 rounded w-1/2"></div>
@@ -16,8 +16,8 @@
 
         <!-- Empty State -->
         <div v-else-if="!friends || friends.length === 0"
-            class="bg-white dark:bg-white/5 rounded-xl border border-slate-100 dark:border-white/5 p-12 text-center">
-            <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded-full inline-block mb-4">
+            class="bg-white dark:bg-white/5 rounded border border-slate-100 dark:border-white/5 p-12 text-center">
+            <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded inline-block mb-4">
                 <Icon name="lucide:users" size="48" class="text-slate-400" />
             </div>
             <h3 class="text-lg font-medium text-slate-600 dark:text-slate-300 mb-2">暂无好友</h3>
@@ -27,7 +27,7 @@
         <!-- Friends Grid -->
         <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div v-for="friend in friends" :key="friend.friendId"
-                class="bg-white dark:bg-white/5 rounded-xl border border-slate-100 dark:border-white/5 p-6 hover:shadow-lg hover:border-[#ff5000]/20 transition-all duration-300 group">
+                class="bg-white dark:bg-white/5 rounded border border-slate-100 dark:border-white/5 p-6 hover:shadow-lg hover:border-[#ff5000]/20 transition-all duration-300 group">
                 
                 <!-- Friend Info -->
                 <div class="flex items-start gap-4 mb-4">
@@ -42,12 +42,12 @@
                         <!-- 在线状态指示器 -->
                         <div 
                             v-if="onlineStatus[friend.friendUserId]"
-                            class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-white dark:border-slate-800 rounded-full"
+                            class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-white dark:border-slate-800 rounded"
                             title="在线"
                         ></div>
                         <div 
                             v-else
-                            class="absolute bottom-0 right-0 w-4 h-4 bg-slate-400 border-2 border-white dark:border-slate-800 rounded-full"
+                            class="absolute bottom-0 right-0 w-4 h-4 bg-slate-400 border-2 border-white dark:border-slate-800 rounded"
                             title="离线"
                         ></div>
                     </div>
@@ -59,7 +59,7 @@
                             </h3>
                             <span 
                                 v-if="onlineStatus[friend.friendUserId]"
-                                class="text-xs px-2 py-0.5 rounded-full bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400"
+                                class="text-xs px-2 py-0.5 rounded bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400"
                             >
                                 在线
                             </span>
@@ -78,7 +78,7 @@
                 <div class="flex items-center gap-2 pt-4 border-t border-slate-100 dark:border-slate-700">
                     <button
                         @click="handleSendMessage(friend)"
-                        class="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-slate-50 dark:bg-slate-800 hover:bg-[#ff5000] hover:text-white text-slate-600 dark:text-slate-300 rounded-lg transition-all duration-200 text-sm font-medium group/btn"
+                        class="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-slate-50 dark:bg-slate-800 hover:bg-[#ff5000] hover:text-white text-slate-600 dark:text-slate-300 rounded transition-all duration-200 text-sm font-medium group/btn"
                     >
                         <Icon name="lucide:message-circle" size="16" class="group-hover/btn:scale-110 transition-transform" />
                         <span>发消息</span>
@@ -86,7 +86,7 @@
                     
                     <button
                         @click="handleDelete(friend)"
-                        class="flex items-center justify-center gap-2 px-4 py-2 bg-slate-50 dark:bg-slate-800 hover:bg-red-500 hover:text-white text-slate-600 dark:text-slate-300 rounded-lg transition-all duration-200 text-sm font-medium group/btn"
+                        class="flex items-center justify-center gap-2 px-4 py-2 bg-slate-50 dark:bg-slate-800 hover:bg-red-500 hover:text-white text-slate-600 dark:text-slate-300 rounded transition-all duration-200 text-sm font-medium group/btn"
                         title="删除好友"
                     >
                         <Icon name="lucide:user-minus" size="16" class="group-hover/btn:scale-110 transition-transform" />

@@ -8,7 +8,7 @@
 
         <!-- 统计卡片 -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">总投诉数</p>
@@ -17,7 +17,7 @@
                     <Icon name="lucide:message-circle-warning" size="32" class="opacity-80" />
                 </div>
             </div>
-            <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">待处理</p>
@@ -26,7 +26,7 @@
                     <Icon name="lucide:clock" size="32" class="opacity-80" />
                 </div>
             </div>
-            <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">处理中</p>
@@ -35,7 +35,7 @@
                     <Icon name="lucide:loader-2" size="32" class="opacity-80" />
                 </div>
             </div>
-            <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-green-500 to-green-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">已完成</p>
@@ -47,7 +47,7 @@
         </div>
 
         <!-- 搜索筛选区域 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+        <div class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm">
             <el-form :model="queryForm" inline class="flex flex-wrap gap-4">
                 <el-form-item label="投诉类型" class="!mb-0">
                     <el-select v-model="queryForm.complaintType" placeholder="全部类型" clearable style="width: 160px;">
@@ -96,7 +96,7 @@
         </div>
 
         <!-- 投诉列表 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden">
+        <div class="bg-white dark:bg-slate-800 rounded shadow-sm overflow-hidden">
             <el-table :data="complaintList" v-loading="loading" style="width: 100%">
                 <el-table-column prop="complaintId" label="ID" width="80" align="center" />
                 <el-table-column prop="userId" label="用户ID" width="100" align="center" />
@@ -147,7 +147,7 @@
         <!-- 处理弹窗 -->
         <el-dialog v-model="processDialogVisible" title="处理投诉" width="600px" :close-on-click-modal="false">
             <div v-if="currentComplaint" class="space-y-4">
-                <div class="bg-slate-50 dark:bg-slate-700 rounded-lg p-4">
+                <div class="bg-slate-50 dark:bg-slate-700 rounded p-4">
                     <div class="grid grid-cols-2 gap-3 text-sm">
                         <div>
                             <span class="text-slate-500">用户ID：</span>

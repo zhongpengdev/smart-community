@@ -1,7 +1,7 @@
 <template>
     <div v-if="toolCalls && toolCalls.length > 0" class="w-full">
         <!-- 标题栏 -->
-        <div class="flex items-center justify-between mb-2 px-2 py-1.5 rounded-lg bg-gray-50/50 dark:bg-gray-800/30 border border-gray-200 dark:border-gray-700">
+        <div class="flex items-center justify-between mb-2 px-2 py-1.5 rounded bg-gray-50/50 dark:bg-gray-800/30 border border-gray-200 dark:border-gray-700">
             <button
                 @click="isExpanded = !isExpanded"
                 class="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"

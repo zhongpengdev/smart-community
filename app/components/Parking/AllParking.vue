@@ -1,14 +1,14 @@
 <template>
-    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-100 dark:border-slate-700 p-6">
+    <div class="bg-white dark:bg-slate-800 rounded shadow-sm border border-slate-100 dark:border-slate-700 p-6">
         <div v-if="loading" class="flex justify-center py-10">
-            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-[#ff5000]"></div>
+            <div class="animate-spin rounded h-8 w-8 border-b-2 border-[#ff5000]"></div>
         </div>
 
         <div v-else>
             <!-- Zone Tabs -->
             <div class="flex flex-wrap gap-2 border-b border-slate-100 dark:border-slate-700 pb-4 mb-6">
                 <button v-for="zone in sortedZones" :key="zone" @click="currentZone = zone"
-                    class="px-4 py-2 rounded-md text-sm font-medium transition-colors"
+                    class="px-4 py-2 rounded text-sm font-medium transition-colors"
                     :class="currentZone === zone
                         ? 'bg-[#ff5000] text-white shadow-sm'
                         : 'bg-slate-50 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-600'">
@@ -22,7 +22,7 @@
             <!-- Grid Display -->
             <div v-if="currentZone" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4">
                 <div v-for="i in 20" :key="i"
-                    class="aspect-square relative rounded-sm border-2 transition-all p-3 flex flex-col justify-between group cursor-pointer"
+                    class="aspect-square relative rounded border-2 transition-all p-3 flex flex-col justify-between group cursor-pointer"
                     :class="getSpotStatusClass(i)">
                     <!-- Spot Number -->
                     <div class="text-xs font-bold opacity-50">
@@ -39,7 +39,7 @@
                             {{ getSpotData(i).userName }}
                         </div>
                         <div v-if="getSpotData(i).statusText"
-                            class="mt-1 text-xs scale-90 px-2 py-0.5 rounded-full bg-white/60 dark:bg-black/20 font-medium whitespace-nowrap">
+                            class="mt-1 text-xs scale-90 px-2 py-0.5 rounded bg-white/60 dark:bg-black/20 font-medium whitespace-nowrap">
                             {{ getSpotData(i).statusText }}
                         </div>
                     </div>
@@ -51,9 +51,9 @@
 
                         <!-- Hover Action -->
                         <div @click="$emit('apply', getSpotLabel(i))"
-                            class="hidden group-hover:flex absolute inset-0 bg-emerald-50/90 dark:bg-emerald-900/80 backdrop-blur-[1px] items-center justify-center z-10 rounded-lg animate-in fade-in duration-200 cursor-pointer">
+                            class="hidden group-hover:flex absolute inset-0 bg-emerald-50/90 dark:bg-emerald-900/80 backdrop-blur-[1px] items-center justify-center z-10 rounded animate-in fade-in duration-200 cursor-pointer">
                             <div
-                                class="bg-white dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 shadow-sm border border-emerald-100 dark:border-emerald-800 px-3 py-1.5 rounded-full text-xs font-bold flex items-center gap-1 transform scale-90 group-hover:scale-100 transition-transform">
+                                class="bg-white dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 shadow-sm border border-emerald-100 dark:border-emerald-800 px-3 py-1.5 rounded text-xs font-bold flex items-center gap-1 transform scale-90 group-hover:scale-100 transition-transform">
                                 <Icon name="lucide:plus-circle" size="14" />
                                 <span>申请</span>
                             </div>

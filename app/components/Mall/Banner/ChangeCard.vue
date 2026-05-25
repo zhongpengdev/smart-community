@@ -28,17 +28,17 @@
         <!-- 底部小圆点 -->
         <div class="absolute bottom-4 right-6 flex items-center gap-1.5 z-20">
             <div v-for="(item, index) in bannerData" :key="index" @click="setActiveItem(index)"
-                class="h-1.5 rounded-full transition-all duration-300 cursor-pointer shadow-sm" :class="[
+                class="h-1.5 rounded transition-all duration-300 cursor-pointer shadow-sm" :class="[
                     currentIndex === index ? 'w-6 bg-white' : 'w-1.5 bg-white/50 hover:bg-white/80'
                 ]"></div>
         </div>
 
         <!-- Custom Navigation Arrows (Only visible on hover) -->
-        <div class="absolute top-1/2 left-2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/10 hover:bg-black/30 backdrop-blur-sm flex items-center justify-center text-white cursor-pointer transition-all opacity-0 group-hover:opacity-100 group-hover:left-4 z-20"
+        <div class="absolute top-1/2 left-2 -translate-y-1/2 w-8 h-8 rounded bg-black/10 hover:bg-black/30 backdrop-blur-sm flex items-center justify-center text-white cursor-pointer transition-all opacity-0 group-hover:opacity-100 group-hover:left-4 z-20"
             @click.stop="prev">
             <Icon name="lucide:chevron-left" size="18" />
         </div>
-        <div class="absolute top-1/2 right-2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/10 hover:bg-black/30 backdrop-blur-sm flex items-center justify-center text-white cursor-pointer transition-all opacity-0 group-hover:opacity-100 group-hover:right-4 z-20"
+        <div class="absolute top-1/2 right-2 -translate-y-1/2 w-8 h-8 rounded bg-black/10 hover:bg-black/30 backdrop-blur-sm flex items-center justify-center text-white cursor-pointer transition-all opacity-0 group-hover:opacity-100 group-hover:right-4 z-20"
             @click.stop="next">
             <Icon name="lucide:chevron-right" size="18" />
         </div>

@@ -10,7 +10,7 @@
                 <div class="flex gap-3">
                     <!-- Miniature Image if available -->
                     <img v-if="post.firstImage" :src="post.firstImage"
-                        class="w-16 h-16 rounded-lg object-cover shrink-0 bg-slate-100" />
+                        class="w-16 h-16 rounded object-cover shrink-0 bg-slate-100" />
 
                     <div class="flex-1 min-w-0">
                         <h4
@@ -29,7 +29,7 @@
             <!-- Loading Skeleton -->
             <div v-if="collectedLoading" class="space-y-3">
                 <div v-for="i in 3" :key="i" class="flex gap-3 animate-pulse">
-                    <div class="w-16 h-16 bg-slate-100 rounded-lg shrink-0"></div>
+                    <div class="w-16 h-16 bg-slate-100 rounded shrink-0"></div>
                     <div class="flex-1 space-y-2 py-1">
                         <div class="h-3 bg-slate-100 rounded w-3/4"></div>
                         <div class="h-3 bg-slate-100 rounded w-1/2"></div>
@@ -46,7 +46,7 @@
 
             <!-- Load More / Expand -->
             <button v-if="collectedHasMore && !collectedLoading" @click="loadNextPage"
-                class="w-full py-2 text-xs font-bold text-slate-500 hover:text-[#ff5000] hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-all flex items-center justify-center gap-1">
+                class="w-full py-2 text-xs font-bold text-slate-500 hover:text-[#ff5000] hover:bg-slate-50 dark:hover:bg-slate-800 rounded transition-all flex items-center justify-center gap-1">
                 展开更多收藏
                 <Icon name="lucide:chevron-down" size="14" />
             </button>

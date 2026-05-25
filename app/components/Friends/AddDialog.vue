@@ -40,11 +40,11 @@
             </div>
 
             <!-- 搜索结果 -->
-            <div v-if="searchResults.length > 0" class="max-h-[400px] overflow-y-auto space-y-2 border border-slate-200 dark:border-slate-700 rounded-lg p-3">
+            <div v-if="searchResults.length > 0" class="max-h-[400px] overflow-y-auto space-y-2 border border-slate-200 dark:border-slate-700 rounded p-3">
                 <div
                     v-for="user in searchResults"
                     :key="user.userId"
-                    class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors border border-transparent group"
+                    class="flex items-center gap-3 p-3 rounded hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors border border-transparent group"
                     :class="user.friendStatus === 0 ? 'cursor-pointer hover:border-[#ff5000]/20' : 'cursor-not-allowed opacity-60'"
                     @click="handleSelectUser(user)"
                 >
@@ -71,13 +71,13 @@
 
                     <!-- 好友状态标签和操作按钮 -->
                     <div class="shrink-0 flex items-center gap-2">
-                        <span v-if="user.friendStatus === 0" class="text-xs px-2 py-1 rounded-full bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400">
+                        <span v-if="user.friendStatus === 0" class="text-xs px-2 py-1 rounded bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400">
                             可添加
                         </span>
-                        <span v-else-if="user.friendStatus === 1" class="text-xs px-2 py-1 rounded-full bg-orange-100 text-orange-700 dark:bg-orange-900/20 dark:text-orange-400">
+                        <span v-else-if="user.friendStatus === 1" class="text-xs px-2 py-1 rounded bg-orange-100 text-orange-700 dark:bg-orange-900/20 dark:text-orange-400">
                             待审核
                         </span>
-                        <span v-else-if="user.friendStatus === 2" class="text-xs px-2 py-1 rounded-full bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-400">
+                        <span v-else-if="user.friendStatus === 2" class="text-xs px-2 py-1 rounded bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-400">
                             已是好友
                         </span>
                         

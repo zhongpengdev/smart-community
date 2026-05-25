@@ -34,10 +34,10 @@
                         <!-- Message Content -->
                         <div>
                             <div
-                                class="px-4 py-2 rounded-lg break-words"
+                                class="px-4 py-2 rounded break-words"
                                 :class="message.fromUserId === userStore.userInfo?.userId 
-                                    ? 'bg-[#ff5000] text-white rounded-tr-none' 
-                                    : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-white rounded-tl-none'"
+                                    ? 'bg-[#ff5000] text-white rounded-none' 
+                                    : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-white rounded-none'"
                             >
                                 {{ message.content }}
                             </div>

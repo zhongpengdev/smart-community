@@ -1,7 +1,7 @@
 <template>
     <div class="bg-white dark:bg-slate-900 rounded p-5 border border-slate-100 dark:border-slate-800 shadow-sm">
         <div class="flex gap-4">
-            <img :src="userAvatar" class="w-10 h-10 rounded-full object-cover bg-slate-100" />
+            <img :src="userAvatar" class="w-10 h-10 rounded object-cover bg-slate-100" />
             <div class="flex-1">
                 <div class="mb-3">
                     <input v-model="title" type="text" placeholder="请输入标题 (必填)"
@@ -16,9 +16,9 @@
                     <div v-if="images.length > 0" class="flex flex-wrap gap-2 mt-2">
                         <div v-for="(img, idx) in images" :key="idx" class="relative group w-20 h-20">
                             <img :src="img"
-                                class="w-full h-full object-cover rounded-lg border border-slate-200 dark:border-slate-700" />
+                                class="w-full h-full object-cover rounded border border-slate-200 dark:border-slate-700" />
                             <button @click="removeImage(idx)"
-                                class="absolute -top-1 -right-1 bg-red-500 text-white rounded-full p-0.5 hover:bg-red-600 transition-colors shadow-sm">
+                                class="absolute -top-1 -right-1 bg-red-500 text-white rounded p-0.5 hover:bg-red-600 transition-colors shadow-sm">
                                 <Icon name="lucide:x" size="12" />
                             </button>
                         </div>
@@ -28,29 +28,29 @@
                 <div class="flex items-center justify-between">
                     <div class="flex items-center gap-4">
                         <button
-                            class="text-slate-400 hover:text-[#ff5000] transition-colors p-1 rounded-lg hover:bg-orange-50 dark:hover:bg-orange-900/10">
+                            class="text-slate-400 hover:text-[#ff5000] transition-colors p-1 rounded hover:bg-orange-50 dark:hover:bg-orange-900/10">
                             <Icon name="lucide:hash" size="18" />
                         </button>
                         <button
-                            class="text-slate-400 hover:text-[#ff5000] transition-colors p-1 rounded-lg hover:bg-orange-50 dark:hover:bg-orange-900/10">
+                            class="text-slate-400 hover:text-[#ff5000] transition-colors p-1 rounded hover:bg-orange-50 dark:hover:bg-orange-900/10">
                             <Icon name="lucide:smile" size="18" />
                         </button>
                         <button @click="triggerFileUpload"
-                            class="text-slate-400 hover:text-[#ff5000] transition-colors p-1 rounded-lg hover:bg-orange-50 dark:hover:bg-orange-900/10">
+                            class="text-slate-400 hover:text-[#ff5000] transition-colors p-1 rounded hover:bg-orange-50 dark:hover:bg-orange-900/10">
                             <Icon name="lucide:image" size="18" />
                         </button>
                         <input type="file" ref="fileInput" class="hidden" accept="image/*" @change="handleFileChange" />
                         <button
-                            class="text-slate-400 hover:text-[#ff5000] transition-colors p-1 rounded-lg hover:bg-orange-50 dark:hover:bg-orange-900/10">
+                            class="text-slate-400 hover:text-[#ff5000] transition-colors p-1 rounded hover:bg-orange-50 dark:hover:bg-orange-900/10">
                             <Icon name="lucide:video" size="18" />
                         </button>
                     </div>
 
                     <div class="flex items-center gap-3">
                         <button @click="handleSubmit" :disabled="!isFormValid || creating"
-                            class="bg-[#ff5000] hover:bg-[#ff6a00] disabled:bg-slate-200 disabled:text-slate-400 text-white px-5 py-1.5 rounded-full text-sm font-bold transition-all shadow-lg shadow-orange-500/20 disabled:shadow-none flex items-center gap-2">
+                            class="bg-[#ff5000] hover:bg-[#ff6a00] disabled:bg-slate-200 disabled:text-slate-400 text-white px-5 py-1.5 rounded text-sm font-bold transition-all shadow-lg shadow-orange-500/20 disabled:shadow-none flex items-center gap-2">
                             <span v-if="creating"
-                                class="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                                class="w-3 h-3 border-2 border-white/30 border-t-white rounded animate-spin"></span>
                             发想法
                         </button>
                     </div>

@@ -9,7 +9,7 @@
         <div class="max-w-[1000px] mx-auto px-4">
 
             <!-- White Card Container for Content -->
-            <div class="bg-white dark:bg-slate-800 rounded-lg shadow-sm p-6 min-h-[600px]">
+            <div class="bg-white dark:bg-slate-800 rounded shadow-sm p-6 min-h-[600px]">
 
                 <!-- Loading Skeleton -->
                 <div v-if="loading" class="max-w-[800px] mx-auto space-y-10 mt-2">
@@ -46,7 +46,7 @@
                 <!-- Empty State -->
                 <div v-if="!loading && newsList.length === 0" class="py-32 text-center">
                     <div
-                        class="w-20 h-20 bg-slate-50 dark:bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-300 dark:text-slate-500">
+                        class="w-20 h-20 bg-slate-50 dark:bg-slate-700 rounded flex items-center justify-center mx-auto mb-4 text-slate-300 dark:text-slate-500">
                         <Icon name="lucide:search-x" size="40" />
                     </div>
                     <p class="text-slate-400 text-sm">暂无相关结果，换个关键词试试？</p>

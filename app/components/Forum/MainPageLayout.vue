@@ -3,7 +3,7 @@
         <!-- Header -->
         <div class="flex items-center justify-between mb-4">
             <div class="flex items-center gap-2">
-                <span class="w-1 h-4 bg-[#ff5000] rounded-full"></span>
+                <span class="w-1 h-4 bg-[#ff5000] rounded"></span>
                 <h2 class="text-base font-bold text-slate-800 dark:text-white">社区论坛</h2>
             </div>
             <NuxtLink to="/service/community/forum"
@@ -16,27 +16,27 @@
         <!-- Loading Skeleton -->
         <div v-if="loading" class="flex gap-3">
             <div v-for="i in 4" :key="i"
-                class="w-[180px] h-[120px] bg-slate-100 dark:bg-slate-800 rounded-xl animate-pulse shrink-0"></div>
+                class="w-[180px] h-[120px] bg-slate-100 dark:bg-slate-800 rounded animate-pulse shrink-0"></div>
         </div>
 
         <!-- Carousel Container -->
         <div v-else class="relative group/container">
             <!-- Left Arrow -->
             <button @click="scrollLeft"
-                class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white/90 dark:bg-slate-800/90 rounded-full shadow-lg flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 transition-all opacity-0 group-hover/container:opacity-100 -translate-x-2 group-hover/container:translate-x-0">
+                class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white/90 dark:bg-slate-800/90 rounded shadow-lg flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 transition-all opacity-0 group-hover/container:opacity-100 -translate-x-2 group-hover/container:translate-x-0">
                 <Icon name="lucide:chevron-left" size="18" />
             </button>
 
             <!-- Right Arrow -->
             <button @click="scrollRight"
-                class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white/90 dark:bg-slate-800/90 rounded-full shadow-lg flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 transition-all opacity-0 group-hover/container:opacity-100 translate-x-2 group-hover/container:translate-x-0">
+                class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white/90 dark:bg-slate-800/90 rounded shadow-lg flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 transition-all opacity-0 group-hover/container:opacity-100 translate-x-2 group-hover/container:translate-x-0">
                 <Icon name="lucide:chevron-right" size="18" />
             </button>
 
             <!-- Scrollable Cards -->
             <div ref="scrollContainer" class="flex gap-3 overflow-x-auto scrollbar-hide scroll-smooth">
                 <div v-for="section in sections" :key="section.sectionId" @click="navigateToSection(section.sectionId)"
-                    class="relative w-[180px] h-[180px] rounded-xl overflow-hidden shrink-0 cursor-pointer group">
+                    class="relative w-[180px] h-[180px] rounded overflow-hidden shrink-0 cursor-pointer group">
 
                     <!-- Background Image -->
                     <img :src="section.iconUrl || 'https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=400&q=80'"
@@ -56,7 +56,7 @@
                         </p>
                         <div class="flex items-center gap-2 mt-2">
                             <img :src="section.iconUrl || 'https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png'"
-                                class="w-5 h-5 rounded-full ring-1 ring-white/30" />
+                                class="w-5 h-5 rounded ring-1 ring-white/30" />
                             <span class="text-white/60 text-[10px]">r/{{ section.sectionName }} and more</span>
                         </div>
                     </div>

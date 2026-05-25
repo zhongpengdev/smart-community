@@ -125,7 +125,7 @@ export const ToolCallIndicator = ({
 }: ToolCallProps) => {
   return (
     <div className={`
-      flex items-center gap-2 p-3 rounded-lg
+      flex items-center gap-2 p-3 rounded
       ${status === 'calling' ? 'bg-blue-50 animate-pulse' : 'bg-green-50'}
     `}>
       <ToolIcon iconName={icon} />

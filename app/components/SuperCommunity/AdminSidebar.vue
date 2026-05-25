@@ -5,7 +5,7 @@
         <NuxtLink to="/superCommunity">
             <div class="h-16 flex items-center border-b border-slate-200 dark:border-slate-800 px-4">
                 <div class="flex items-center flex-1 min-w-0">
-                    <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/25">
+                    <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/25">
                         <Icon name="lucide:layout-dashboard" class="text-white" size="20" />
                     </div>
                     <Transition name="fade-slide">
@@ -24,7 +24,7 @@
             
             <!-- 数据看板入口 -->
             <NuxtLink to="/superCommunity"
-                class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 mb-3"
+                class="group flex items-center px-3 py-2.5 text-sm font-medium rounded transition-all duration-200 mb-3"
                 :class="[
                     isCollapsed ? 'justify-center' : '',
                     isExactActive('/superCommunity') 
@@ -51,7 +51,7 @@
         <div class="p-4 border-t border-slate-200 dark:border-slate-800 space-y-2">
             <!-- 返回用户端按钮 -->
             <NuxtLink to="/"
-                class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-600/20 dark:to-teal-600/20 hover:from-emerald-100 hover:to-teal-100 dark:hover:from-emerald-600/30 dark:hover:to-teal-600/30 border border-emerald-200 dark:border-emerald-500/30 transition-all duration-200 group"
+                class="w-full flex items-center gap-3 px-3 py-2.5 rounded bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-600/20 dark:to-teal-600/20 hover:from-emerald-100 hover:to-teal-100 dark:hover:from-emerald-600/30 dark:hover:to-teal-600/30 border border-emerald-200 dark:border-emerald-500/30 transition-all duration-200 group"
                 :class="isCollapsed ? 'justify-center' : ''" title="返回用户端首页">
                 <Icon name="lucide:home" class="text-emerald-600 dark:text-emerald-400 group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors shrink-0" size="18" />
                 <Transition name="fade-slide">
@@ -63,7 +63,7 @@
 
             <!-- Theme Toggle Button -->
             <button @click="toggleTheme"
-                class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg bg-slate-100 dark:bg-slate-800/50 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all duration-200 group"
+                class="w-full flex items-center gap-3 px-3 py-2.5 rounded bg-slate-100 dark:bg-slate-800/50 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all duration-200 group"
                 :class="isCollapsed ? 'justify-center' : ''" :title="isDark ? '切换到浅色模式' : '切换到深色模式'">
                 <Icon :name="isDark ? 'lucide:sun' : 'lucide:moon'"
                     class="text-amber-500 dark:text-amber-400 group-hover:text-amber-600 dark:group-hover:text-amber-300 transition-colors shrink-0" size="18" />
@@ -77,7 +77,7 @@
 
             <!-- Toggle Sidebar Button -->
             <button @click="toggleSidebar"
-                class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg bg-slate-100 dark:bg-slate-800/50 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all duration-200 group"
+                class="w-full flex items-center gap-3 px-3 py-2.5 rounded bg-slate-100 dark:bg-slate-800/50 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all duration-200 group"
                 :class="isCollapsed ? 'justify-center' : ''" :title="isCollapsed ? '展开侧边栏' : '收起侧边栏'">
                 <Icon name="lucide:panel-left-close"
                     class="text-slate-500 dark:text-slate-400 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors shrink-0"
@@ -91,9 +91,9 @@
             </button>
 
             <!-- User Profile -->
-            <div class="flex items-center gap-3 rounded-lg bg-slate-100 dark:bg-slate-800/50 transition-all duration-300"
+            <div class="flex items-center gap-3 rounded bg-slate-100 dark:bg-slate-800/50 transition-all duration-300"
                 :class="isCollapsed ? 'px-2 py-2 justify-center' : 'px-3 py-2'">
-                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-xs font-bold text-white shrink-0 shadow-md"
+                <div class="w-8 h-8 rounded bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-xs font-bold text-white shrink-0 shadow-md"
                     :title="userStore.userRole?.roleName || '管理员'">
                     {{ userStore.userRole?.roleName?.charAt(0) || 'A' }}
                 </div>
@@ -118,7 +118,7 @@
             <!-- Collapsed Logout Button -->
             <Transition name="fade">
                 <button v-if="isCollapsed" @click="handleLogout"
-                    class="w-full flex items-center justify-center p-2 rounded-lg text-slate-400 hover:text-red-500 dark:hover:text-red-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors"
+                    class="w-full flex items-center justify-center p-2 rounded text-slate-400 hover:text-red-500 dark:hover:text-red-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors"
                     title="退出登录">
                     <Icon name="lucide:log-out" size="16" />
                 </button>

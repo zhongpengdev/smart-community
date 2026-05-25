@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full bg-white dark:bg-white/5 rounded-xl border border-slate-100 dark:border-white/5 shadow-sm p-4">
+  <div class="w-full bg-white dark:bg-white/5 rounded border border-slate-100 dark:border-white/5 shadow-sm p-4">
     <div class="flex flex-col md:flex-row gap-4 h-full divide-y md:divide-y-0 md:divide-x divide-slate-100 dark:divide-white/10">
       
       <div class="flex-1 px-4 flex flex-col justify-between h-[100px]">

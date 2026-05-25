@@ -68,13 +68,13 @@
                     <!-- Transaction List -->
                     <div v-if="loading && transactions.length === 0" class="space-y-4">
                         <div v-for="i in 6" :key="i"
-                            class="h-16 bg-slate-50/50 dark:bg-slate-800/30 animate-pulse rounded-xl"></div>
+                            class="h-16 bg-slate-50/50 dark:bg-slate-800/30 animate-pulse rounded"></div>
                     </div>
 
                     <div v-else-if="transactions.length === 0"
                         class="flex flex-col items-center justify-center py-24 text-slate-400">
                         <div
-                            class="w-16 h-16 bg-slate-50 dark:bg-slate-800 rounded-full flex items-center justify-center mb-4">
+                            class="w-16 h-16 bg-slate-50 dark:bg-slate-800 rounded flex items-center justify-center mb-4">
                             <Icon name="lucide:receipt-text" size="32" class="opacity-20" />
                         </div>
                         <p class="text-sm font-medium">暂无账单明细</p>
@@ -82,10 +82,10 @@
 
                     <div v-else class="space-y-1">
                         <div v-for="item in transactions" :key="item.transactionId"
-                            class="group flex items-center justify-between py-3.5 hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-all px-4 -mx-4 rounded-xl border-b border-transparent hover:border-slate-100 dark:hover:border-slate-700/50">
+                            class="group flex items-center justify-between py-3.5 hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-all px-4 -mx-4 rounded border-b border-transparent hover:border-slate-100 dark:hover:border-slate-700/50">
                             <div class="flex items-center gap-4">
                                 <div :class="isIncome(item.transactionType) ? 'bg-emerald-50 text-emerald-600 dark:bg-emerald-900/20 dark:text-emerald-400' : 'bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400'"
-                                    class="w-10 h-10 rounded-xl flex items-center justify-center transition-colors group-hover:scale-110 duration-300">
+                                    class="w-10 h-10 rounded flex items-center justify-center transition-colors group-hover:scale-110 duration-300">
                                     <Icon :name="getTransactionIcon(item.transactionType)" size="18" />
                                 </div>
                                 <div class="space-y-0.5">
@@ -98,7 +98,7 @@
                                     </div>
                                     <div class="flex items-center gap-2 text-[10px] text-slate-400">
                                         <span>{{ formatDate(item.createTime) }}</span>
-                                        <span class="w-1 h-1 bg-slate-200 rounded-full"></span>
+                                        <span class="w-1 h-1 bg-slate-200 rounded"></span>
                                         <span class="font-mono">{{ item.transactionNo.slice(-8) }}</span>
                                     </div>
                                 </div>
@@ -118,7 +118,7 @@
                         <!-- Load More Button -->
                         <div v-if="hasMore" class="pt-4 flex justify-center">
                             <button @click="loadMore" :disabled="loading"
-                                class="flex items-center gap-2 px-6 py-2.5 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full text-xs font-bold text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 transition-all border border-slate-100 dark:border-slate-700">
+                                class="flex items-center gap-2 px-6 py-2.5 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 rounded text-xs font-bold text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 transition-all border border-slate-100 dark:border-slate-700">
                                 <span v-if="loading">加载中...</span>
                                 <template v-else>
                                     <span>查看更多记录</span>

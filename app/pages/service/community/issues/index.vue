@@ -12,15 +12,15 @@
 
                 <div class="flex items-center gap-4">
                     <!-- Tabs -->
-                    <div class="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-md">
+                    <div class="flex bg-slate-100 dark:bg-slate-800 p-1 rounded">
                         <button @click="activeTab = 'repair'"
-                            class="px-4 py-1.5 rounded-sm text-sm font-medium transition-all flex items-center gap-2"
+                            class="px-4 py-1.5 rounded text-sm font-medium transition-all flex items-center gap-2"
                             :class="activeTab === 'repair' ? 'bg-white dark:bg-slate-700 text-[#ff5000] shadow-sm' : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'">
                             <Icon name="lucide:wrench" size="14" />
                             报事维修
                         </button>
                         <button @click="activeTab = 'complaint'"
-                            class="px-4 py-1.5 rounded-sm text-sm font-medium transition-all flex items-center gap-2"
+                            class="px-4 py-1.5 rounded text-sm font-medium transition-all flex items-center gap-2"
                             :class="activeTab === 'complaint' ? 'bg-white dark:bg-slate-700 text-[#ff5000] shadow-sm' : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'">
                             <Icon name="lucide:message-square-warning" size="14" />
                             事项投诉
@@ -28,7 +28,7 @@
                     </div>
 
                     <button @click="openCreateModal"
-                        class="bg-[#ff5000] hover:bg-[#ff3d00] text-white px-4 h-10 rounded-md shadow-sm hover:shadow-md transition-all flex items-center gap-2 text-sm font-medium">
+                        class="bg-[#ff5000] hover:bg-[#ff3d00] text-white px-4 h-10 rounded shadow-sm hover:shadow-md transition-all flex items-center gap-2 text-sm font-medium">
                         <Icon name="lucide:plus-square" size="14" />
                     </button>
                 </div>
@@ -41,26 +41,26 @@
             <div v-if="activeTab === 'repair'" class="space-y-4">
                 <div v-if="repairLoading && repairList.length === 0" class="grid gap-4">
                     <div v-for="i in 3" :key="i"
-                        class="bg-white dark:bg-slate-800 p-6 rounded-md animate-pulse h-32 border border-slate-100 dark:border-slate-700">
+                        class="bg-white dark:bg-slate-800 p-6 rounded animate-pulse h-32 border border-slate-100 dark:border-slate-700">
                     </div>
                 </div>
 
                 <div v-else-if="repairList.length > 0" class="grid grid-cols-1 gap-4">
                     <div v-for="item in repairList" :key="item.reportId"
-                        class="bg-white dark:bg-slate-800 rounded-md shadow-sm hover:shadow transition-all border-y border-r border-slate-100 dark:border-y-slate-700 dark:border-r-slate-700 p-5 group flex flex-col md:flex-row gap-2">
+                        class="bg-white dark:bg-slate-800 rounded shadow-sm hover:shadow transition-all border-y border-r border-slate-100 dark:border-y-slate-700 dark:border-r-slate-700 p-5 group flex flex-col md:flex-row gap-2">
 
                         <div class="flex-1">
                             <div class="flex justify-between items-start mb-2">
                                 <div class="flex items-center gap-2">
                                     <span
-                                        class="bg-[#ff5000]/10 text-[#ff5000] text-[10px] px-1.5 py-0.5 rounded-sm font-bold border border-[#ff5000]/20">报修</span>
+                                        class="bg-[#ff5000]/10 text-[#ff5000] text-[10px] px-1.5 py-0.5 rounded font-bold border border-[#ff5000]/20">报修</span>
                                     <h3
                                         class="font-bold text-slate-800 dark:text-slate-100 text-base line-clamp-1 group-hover:text-[#ff5000] transition-colors">
                                         {{ item.reportType }}</h3>
                                 </div>
                             </div>
                             <p
-                                class="text-slate-600 dark:text-slate-300 text-sm mb-3 line-clamp-2 bg-slate-50 dark:bg-slate-900/50 p-2 rounded-sm border border-slate-100 dark:border-slate-700/50">
+                                class="text-slate-600 dark:text-slate-300 text-sm mb-3 line-clamp-2 bg-slate-50 dark:bg-slate-900/50 p-2 rounded border border-slate-100 dark:border-slate-700/50">
                                 {{ item.description }}
                             </p>
                             <div class="flex items-center gap-4 text-xs text-slate-400">
@@ -75,7 +75,7 @@
 
                         <div
                             class="flex md:flex-col items-center md:items-end justify-between md:justify-center gap-3 border-t md:border-t-0 md:border-l border-slate-100 dark:border-slate-700 pt-3 md:pt-0 md:pl-4 min-w-[100px]">
-                            <div class="px-3 py-1 rounded-sm text-xs font-bold border flex items-center gap-1"
+                            <div class="px-3 py-1 rounded text-xs font-bold border flex items-center gap-1"
                                 :class="getStatusClass(Number(item.status))">
                                 <Icon v-if="Number(item.status) === 2" name="lucide:check-circle-2" size="12" />
                                 <Icon v-else-if="Number(item.status) === 1" name="lucide:loader-2" size="12" />
@@ -87,9 +87,9 @@
                 </div>
 
                 <div v-else
-                    class="py-20 text-center bg-white dark:bg-slate-800 rounded-md border border-slate-100 dark:border-slate-700">
+                    class="py-20 text-center bg-white dark:bg-slate-800 rounded border border-slate-100 dark:border-slate-700">
                     <div
-                        class="w-16 h-16 bg-slate-50 dark:bg-slate-700/50 rounded-md flex items-center justify-center mx-auto mb-3 text-slate-300 dark:text-slate-500 border border-slate-100 dark:border-slate-600">
+                        class="w-16 h-16 bg-slate-50 dark:bg-slate-700/50 rounded flex items-center justify-center mx-auto mb-3 text-slate-300 dark:text-slate-500 border border-slate-100 dark:border-slate-600">
                         <Icon name="lucide:clipboard-x" size="32" />
                     </div>
                     <p class="text-slate-400 text-sm">暂无报修记录</p>
@@ -114,26 +114,26 @@
             <div v-else class="space-y-4">
                 <div v-if="complaintLoading && complaintList.length === 0" class="grid gap-4">
                     <div v-for="i in 3" :key="i"
-                        class="bg-white dark:bg-slate-800 p-6 rounded-md animate-pulse h-32 border border-slate-100 dark:border-slate-700">
+                        class="bg-white dark:bg-slate-800 p-6 rounded animate-pulse h-32 border border-slate-100 dark:border-slate-700">
                     </div>
                 </div>
 
                 <div v-else-if="complaintList.length > 0" class="grid grid-cols-1 gap-4">
                     <div v-for="item in complaintList" :key="item.id"
-                        class="bg-white dark:bg-slate-800 rounded-md shadow-sm hover:shadow transition-all border-y border-r border-slate-100 dark:border-y-slate-700 dark:border-r-slate-700 p-5 group flex flex-col md:flex-row gap-2">
+                        class="bg-white dark:bg-slate-800 rounded shadow-sm hover:shadow transition-all border-y border-r border-slate-100 dark:border-y-slate-700 dark:border-r-slate-700 p-5 group flex flex-col md:flex-row gap-2">
 
                         <div class="flex-1">
                             <div class="flex justify-between items-start mb-2">
                                 <div class="flex items-center gap-2">
                                     <span
-                                        class="bg-red-50 text-red-600 text-[10px] px-1.5 py-0.5 rounded-sm font-bold border border-red-100 dark:bg-red-900/20 dark:text-red-400 dark:border-red-900/40">投诉</span>
+                                        class="bg-red-50 text-red-600 text-[10px] px-1.5 py-0.5 rounded font-bold border border-red-100 dark:bg-red-900/20 dark:text-red-400 dark:border-red-900/40">投诉</span>
                                     <h3
                                         class="font-bold text-slate-800 dark:text-slate-100 text-base line-clamp-1 group-hover:text-[#ff5000] transition-colors">
                                         {{ item.complaintType }}</h3>
                                 </div>
                             </div>
                             <p
-                                class="text-slate-600 dark:text-slate-300 text-sm mb-3 line-clamp-2 bg-slate-50 dark:bg-slate-900/50 p-2 rounded-sm border border-slate-100 dark:border-slate-700/50">
+                                class="text-slate-600 dark:text-slate-300 text-sm mb-3 line-clamp-2 bg-slate-50 dark:bg-slate-900/50 p-2 rounded border border-slate-100 dark:border-slate-700/50">
                                 {{ item.description }}
                             </p>
                             <div class="flex items-center gap-4 text-xs text-slate-400">
@@ -149,7 +149,7 @@
 
                         <div
                             class="flex md:flex-col items-center md:items-end justify-between md:justify-center gap-3 border-t md:border-t-0 md:border-l border-slate-100 dark:border-slate-700 pt-3 md:pt-0 md:pl-4 min-w-[100px]">
-                            <div class="px-3 py-1 rounded-sm text-xs font-bold border flex items-center gap-1"
+                            <div class="px-3 py-1 rounded text-xs font-bold border flex items-center gap-1"
                                 :class="getStatusClass(Number(item.status))">
                                 <Icon v-if="Number(item.status) === 2" name="lucide:check-circle-2" size="12" />
                                 <Icon v-else-if="Number(item.status) === 1" name="lucide:loader-2" size="12" />
@@ -166,9 +166,9 @@
                 </div>
 
                 <div v-else
-                    class="py-20 text-center bg-white dark:bg-slate-800 rounded-md border border-slate-100 dark:border-slate-700">
+                    class="py-20 text-center bg-white dark:bg-slate-800 rounded border border-slate-100 dark:border-slate-700">
                     <div
-                        class="w-16 h-16 bg-slate-50 dark:bg-slate-700/50 rounded-md flex items-center justify-center mx-auto mb-3 text-slate-300 dark:text-slate-500 border border-slate-100 dark:border-slate-600">
+                        class="w-16 h-16 bg-slate-50 dark:bg-slate-700/50 rounded flex items-center justify-center mx-auto mb-3 text-slate-300 dark:text-slate-500 border border-slate-100 dark:border-slate-600">
                         <Icon name="lucide:inbox" size="32" />
                     </div>
                     <p class="text-slate-400 text-sm">暂无投诉记录</p>

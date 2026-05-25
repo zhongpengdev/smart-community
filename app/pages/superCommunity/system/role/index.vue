@@ -17,7 +17,7 @@
             <div
                 v-for="role in roleList"
                 :key="role.roleId"
-                class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
+                class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm hover:shadow-md transition-shadow"
             >
                 <div class="flex items-start justify-between mb-4">
                     <div class="flex-1">

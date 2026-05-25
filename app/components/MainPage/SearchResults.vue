@@ -22,7 +22,7 @@
                 <div v-for="item in searchState.results.services" :key="item.id" @click="handleSelect(item)"
                     class="px-4 py-3 flex items-start gap-3 hover:bg-white dark:hover:bg-slate-700/50 cursor-pointer transition-colors border-b border-slate-100 dark:border-slate-700/30 last:border-0">
                     <div
-                        class="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-500 shrink-0">
+                        class="w-8 h-8 rounded bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-500 shrink-0">
                         <Icon :name="item.icon || 'lucide:grid'" class="w-4 h-4" />
                     </div>
                     <div>
@@ -42,7 +42,7 @@
                 <div v-for="item in searchState.results.news" :key="item.id" @click="handleSelect(item)"
                     class="px-4 py-3 flex items-start gap-3 hover:bg-white dark:hover:bg-slate-700/50 cursor-pointer transition-colors border-b border-slate-100 dark:border-slate-700/30 last:border-0">
                     <div
-                        class="w-8 h-8 rounded-lg bg-orange-50 dark:bg-orange-900/30 flex items-center justify-center text-orange-500 shrink-0">
+                        class="w-8 h-8 rounded bg-orange-50 dark:bg-orange-900/30 flex items-center justify-center text-orange-500 shrink-0">
                         <Icon name="lucide:newspaper" class="w-4 h-4" />
                     </div>
                     <div class="flex-1 min-w-0">
@@ -64,7 +64,7 @@
                 <div v-for="item in searchState.results.forum" :key="item.id" @click="handleSelect(item)"
                     class="px-4 py-3 flex items-start gap-3 hover:bg-white dark:hover:bg-slate-700/50 cursor-pointer transition-colors border-b border-slate-100 dark:border-slate-700/30 last:border-0">
                     <div
-                        class="w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-500 shrink-0">
+                        class="w-8 h-8 rounded bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-500 shrink-0">
                         <Icon name="lucide:message-circle" class="w-4 h-4" />
                     </div>
                     <div class="flex-1 min-w-0">
@@ -86,7 +86,7 @@
         <div v-else-if="!searchState.hasSearched"
             class="flex-1 flex flex-col items-center justify-center text-slate-400 p-8">
             <div
-                class="w-16 h-16 rounded-2xl bg-slate-200/50 dark:bg-slate-700/50 flex items-center justify-center mb-4">
+                class="w-16 h-16 rounded bg-slate-200/50 dark:bg-slate-700/50 flex items-center justify-center mb-4">
                 <Icon name="lucide:search" class="w-8 h-8 text-slate-300 dark:text-slate-600" />
             </div>
             <p class="text-sm font-medium">输入关键词搜索</p>
@@ -97,7 +97,7 @@
 
         <!-- 空状态 - 无结果 -->
         <div v-else class="flex-1 flex flex-col items-center justify-center text-slate-400 p-8">
-            <div class="w-16 h-16 rounded-2xl bg-slate-100 dark:bg-slate-700/50 flex items-center justify-center mb-4">
+            <div class="w-16 h-16 rounded bg-slate-100 dark:bg-slate-700/50 flex items-center justify-center mb-4">
                 <Icon name="lucide:search-x" class="w-8 h-8 text-slate-300 dark:text-slate-600" />
             </div>
             <p class="text-sm font-medium">未找到相关结果</p>

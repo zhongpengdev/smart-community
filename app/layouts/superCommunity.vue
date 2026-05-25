@@ -30,12 +30,12 @@
                 <!-- Quick Actions -->
                 <div class="flex items-center gap-3">
                     <button
-                        class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors"
+                        class="p-2 rounded hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors"
                         title="刷新页面">
                         <Icon name="lucide:refresh-cw" size="18" />
                     </button>
                     <button
-                        class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors"
+                        class="p-2 rounded hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors"
                         title="全屏">
                         <Icon name="lucide:maximize" size="18" />
                     </button>

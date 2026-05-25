@@ -1,7 +1,7 @@
 <!-- 百亿补贴Banner -->
 <template>
     <div
-        class="w-[240px] h-full bg-[#f9f9f9] dark:bg-slate-800 rounded-xl p-4 flex flex-col border border-slate-50 dark:border-slate-800">
+        class="w-[240px] h-full bg-[#f9f9f9] dark:bg-slate-800 rounded p-4 flex flex-col border border-slate-50 dark:border-slate-800">
         <!-- Header -->
         <div class="flex items-center justify-between mb-3 shrink-0">
             <h3 class="text-base font-black text-slate-800 dark:text-slate-100 flex items-center gap-1">
@@ -16,10 +16,10 @@
                 class="bg-gray-200 dark:bg-slate-700 rounded animate-pulse h-24 w-full shrink-0"></div>
 
             <div v-else v-for="item in subsidyList" :key="item.productId" @click="goToDetail(item.productId)"
-                class="flex items-center gap-2 p-2 bg-white dark:bg-slate-700/50 rounded-lg cursor-pointer hover:shadow-sm border border-transparent hover:border-orange-100 transition-all shrink-0">
+                class="flex items-center gap-2 p-2 bg-white dark:bg-slate-700/50 rounded cursor-pointer hover:shadow-sm border border-transparent hover:border-orange-100 transition-all shrink-0">
                 <!-- Image Area -->
                 <div
-                    class="w-20 h-20 shrink-0 bg-white dark:bg-slate-700 rounded-md p-1 overflow-hidden flex justify-center items-center">
+                    class="w-20 h-20 shrink-0 bg-white dark:bg-slate-700 rounded p-1 overflow-hidden flex justify-center items-center">
                     <img :src="item.coverImg" class="w-full h-full object-contain" :alt="item.productName">
                 </div>
 

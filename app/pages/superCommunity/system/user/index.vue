@@ -9,7 +9,7 @@
         </div>
 
         <!-- 搜索和筛选 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+        <div class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <el-input v-model="queryParams.keyword" placeholder="搜索用户名/手机号/邮箱" clearable @clear="handleSearch"
                     @keyup.enter="handleSearch">
@@ -39,7 +39,7 @@
         </div>
 
         <!-- 用户列表 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden">
+        <div class="bg-white dark:bg-slate-800 rounded shadow-sm overflow-hidden">
             <el-table :data="userList" v-loading="loading" style="width: 100%"
                 :header-cell-style="{ background: '#f8fafc', color: '#475569' }">
                 <el-table-column label="用户信息" min-width="250">
@@ -217,11 +217,11 @@
                         钱包信息
                     </h3>
                     <div class="grid grid-cols-2 gap-4 text-sm">
-                        <div class="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                        <div class="p-4 bg-green-50 dark:bg-green-900/20 rounded">
                             <div class="text-slate-500 mb-1">余额</div>
                             <div class="text-2xl font-bold text-green-600">¥{{ currentUser.wallet.balance }}</div>
                         </div>
-                        <div class="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                        <div class="p-4 bg-blue-50 dark:bg-blue-900/20 rounded">
                             <div class="text-slate-500 mb-1">积分</div>
                             <div class="text-2xl font-bold text-blue-600">{{ currentUser.wallet.points }}</div>
                         </div>
@@ -245,7 +245,7 @@
         <!-- 分配角色弹窗 -->
         <el-dialog v-model="roleDialogVisible" title="分配角色" width="500px" @close="handleRoleDialogClose">
             <div v-if="selectedUser" class="mb-4">
-                <div class="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-700 rounded-lg">
+                <div class="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-700 rounded">
                     <el-avatar :size="48" :src="selectedUser.avatar">
                         {{ selectedUser.userName?.charAt(0) }}
                     </el-avatar>
@@ -261,7 +261,7 @@
                 <el-checkbox-group v-model="selectedRoleIds" class="flex flex-col gap-3">
                     <el-checkbox v-for="role in allRoles" :key="role.roleId" :label="role.roleId"
                         :disabled="role.roleCode === 'ROLE_SUPER_ADMIN'"
-                        class="!flex items-center p-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-lg hover:border-blue-400 transition-colors">
+                        class="!flex items-center p-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded hover:border-blue-400 transition-colors">
                         <div class="flex flex-col ml-2">
                             <span class="font-medium">{{ role.roleName }}</span>
                             <span class="text-xs text-slate-400">{{ role.roleCode }}</span>

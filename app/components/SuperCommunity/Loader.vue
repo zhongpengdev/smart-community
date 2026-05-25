@@ -6,7 +6,7 @@
             <!-- Animated Background Particles -->
             <div class="absolute inset-0 overflow-hidden opacity-30">
                 <div v-for="i in 20" :key="i" 
-                    class="absolute w-1 h-1 bg-blue-400 rounded-full animate-float"
+                    class="absolute w-1 h-1 bg-blue-400 rounded animate-float"
                     :style="{
                         left: `${Math.random() * 100}%`,
                         top: `${Math.random() * 100}%`,
@@ -22,16 +22,16 @@
                 <!-- Logo with Glow Effect -->
                 <div class="relative mb-8">
                     <!-- Outer Glow Rings -->
-                    <div class="absolute inset-0 rounded-full bg-blue-500/20 animate-ping scale-150"></div>
-                    <div class="absolute inset-0 rounded-full bg-blue-500/30 animate-pulse"></div>
+                    <div class="absolute inset-0 rounded bg-blue-500/20 animate-ping scale-150"></div>
+                    <div class="absolute inset-0 rounded bg-blue-500/30 animate-pulse"></div>
                     
                     <!-- Main Icon Container -->
-                    <div class="relative w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-2xl shadow-blue-500/50">
+                    <div class="relative w-24 h-24 rounded bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-2xl shadow-blue-500/50">
                         <Icon name="lucide:shield-check" size="48" class="text-white animate-pulse" />
                     </div>
                     
                     <!-- Rotating Border -->
-                    <div class="absolute inset-0 rounded-full border-4 border-transparent border-t-blue-400 border-r-blue-400 animate-spin-slow"></div>
+                    <div class="absolute inset-0 rounded border-4 border-transparent border-t-blue-400 border-r-blue-400 animate-spin-slow"></div>
                 </div>
 
                 <!-- Title with Gradient -->
@@ -45,8 +45,8 @@
                 </p>
 
                 <!-- Loading Progress Bar -->
-                <div class="w-64 h-1.5 bg-slate-800 rounded-full overflow-hidden mb-6 shadow-inner">
-                    <div class="h-full bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 rounded-full transition-all duration-300 shadow-lg shadow-blue-500/50"
+                <div class="w-64 h-1.5 bg-slate-800 rounded overflow-hidden mb-6 shadow-inner">
+                    <div class="h-full bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 rounded transition-all duration-300 shadow-lg shadow-blue-500/50"
                         :style="{ width: `${progress}%` }">
                     </div>
                 </div>
@@ -55,9 +55,9 @@
                 <div class="flex flex-col items-center gap-2 min-h-[60px]">
                     <div class="flex items-center gap-2 text-blue-300">
                         <div class="flex gap-1">
-                            <div class="w-2 h-2 rounded-full bg-blue-400 animate-bounce [animation-delay:-0.3s]"></div>
-                            <div class="w-2 h-2 rounded-full bg-blue-400 animate-bounce [animation-delay:-0.15s]"></div>
-                            <div class="w-2 h-2 rounded-full bg-blue-400 animate-bounce"></div>
+                            <div class="w-2 h-2 rounded bg-blue-400 animate-bounce [animation-delay:-0.3s]"></div>
+                            <div class="w-2 h-2 rounded bg-blue-400 animate-bounce [animation-delay:-0.15s]"></div>
+                            <div class="w-2 h-2 rounded bg-blue-400 animate-bounce"></div>
                         </div>
                         <span class="text-sm font-medium tracking-wider">{{ currentStep }}</span>
                     </div>
@@ -69,7 +69,7 @@
                 </div>
 
                 <!-- Security Badge -->
-                <!-- <div class="mt-8 flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-blue-500/30">
+                <!-- <div class="mt-8 flex items-center gap-2 px-4 py-2 rounded bg-slate-800/50 border border-blue-500/30">
                     <Icon name="lucide:lock" size="14" class="text-blue-400" />
                     <span class="text-xs text-blue-300 font-medium tracking-wider uppercase">安全加密连接</span>
                 </div> -->

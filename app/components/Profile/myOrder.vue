@@ -24,13 +24,13 @@
 
       <!-- 动态/Loading 状态 -->
       <div v-if="loading"
-        class="bg-slate-50 dark:bg-white/5 rounded-lg p-3 flex flex-col items-center justify-center gap-1 mt-1 animate-pulse">
+        class="bg-slate-50 dark:bg-white/5 rounded p-3 flex flex-col items-center justify-center gap-1 mt-1 animate-pulse">
         <div class="h-3 bg-slate-200 dark:bg-white/10 rounded w-3/4 mb-1"></div>
         <div class="h-2 bg-slate-200 dark:bg-white/10 rounded w-1/2"></div>
       </div>
 
       <div v-else-if="latestOrder" @click="router.push('/service/mall/mo')"
-        class="bg-slate-50 dark:bg-white/5 rounded-lg p-3 flex flex-col items-start justify-center gap-1 mt-1 cursor-pointer hover:bg-slate-100 dark:hover:bg-white/10 transition-colors">
+        class="bg-slate-50 dark:bg-white/5 rounded p-3 flex flex-col items-start justify-center gap-1 mt-1 cursor-pointer hover:bg-slate-100 dark:hover:bg-white/10 transition-colors">
         <div class="flex items-center justify-between w-full">
           <span class="text-xs text-slate-800 dark:text-slate-200 font-bold truncate max-w-[120px]">
             最新: {{ latestOrder.statusDesc }}
@@ -43,7 +43,7 @@
       </div>
 
       <div v-else
-        class="bg-slate-50 dark:bg-white/5 rounded-lg p-3 flex flex-col items-center justify-center gap-1 mt-1 cursor-pointer hover:bg-slate-100 dark:hover:bg-white/10 transition-colors">
+        class="bg-slate-50 dark:bg-white/5 rounded p-3 flex flex-col items-center justify-center gap-1 mt-1 cursor-pointer hover:bg-slate-100 dark:hover:bg-white/10 transition-colors">
         <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">当前暂无订单</span>
         <span class="text-[10px] text-slate-400 scale-90">去商城逛逛 ></span>
       </div>

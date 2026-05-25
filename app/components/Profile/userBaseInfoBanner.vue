@@ -12,7 +12,7 @@
           </el-avatar>
 
           <div
-            class="absolute inset-0 rounded-full bg-black/50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-white text-xs backdrop-blur-sm">
+            class="absolute inset-0 rounded bg-black/50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-white text-xs backdrop-blur-sm">
             <Icon name="lucide:camera" size="18" class="mb-0.5" />
             <span>更换</span>
           </div>
@@ -29,12 +29,12 @@
           <!-- 角色标签 -->
           <div v-if="userRoles && userRoles.length > 0" class="flex gap-2">
             <span v-for="role in userRoles" :key="role.roleId"
-              class="px-2 py-0.5 text-xs font-medium rounded-full bg-[#ff5000]/10 text-[#ff5000] border border-[#ff5000]/20">
+              class="px-2 py-0.5 text-xs font-medium rounded bg-[#ff5000]/10 text-[#ff5000] border border-[#ff5000]/20">
               {{ role.roleName }}
             </span>
           </div>
           <span v-else
-            class="px-2 py-0.5 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400">
+            class="px-2 py-0.5 text-xs font-medium rounded bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400">
             普通用户
           </span>
         </div>

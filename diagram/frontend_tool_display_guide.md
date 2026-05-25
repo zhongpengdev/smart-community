@@ -381,7 +381,7 @@ export const ToolCallDisplay = ({ toolCall }: ToolCallDisplayProps) => {
 
   return (
     <div className={`
-      flex items-center gap-3 px-4 py-3 rounded-lg border
+      flex items-center gap-3 px-4 py-3 rounded border
       ${isRunning 
         ? 'bg-blue-50 border-blue-200 animate-pulse' 
         : 'bg-green-50 border-green-200'
@@ -434,14 +434,14 @@ export const ChatInterface = ({ token }: { token: string }) => {
       {/* 消息列表 */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.map((msg, idx) => (
-          <div key={idx} className="bg-gray-100 rounded-lg p-4">
+          <div key={idx} className="bg-gray-100 rounded p-4">
             {msg}
           </div>
         ))}
 
         {/* 当前正在输出的消息 */}
         {currentChunk && (
-          <div className="bg-gray-100 rounded-lg p-4">
+          <div className="bg-gray-100 rounded p-4">
             {currentChunk}
             <span className="animate-pulse">▋</span>
           </div>
@@ -477,12 +477,12 @@ export const ChatInterface = ({ token }: { token: string }) => {
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSend()}
             placeholder="输入消息..."
-            className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button
             onClick={handleSend}
             disabled={status === 'thinking' || status === 'responding'}
-            className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:opacity-50"
+            className="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50"
           >
             发送
           </button>

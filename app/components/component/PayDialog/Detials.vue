@@ -13,7 +13,7 @@
                     <div
                         class="pt-10 pb-6 text-center bg-gradient-to-b from-orange-50 to-white dark:from-orange-900/10 dark:to-slate-900">
                         <div
-                            class="w-16 h-16 mx-auto bg-orange-100 dark:bg-orange-500/20 rounded-full flex items-center justify-center text-[#ff5000] mb-4">
+                            class="w-16 h-16 mx-auto bg-orange-100 dark:bg-orange-500/20 rounded flex items-center justify-center text-[#ff5000] mb-4">
                             <Icon name="lucide:shopping-bag" size="32" />
                         </div>
                         <h2 class="text-2xl font-black text-slate-800 dark:text-slate-100">{{
@@ -24,7 +24,7 @@
 
                     <div class="px-8 pb-8 space-y-6">
                         <!-- Order Info Grid -->
-                        <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 space-y-4">
+                        <div class="bg-slate-50 dark:bg-slate-800/50 rounded p-6 space-y-4">
                             <div class="flex justify-between items-center text-sm">
                                 <span class="text-slate-500">订单编号</span>
                                 <span class="font-mono font-medium text-slate-700 dark:text-slate-300 text-xs">{{
@@ -69,11 +69,11 @@
                         <!-- Action Buttons -->
                         <div class="grid grid-cols-2 gap-4">
                             <button @click="handleClose"
-                                class="w-full py-4 rounded-2xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                class="w-full py-4 rounded border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                                 稍后支付
                             </button>
                             <button @click="handlePay"
-                                class="w-full bg-[#ff5000] text-white py-4 rounded-2xl font-bold shadow-lg shadow-orange-500/30 hover:bg-[#eb4b00] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
+                                class="w-full bg-[#ff5000] text-white py-4 rounded font-bold shadow-lg shadow-orange-500/30 hover:bg-[#eb4b00] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
                                 :disabled="paying">
                                 <Icon v-if="paying" name="lucide:loader-2" class="animate-spin" />
                                 <span>立即支付</span>

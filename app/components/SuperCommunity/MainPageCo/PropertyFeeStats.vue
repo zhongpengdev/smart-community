@@ -1,8 +1,8 @@
 <template>
-    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-100 dark:border-slate-700">
+    <div class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm border border-slate-100 dark:border-slate-700">
         <div class="flex items-center justify-between mb-5">
             <h3 class="font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center">
+                <div class="w-8 h-8 rounded bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center">
                     <Icon name="lucide:receipt" size="18" class="text-purple-500" />
                 </div>
                 物业费统计
@@ -15,13 +15,13 @@
         </div>
 
         <!-- 缴费率进度条 -->
-        <div class="mb-5 p-4 bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/10 dark:to-indigo-900/10 rounded-xl">
+        <div class="mb-5 p-4 bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/10 dark:to-indigo-900/10 rounded">
             <div class="flex items-center justify-between mb-2">
                 <span class="text-sm text-slate-600 dark:text-slate-300">缴费率</span>
                 <span class="text-2xl font-bold text-purple-600">{{ props.data?.paymentRate || 0 }}%</span>
             </div>
-            <div class="w-full h-3 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-                <div class="h-full rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 transition-all duration-500"
+            <div class="w-full h-3 bg-slate-200 dark:bg-slate-700 rounded overflow-hidden">
+                <div class="h-full rounded bg-gradient-to-r from-purple-500 to-indigo-500 transition-all duration-500"
                     :style="{ width: `${props.data?.paymentRate || 0}%` }"></div>
             </div>
         </div>
@@ -37,21 +37,21 @@
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-green-400"></span>
+                            <span class="w-2 h-2 rounded bg-green-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">已缴账单</span>
                         </div>
                         <span class="font-bold text-green-500">{{ props.data?.paidBills || 0 }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-orange-400"></span>
+                            <span class="w-2 h-2 rounded bg-orange-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">未缴账单</span>
                         </div>
                         <span class="font-bold text-orange-500">{{ props.data?.unpaidBills || 0 }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
+                            <span class="w-2 h-2 rounded bg-yellow-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">部分缴纳</span>
                         </div>
                         <span class="font-bold text-yellow-500">{{ props.data?.partialPaidBills || 0 }}</span>

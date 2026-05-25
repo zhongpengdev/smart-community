@@ -26,7 +26,7 @@
         </el-alert>
 
         <!-- 搜索筛选区域 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+        <div class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm">
             <el-form :model="queryForm" inline class="flex flex-wrap gap-4">
                 <el-form-item label="商品分类" class="!mb-0">
                     <el-select
@@ -71,7 +71,7 @@
         </div>
 
         <!-- 商品列表 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden">
+        <div class="bg-white dark:bg-slate-800 rounded shadow-sm overflow-hidden">
             <el-table
                 :data="productList"
                 v-loading="loading"
@@ -84,10 +84,10 @@
                             <el-image
                                 :src="row.coverImg"
                                 fit="cover"
-                                class="w-16 h-16 rounded-lg"
+                                class="w-16 h-16 rounded"
                             >
                                 <template #error>
-                                    <div class="w-16 h-16 flex items-center justify-center bg-slate-100 dark:bg-slate-700 rounded-lg">
+                                    <div class="w-16 h-16 flex items-center justify-center bg-slate-100 dark:bg-slate-700 rounded">
                                         <Icon name="lucide:image-off" size="24" class="text-slate-400" />
                                     </div>
                                 </template>
@@ -243,7 +243,7 @@
                             <el-image
                                 :src="formData.coverImg"
                                 fit="cover"
-                                class="w-32 h-32 rounded-lg"
+                                class="w-32 h-32 rounded"
                             />
                             <el-button type="danger" size="small" @click="formData.coverImg = ''">
                                 <Icon name="lucide:trash-2" size="14" class="mr-1" />

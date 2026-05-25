@@ -14,7 +14,7 @@
 
         <div class="max-w-[1300px] mx-auto px-6 py-5">
             <!-- Loading State -->
-            <div v-if="loading" class="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-sm animate-pulse">
+            <div v-if="loading" class="bg-white dark:bg-slate-800 rounded p-8 shadow-sm animate-pulse">
                 <div class="h-8 bg-slate-200 dark:bg-slate-700 rounded w-3/4 mx-auto mb-6"></div>
                 <div class="flex justify-center gap-6 mb-8">
                     <div class="h-4 bg-slate-200 dark:bg-slate-700 rounded w-32"></div>
@@ -29,7 +29,7 @@
 
             <!-- Content -->
             <article v-else-if="detail"
-                class="min-h-[600px] bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden">
+                class="min-h-[600px] bg-white dark:bg-slate-800 rounded shadow-sm overflow-hidden">
                 <header class="px-8 py-6 border-b border-slate-100 dark:border-slate-700 text-center">
                     <h1 class="text-2xl font-bold text-slate-800 dark:text-white mb-4 leading-snug">
                         {{ detail.title }}
@@ -64,7 +64,7 @@
             </article>
 
             <!-- Error/Empty State -->
-            <div v-else class="bg-white dark:bg-slate-800 rounded-xl p-12 text-center shadow-sm">
+            <div v-else class="bg-white dark:bg-slate-800 rounded p-12 text-center shadow-sm">
                 <Icon name="lucide:file-x" size="48" class="text-slate-300 dark:text-slate-600 mx-auto mb-4" />
                 <p class="text-slate-500 dark:text-slate-400 mb-4">未找到该公告信息</p>
             </div>

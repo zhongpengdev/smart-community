@@ -6,7 +6,7 @@
         <div class="max-w-[1300px] mx-auto px-4">
             <!-- Loading Skeleton -->
             <div v-if="loading" class="grid gap-4">
-                <div v-for="i in 4" :key="i" class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-sm animate-pulse">
+                <div v-for="i in 4" :key="i" class="bg-white dark:bg-slate-800 p-6 rounded shadow-sm animate-pulse">
                     <div class="flex justify-between mb-4">
                         <div class="h-5 bg-slate-100 dark:bg-slate-700 rounded w-1/4"></div>
                         <div class="h-5 bg-slate-100 dark:bg-slate-700 rounded w-16"></div>
@@ -21,12 +21,12 @@
             <!-- List Content -->
             <div v-else class="space-y-4">
                 <div v-for="item in visitorList" :key="item.registerId"
-                    class="bg-white dark:bg-slate-800 rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border border-slate-100 dark:border-slate-700 group">
+                    class="bg-white dark:bg-slate-800 rounded shadow-sm p-6 hover:shadow-md transition-shadow border border-slate-100 dark:border-slate-700 group">
 
                     <div class="flex justify-between items-start mb-4">
                         <div class="flex items-center gap-3">
                             <div
-                                class="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                                class="w-10 h-10 rounded bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400">
                                 <Icon name="lucide:user" size="20" />
                             </div>
                             <div>
@@ -34,7 +34,7 @@
                                     class="font-medium text-slate-800 dark:text-slate-100 text-lg flex items-center gap-2">
                                     {{ item.visitorName }}
                                     <span
-                                        class="text-xs px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500">
+                                        class="text-xs px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-slate-500">
                                         {{ item.visitorPhone }}
                                     </span>
                                 </h3>
@@ -44,7 +44,7 @@
                         </div>
 
                         <!-- Status Badge -->
-                        <div class="px-3 py-1 rounded-full text-xs font-medium border"
+                        <div class="px-3 py-1 rounded text-xs font-medium border"
                             :class="statusClass(item.status)">
                             {{ item.statusDesc }}
                         </div>
@@ -72,7 +72,7 @@
 
                     <!-- Rejection Reason if any -->
                     <div v-if="item.status === 2 && item.rejectReason"
-                        class="mt-4 bg-red-50 dark:bg-red-900/10 p-3 rounded-md text-xs text-red-600 dark:text-red-400 flex items-start gap-2">
+                        class="mt-4 bg-red-50 dark:bg-red-900/10 p-3 rounded text-xs text-red-600 dark:text-red-400 flex items-start gap-2">
                         <Icon name="lucide:alert-circle" size="14" class="mt-0.5 shrink-0" />
                         <span>拒绝原因：{{ item.rejectReason }}</span>
                     </div>
@@ -88,7 +88,7 @@
             <!-- Empty State -->
             <div v-if="!loading && visitorList.length === 0" class="py-20 text-center">
                 <div
-                    class="w-20 h-20 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-300 dark:text-slate-500">
+                    class="w-20 h-20 bg-slate-100 dark:bg-slate-800 rounded flex items-center justify-center mx-auto mb-4 text-slate-300 dark:text-slate-500">
                     <Icon name="lucide:clipboard-list" size="40" />
                 </div>
                 <p class="text-slate-400">暂无访客记录</p>

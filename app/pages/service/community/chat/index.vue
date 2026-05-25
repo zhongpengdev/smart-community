@@ -16,7 +16,7 @@
                                 <Icon name="lucide:search" size="18"
                                     class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
                                 <input v-model="searchQuery" type="text" placeholder="搜索好友..."
-                                    class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:border-[#ff5000] focus:ring-1 focus:ring-[#ff5000] transition-all" />
+                                    class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded text-sm focus:outline-none focus:border-[#ff5000] focus:ring-1 focus:ring-[#ff5000] transition-all" />
                             </div>
                         </div>
 
@@ -44,7 +44,7 @@
                                         </el-avatar>
                                         <!-- 在线状态 -->
                                         <div v-if="onlineStatus[friend.friendUserId]"
-                                            class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white dark:border-slate-900 rounded-full">
+                                            class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white dark:border-slate-900 rounded">
                                         </div>
                                     </div>
                                     <div class="flex-1 min-w-0">
@@ -54,7 +54,7 @@
                                             </h4>
                                             <!-- 未读消息数 -->
                                             <span v-if="getUnreadCount(friend.friendUserId) > 0"
-                                                class="px-2 py-0.5 bg-red-500 text-white text-xs rounded-full">
+                                                class="px-2 py-0.5 bg-red-500 text-white text-xs rounded">
                                                 {{ getUnreadCount(friend.friendUserId) }}
                                             </span>
                                         </div>
@@ -110,10 +110,10 @@
                                             :src="message.fromUserId === currentUserId ? userStore.userInfo?.avatar : currentFriend.friendAvatar">
                                             {{ message.fromUserName.charAt(0) }}
                                         </el-avatar>
-                                        <div class="max-w-[60%] px-4 py-2 rounded-2xl"
+                                        <div class="max-w-[60%] px-4 py-2 rounded"
                                             :class="message.fromUserId === currentUserId
-                                                ? 'bg-[#ff5000] text-white rounded-tr-none'
-                                                : 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-white rounded-tl-none'">
+                                                ? 'bg-[#ff5000] text-white rounded-none'
+                                                : 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-white rounded-none'">
                                             <p class="text-sm leading-relaxed break-words">{{ message.content }}</p>
                                             <p class="text-xs mt-1 opacity-70"
                                                 :class="message.fromUserId === currentUserId ? 'text-right' : 'text-left'">
@@ -133,7 +133,7 @@
                                     <el-input v-model="messageInput" type="textarea" :rows="3" placeholder="输入消息..."
                                         @keydown.enter.exact.prevent="handleSendMessage" class="flex-1" />
                                     <button @click="handleSendMessage" :disabled="!messageInput.trim() || sending"
-                                        class="px-6 py-2 bg-[#ff5000] hover:bg-[#ff7000] text-white rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                                        class="px-6 py-2 bg-[#ff5000] hover:bg-[#ff7000] text-white rounded font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                                         <Icon v-if="sending" name="lucide:loader-2" size="20" class="animate-spin" />
                                         <Icon v-else name="lucide:send" size="20" />
                                     </button>
@@ -309,10 +309,10 @@ watch(() => messages.value.length, () => {
 }
 
 .overflow-y-auto::-webkit-scrollbar-track {
-    @apply bg-slate-100 dark:bg-slate-800 rounded-full;
+    @apply bg-slate-100 dark:bg-slate-800 rounded;
 }
 
 .overflow-y-auto::-webkit-scrollbar-thumb {
-    @apply bg-slate-300 dark:bg-slate-600 rounded-full hover:bg-slate-400 dark:hover:bg-slate-500;
+    @apply bg-slate-300 dark:bg-slate-600 rounded hover:bg-slate-400 dark:hover:bg-slate-500;
 }
 </style>

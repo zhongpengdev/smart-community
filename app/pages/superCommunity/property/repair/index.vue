@@ -8,7 +8,7 @@
 
         <!-- 统计卡片 -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">总申请数</p>
@@ -17,7 +17,7 @@
                     <Icon name="lucide:clipboard-list" size="32" class="opacity-80" />
                 </div>
             </div>
-            <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">待处理</p>
@@ -26,7 +26,7 @@
                     <Icon name="lucide:clock" size="32" class="opacity-80" />
                 </div>
             </div>
-            <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-green-500 to-green-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">处理中</p>
@@ -35,7 +35,7 @@
                     <Icon name="lucide:loader-2" size="32" class="opacity-80" />
                 </div>
             </div>
-            <div class="bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-cyan-500 to-cyan-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">已完成</p>
@@ -47,7 +47,7 @@
         </div>
 
         <!-- 搜索筛选区域 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+        <div class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm">
             <el-form :model="queryForm" inline class="flex flex-wrap gap-4">
                 <el-form-item label="事项类型" class="!mb-0">
                     <el-select
@@ -113,7 +113,7 @@
         </div>
 
         <!-- 报事列表 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden">
+        <div class="bg-white dark:bg-slate-800 rounded shadow-sm overflow-hidden">
             <el-table
                 :data="repairList"
                 v-loading="loading"
@@ -185,7 +185,7 @@
             :close-on-click-modal="false"
         >
             <div v-if="currentRepair" class="space-y-4">
-                <div class="bg-slate-50 dark:bg-slate-700 rounded-lg p-4">
+                <div class="bg-slate-50 dark:bg-slate-700 rounded p-4">
                     <div class="grid grid-cols-2 gap-3 text-sm">
                         <div>
                             <span class="text-slate-500">用户ID：</span>

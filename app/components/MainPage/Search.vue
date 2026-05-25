@@ -10,7 +10,7 @@
                 @keyup.enter="handleSearch" />
 
             <div v-if="searchState.query" @click="clearSearch"
-                class="cursor-pointer p-1.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-600 transition-colors mr-1">
+                class="cursor-pointer p-1.5 rounded hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-600 transition-colors mr-1">
                 <Icon name="lucide:x" class="w-3.5 h-3.5" />
             </div>
 

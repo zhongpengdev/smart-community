@@ -11,21 +11,21 @@
 
                 <div class="flex items-center gap-4">
                     <!-- Tabs -->
-                    <div class="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-md">
+                    <div class="flex bg-slate-100 dark:bg-slate-800 p-1 rounded">
                         <button v-for="tab in tabs" :key="tab.name" @click="activeTab = tab.name"
-                            class="px-4 py-1.5 rounded-sm text-sm font-medium transition-all flex items-center gap-2"
+                            class="px-4 py-1.5 rounded text-sm font-medium transition-all flex items-center gap-2"
                             :class="activeTab === tab.name ? 'bg-white dark:bg-slate-700 text-[#ff5000] shadow-sm' : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'">
                             <Icon :name="tab.icon" size="14" />
                             {{ tab.name }}
                             <span v-if="tab.name === '待缴账单' && pendingBills.length > 0"
-                                class="ml-1 px-1.5 py-0.5 bg-red-500 text-white text-[10px] rounded-full flex items-center justify-center min-w-[16px] h-[16px]">
+                                class="ml-1 px-1.5 py-0.5 bg-red-500 text-white text-[10px] rounded flex items-center justify-center min-w-[16px] h-[16px]">
                                 {{ pendingBills.length }}
                             </span>
                         </button>
                     </div>
 
                     <button @click="loadData"
-                        class="bg-white dark:bg-slate-800 hover:bg-[#ff5000] hover:text-white px-3 h-9 rounded-md shadow-sm hover:shadow-md border border-slate-100 dark:border-slate-700 transition-all flex items-center justify-center text-slate-500 dark:text-slate-400">
+                        class="bg-white dark:bg-slate-800 hover:bg-[#ff5000] hover:text-white px-3 h-9 rounded shadow-sm hover:shadow-md border border-slate-100 dark:border-slate-700 transition-all flex items-center justify-center text-slate-500 dark:text-slate-400">
                         <Icon name="lucide:rotate-cw" size="16" :class="{ 'animate-spin': loading }" />
                     </button>
                 </div>
@@ -36,7 +36,7 @@
             <!-- Content -->
             <div v-if="loading && pendingBills.length === 0 && historyRecords.length === 0" class="space-y-4">
                 <div v-for="i in 3" :key="i"
-                    class="h-32 bg-white dark:bg-slate-800 rounded-md animate-pulse border border-slate-100 dark:border-slate-700">
+                    class="h-32 bg-white dark:bg-slate-800 rounded animate-pulse border border-slate-100 dark:border-slate-700">
                 </div>
             </div>
 

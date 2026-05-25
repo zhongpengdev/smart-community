@@ -1,8 +1,8 @@
 <template>
-    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-100 dark:border-slate-700">
+    <div class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm border border-slate-100 dark:border-slate-700">
         <div class="flex items-center justify-between mb-5">
             <h3 class="font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center">
+                <div class="w-8 h-8 rounded bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center">
                     <Icon name="lucide:wrench" size="18" class="text-orange-500" />
                 </div>
                 报修投诉统计
@@ -30,7 +30,7 @@
                 </div>
                 
                 <!-- 数值概览 -->
-                <div class="flex items-center justify-between p-3 bg-orange-50 dark:bg-orange-900/10 rounded-lg">
+                <div class="flex items-center justify-between p-3 bg-orange-50 dark:bg-orange-900/10 rounded">
                     <div class="text-center flex-1">
                         <p class="text-xl font-bold text-orange-600">{{ props.data?.totalRepairs || 0 }}</p>
                         <p class="text-xs text-slate-500">总工单</p>
@@ -45,28 +45,28 @@
                 <div class="space-y-2">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                            <span class="w-2 h-2 rounded bg-amber-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">待处理</span>
                         </div>
                         <span class="font-bold text-amber-500">{{ props.data?.pendingRepairs || 0 }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                            <span class="w-2 h-2 rounded bg-blue-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">处理中</span>
                         </div>
                         <span class="font-bold text-blue-500">{{ props.data?.processingRepairs || 0 }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-green-400"></span>
+                            <span class="w-2 h-2 rounded bg-green-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">已完成</span>
                         </div>
                         <span class="font-bold text-green-500">{{ props.data?.completedRepairs || 0 }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-red-400"></span>
+                            <span class="w-2 h-2 rounded bg-red-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">已驳回</span>
                         </div>
                         <span class="font-bold text-red-500">{{ props.data?.rejectedRepairs || 0 }}</span>
@@ -82,7 +82,7 @@
                 </div>
                 
                 <!-- 数值概览 -->
-                <div class="flex items-center justify-between p-3 bg-rose-50 dark:bg-rose-900/10 rounded-lg">
+                <div class="flex items-center justify-between p-3 bg-rose-50 dark:bg-rose-900/10 rounded">
                     <div class="text-center flex-1">
                         <p class="text-xl font-bold text-rose-600">{{ props.data?.totalComplaints || 0 }}</p>
                         <p class="text-xs text-slate-500">总投诉</p>
@@ -97,28 +97,28 @@
                 <div class="space-y-2">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                            <span class="w-2 h-2 rounded bg-amber-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">待处理</span>
                         </div>
                         <span class="font-bold text-amber-500">{{ props.data?.pendingComplaints || 0 }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                            <span class="w-2 h-2 rounded bg-blue-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">处理中</span>
                         </div>
                         <span class="font-bold text-blue-500">{{ props.data?.processingComplaints || 0 }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-green-400"></span>
+                            <span class="w-2 h-2 rounded bg-green-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">已完成</span>
                         </div>
                         <span class="font-bold text-green-500">{{ props.data?.completedComplaints || 0 }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-red-400"></span>
+                            <span class="w-2 h-2 rounded bg-red-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">已驳回</span>
                         </div>
                         <span class="font-bold text-red-500">{{ props.data?.rejectedComplaints || 0 }}</span>

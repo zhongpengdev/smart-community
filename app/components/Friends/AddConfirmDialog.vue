@@ -8,7 +8,7 @@
     >
         <!-- 用户信息 -->
         <div v-if="user" class="mb-6">
-            <div class="flex items-center gap-4 p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
+            <div class="flex items-center gap-4 p-4 bg-slate-50 dark:bg-slate-800 rounded">
                 <el-avatar :size="64" :src="user.avatar" class="shrink-0">
                     {{ user.userName.charAt(0) }}
                 </el-avatar>

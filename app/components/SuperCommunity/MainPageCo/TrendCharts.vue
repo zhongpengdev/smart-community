@@ -1,15 +1,15 @@
 <template>
-    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-100 dark:border-slate-700">
+    <div class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm border border-slate-100 dark:border-slate-700">
         <div class="flex items-center justify-between mb-5">
             <h3 class="font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 flex items-center justify-center">
+                <div class="w-8 h-8 rounded bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 flex items-center justify-center">
                     <Icon name="lucide:trending-up" size="18" class="text-blue-500" />
                 </div>
                 数据趋势
             </h3>
             <div class="flex gap-2">
                 <button v-for="tab in tabs" :key="tab.key" @click="activeTab = tab.key"
-                    class="px-3 py-1.5 text-xs rounded-lg transition-all"
+                    class="px-3 py-1.5 text-xs rounded transition-all"
                     :class="activeTab === tab.key
                         ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/25'
                         : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'">

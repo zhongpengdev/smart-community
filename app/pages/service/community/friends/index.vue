@@ -19,25 +19,25 @@
                 />
 
                 <!-- Tab Navigation -->
-                <div class="bg-white dark:bg-white/5 rounded-xl border border-slate-100 dark:border-white/5 p-2">
+                <div class="bg-white dark:bg-white/5 rounded border border-slate-100 dark:border-white/5 p-2">
                     <div class="flex items-center gap-2">
                         <button
                             @click="activeTab = 'friends'"
-                            class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg transition-all duration-200 font-medium"
+                            class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded transition-all duration-200 font-medium"
                             :class="activeTab === 'friends' 
                                 ? 'bg-[#ff5000] text-white shadow-lg shadow-orange-500/20' 
                                 : 'text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'"
                         >
                             <Icon name="lucide:users" size="18" />
                             <span>我的好友</span>
-                            <span v-if="total > 0" class="px-2 py-0.5 rounded-full text-xs"
+                            <span v-if="total > 0" class="px-2 py-0.5 rounded text-xs"
                                 :class="activeTab === 'friends' ? 'bg-white/20' : 'bg-slate-200 dark:bg-slate-700'">
                                 {{ total }}
                             </span>
                         </button>
                         <button
                             @click="activeTab = 'requests'"
-                            class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg transition-all duration-200 font-medium relative"
+                            class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded transition-all duration-200 font-medium relative"
                             :class="activeTab === 'requests' 
                                 ? 'bg-[#ff5000] text-white shadow-lg shadow-orange-500/20' 
                                 : 'text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'"
@@ -45,7 +45,7 @@
                             <Icon name="lucide:user-plus" size="18" />
                             <span>好友申请</span>
                             <span v-if="requestsTotal > 0" 
-                                class="px-2 py-0.5 rounded-full text-xs"
+                                class="px-2 py-0.5 rounded text-xs"
                                 :class="activeTab === 'requests' ? 'bg-white/20' : 'bg-red-500 text-white'">
                                 {{ requestsTotal }}
                             </span>
@@ -54,7 +54,7 @@
                 </div>
 
                 <!-- Content Area -->
-                <div class="bg-white dark:bg-white/5 rounded-xl border border-slate-100 dark:border-white/5 p-6">
+                <div class="bg-white dark:bg-white/5 rounded border border-slate-100 dark:border-white/5 p-6">
                     <!-- Friends List Tab -->
                     <FriendsList
                         v-if="activeTab === 'friends'"

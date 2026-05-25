@@ -25,7 +25,7 @@
             <label class="block text-sm font-bold text-slate-700">手机号码
               <span class="text-slate-400 font-normal">(身份唯一识别)</span></label>
             <div
-              class="flex items-center border border-slate-300 rounded-md focus-within:border-[#ff5000] focus-within:ring-1 focus-within:ring-[#ff5000] transition-all overflow-hidden h-12 bg-white">
+              class="flex items-center border border-slate-300 rounded focus-within:border-[#ff5000] focus-within:ring-1 focus-within:ring-[#ff5000] transition-all overflow-hidden h-12 bg-white">
               <div
                 class="w-20 bg-slate-50 h-full flex items-center justify-center text-slate-600 font-bold border-r border-slate-200">
                 +86
@@ -38,13 +38,13 @@
           <div class="space-y-1">
             <label class="block text-sm font-bold text-slate-700">登录密码</label>
             <input v-model="form.password" type="password" placeholder="设置6-20位登录密码"
-              class="w-full h-12 px-4 border border-slate-300 rounded-md focus:border-[#ff5000] focus:ring-1 focus:ring-[#ff5000] outline-none transition-all placeholder:text-slate-400" />
+              class="w-full h-12 px-4 border border-slate-300 rounded focus:border-[#ff5000] focus:ring-1 focus:ring-[#ff5000] outline-none transition-all placeholder:text-slate-400" />
           </div>
 
           <div class="space-y-1">
             <label class="block text-sm font-bold text-slate-700">确认密码</label>
             <input v-model="form.confirmPassword" type="password" placeholder="请再次输入登录密码"
-              class="w-full h-12 px-4 border border-slate-300 rounded-md focus:border-[#ff5000] focus:ring-1 focus:ring-[#ff5000] outline-none transition-all placeholder:text-slate-400" />
+              class="w-full h-12 px-4 border border-slate-300 rounded focus:border-[#ff5000] focus:ring-1 focus:ring-[#ff5000] outline-none transition-all placeholder:text-slate-400" />
           </div>
 
           <div class="space-y-1">
@@ -53,20 +53,20 @@
               <span class="text-slate-400 font-normal text-xs ml-1">(选填)</span>
             </label>
             <input v-model="form.email" type="email" placeholder="例如: example@email.com"
-              class="w-full h-12 px-4 border border-slate-300 rounded-md focus:border-[#ff5000] focus:ring-1 focus:ring-[#ff5000] outline-none transition-all placeholder:text-slate-400" />
+              class="w-full h-12 px-4 border border-slate-300 rounded focus:border-[#ff5000] focus:ring-1 focus:ring-[#ff5000] outline-none transition-all placeholder:text-slate-400" />
           </div>
 
           <div class="space-y-1">
             <label class="block text-sm font-bold text-slate-700">真实姓名</label>
             <input v-model="form.realName" type="text" placeholder="请输入身份证上的姓名"
-              class="w-full h-12 px-4 border border-slate-300 rounded-md focus:border-[#ff5000] focus:ring-1 focus:ring-[#ff5000] outline-none transition-all placeholder:text-slate-400" />
+              class="w-full h-12 px-4 border border-slate-300 rounded focus:border-[#ff5000] focus:ring-1 focus:ring-[#ff5000] outline-none transition-all placeholder:text-slate-400" />
           </div>
 
           <div class="flex gap-6">
             <div class="flex-1 space-y-1">
               <label class="block text-sm font-bold text-slate-700">年龄</label>
               <input v-model="form.age" type="number" min="1" placeholder="例如: 25"
-                class="w-full h-12 px-4 border border-slate-300 rounded-md focus:border-[#ff5000] focus:ring-1 focus:ring-[#ff5000] outline-none transition-all placeholder:text-slate-400" />
+                class="w-full h-12 px-4 border border-slate-300 rounded focus:border-[#ff5000] focus:ring-1 focus:ring-[#ff5000] outline-none transition-all placeholder:text-slate-400" />
             </div>
 
             <div class="flex-1 space-y-1">
@@ -75,13 +75,13 @@
                 <button type="button" @click="form.gender = 'male'" :class="form.gender === 'male'
                   ? 'bg-blue-50 border-blue-500 text-blue-600 font-bold'
                   : 'bg-white border-slate-300 text-slate-500 hover:border-slate-400'
-                  " class="flex-1 border rounded-md transition-all flex items-center justify-center gap-1">
+                  " class="flex-1 border rounded transition-all flex items-center justify-center gap-1">
                   <span>♂</span> 男
                 </button>
                 <button type="button" @click="form.gender = 'female'" :class="form.gender === 'female'
                   ? 'bg-pink-50 border-pink-500 text-pink-600 font-bold'
                   : 'bg-white border-slate-300 text-slate-500 hover:border-slate-400'
-                  " class="flex-1 border rounded-md transition-all flex items-center justify-center gap-1">
+                  " class="flex-1 border rounded transition-all flex items-center justify-center gap-1">
                   <span>♀</span> 女
                 </button>
               </div>
@@ -102,7 +102,7 @@
           </div>
 
           <el-button type="primary"
-            class="!border-none !w-full !h-12 bg-gradient-to-r from-[#ff9000] to-[#ff5000] text-white font-bold text-lg rounded-md shadow-lg shadow-orange-200 hover:to-[#ff4000] transition-all transform hover:-translate-y-0.5 active:scale-[0.99]"
+            class="!border-none !w-full !h-12 bg-gradient-to-r from-[#ff9000] to-[#ff5000] text-white font-bold text-lg rounded shadow-lg shadow-orange-200 hover:to-[#ff4000] transition-all transform hover:-translate-y-0.5 active:scale-[0.99]"
             :loading="loading" native-type="submit">
             {{ loading ? "正在注册..." : "同意协议并注册" }}
           </el-button>

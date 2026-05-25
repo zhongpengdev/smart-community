@@ -14,21 +14,21 @@
 
         <!-- 统计卡片 -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-6 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded p-6 text-white shadow-lg">
                 <div class="flex items-center justify-between mb-2">
                     <span class="text-sm opacity-90">总公告数</span>
                     <Icon name="lucide:megaphone" size="24" class="opacity-80" />
                 </div>
                 <div class="text-3xl font-bold">{{ statistics.totalAnnouncements || 0 }}</div>
             </div>
-            <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-lg p-6 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-green-500 to-green-600 rounded p-6 text-white shadow-lg">
                 <div class="flex items-center justify-between mb-2">
                     <span class="text-sm opacity-90">今日发布</span>
                     <Icon name="lucide:calendar" size="24" class="opacity-80" />
                 </div>
                 <div class="text-3xl font-bold">{{ statistics.todayAnnouncements || 0 }}</div>
             </div>
-            <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg p-6 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded p-6 text-white shadow-lg">
                 <div class="flex items-center justify-between mb-2">
                     <span class="text-sm opacity-90">总阅读数</span>
                     <Icon name="lucide:eye" size="24" class="opacity-80" />
@@ -38,7 +38,7 @@
         </div>
 
         <!-- 搜索筛选区域 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+        <div class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm">
             <el-form :model="queryForm" inline class="flex flex-wrap gap-4">
                 <el-form-item label="关键词" class="!mb-0">
                     <el-input
@@ -75,7 +75,7 @@
         </div>
 
         <!-- 公告列表 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden">
+        <div class="bg-white dark:bg-slate-800 rounded shadow-sm overflow-hidden">
             <el-table
                 :data="announcementList"
                 v-loading="loading"

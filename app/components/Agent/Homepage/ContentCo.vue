@@ -5,7 +5,7 @@
 
             <!-- Avatar & Name -->
             <div class="flex items-center gap-2" :class="[msg.role === 'user' ? 'flex-row-reverse' : 'flex-row']">
-                <div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 border transition-colors"
+                <div class="w-8 h-8 rounded flex items-center justify-center shrink-0 border transition-colors"
                     :class="[msg.role === 'user' ? 'bg-blue-100 border-blue-200 dark:bg-blue-900/30 dark:border-blue-800' : 'bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:border-emerald-800']">
                     <Icon v-if="msg.role === 'user'" name="lucide:user" size="16"
                         class="text-blue-600 dark:text-blue-400" />
@@ -30,10 +30,10 @@
             </div>
 
             <!-- Message Bubble -->
-            <div class="max-w-[85%] rounded-2xl px-5 py-3 text-sm leading-relaxed shadow-sm transition-all" :class="[
+            <div class="max-w-[85%] rounded px-5 py-3 text-sm leading-relaxed shadow-sm transition-all" :class="[
                 msg.role === 'user'
-                    ? 'bg-blue-600 text-white rounded-tr-sm'
-                    : 'bg-white dark:bg-[#1E1F20] text-gray-800 dark:text-gray-200 border border-gray-100 dark:border-gray-800 rounded-tl-sm'
+                    ? 'bg-blue-600 text-white rounded-sm'
+                    : 'bg-white dark:bg-[#1E1F20] text-gray-800 dark:text-gray-200 border border-gray-100 dark:border-gray-800 rounded-sm'
             ]">
                 <div v-if="msg.role === 'assistant'" v-html="formatMessage(msg.content)"
                     class="prose prose-sm dark:prose-invert max-w-none prose-p:my-0 prose-ul:my-0 prose-ol:my-0 prose-li:my-0 prose-headings:my-0 prose-pre:my-0">
@@ -42,7 +42,7 @@
 
                 <!-- 光标动画 -->
                 <span v-if="msg.role === 'assistant' && msg.isStreaming && !agentStatus"
-                    class="inline-block w-1.5 h-4 ml-0.5 align-middle bg-emerald-500 animate-pulse rounded-full"></span>
+                    class="inline-block w-1.5 h-4 ml-0.5 align-middle bg-emerald-500 animate-pulse rounded"></span>
             </div>
         </div>
 
@@ -50,7 +50,7 @@
         <div v-if="messages.length === 0"
             class="h-full flex flex-col items-center justify-center text-gray-400 dark:text-gray-600 space-y-6 pb-20">
             <div
-                class="w-20 h-20 rounded-3xl bg-gray-50 dark:bg-[#1E1F20] flex items-center justify-center border border-gray-100 dark:border-gray-800">
+                class="w-20 h-20 rounded bg-gray-50 dark:bg-[#1E1F20] flex items-center justify-center border border-gray-100 dark:border-gray-800">
                 <Icon name="lucide:sparkles" size="40" class="text-gray-300 dark:text-gray-500" />
             </div>
             <InspiraCoTextGenerateEffect words="Ready to help, ask me anything!" class="font-medium text-2xl" />

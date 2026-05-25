@@ -9,7 +9,7 @@
       <span class="w-12 flex items-center justify-center shrink-0">
         <button
           @click="collapsed = !collapsed"
-          class="p-1.5 rounded-lg text-slate-400 hover:text-[#ff5000] hover:bg-orange-50 dark:hover:bg-[#ff5000]/10 transition-colors duration-200"
+          class="p-1.5 rounded text-slate-400 hover:text-[#ff5000] hover:bg-orange-50 dark:hover:bg-[#ff5000]/10 transition-colors duration-200"
           :title="collapsed ? '展开侧边栏' : '折叠侧边栏'"
         >
           <Icon
@@ -32,7 +32,7 @@
           :key="item.path"
           :to="item.path"
           v-show="item.show !== false"
-          class="nav-item flex items-center rounded-lg text-sm text-slate-600 dark:text-slate-300 hover:bg-orange-50 dark:hover:bg-[#ff5000]/10 hover:text-[#ff5000] transition-all duration-200 group relative"
+          class="nav-item flex items-center rounded text-sm text-slate-600 dark:text-slate-300 hover:bg-orange-50 dark:hover:bg-[#ff5000]/10 hover:text-[#ff5000] transition-all duration-200 group relative"
           active-class="active-nav bg-orange-50 dark:bg-[#ff5000]/10 text-[#ff5000] font-bold"
           :title="collapsed ? item.name : ''"
         >
@@ -52,7 +52,7 @@
           <!-- Active Indicator Dot -->
           <div
             v-show="!collapsed"
-            class="absolute right-2 w-1.5 h-1.5 rounded-full bg-[#ff5000] opacity-0 scale-0 transition-all nav-dot"
+            class="absolute right-2 w-1.5 h-1.5 rounded bg-[#ff5000] opacity-0 scale-0 transition-all nav-dot"
           />
         </NuxtLink>
       </div>

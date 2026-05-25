@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed left-4 top-20 bottom-4 z-40 flex flex-col transition-all duration-300 ease-in-out bg-white dark:bg-[#1E1F20] shadow-xl rounded-2xl border border-gray-100 dark:border-gray-800"
+    <div class="fixed left-4 top-20 bottom-4 z-40 flex flex-col transition-all duration-300 ease-in-out bg-white dark:bg-[#1E1F20] shadow-xl rounded border border-gray-100 dark:border-gray-800"
         :class="[isExpanded ? 'w-64' : 'w-12']">
         <!-- Toggle Button Header -->
         <div class="p-2 flex items-center h-12" :class="[isExpanded ? 'justify-between' : 'justify-center']">
@@ -7,7 +7,7 @@
                 History
             </div>
             <button @click="toggleSidebar"
-                class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors focus:outline-none"
+                class="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors focus:outline-none"
                 :title="isExpanded ? 'Collapse' : 'Expand'">
                 <Icon :name="isExpanded ? 'lucide:panel-left-close' : 'lucide:panel-left-open'" size="18" />
             </button>
@@ -37,7 +37,7 @@
             <!-- List -->
             <div v-else class="flex-1 overflow-y-auto px-2 py-2 space-y-1">
                 <div v-for="item in historyList" :key="item.id" @click="handleSessionClick(item.id)"
-                    class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-[#2A2B2D] cursor-pointer group transition-all border border-transparent hover:border-gray-100 dark:hover:border-gray-700/50 relative pr-8">
+                    class="p-2.5 rounded hover:bg-gray-50 dark:hover:bg-[#2A2B2D] cursor-pointer group transition-all border border-transparent hover:border-gray-100 dark:hover:border-gray-700/50 relative pr-8">
                     <div class="text-xs text-gray-700 dark:text-gray-200 truncate font-medium">
                         {{ item.title || 'New Chat' }}
                     </div>

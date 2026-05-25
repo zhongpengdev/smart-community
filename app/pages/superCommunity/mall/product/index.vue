@@ -14,7 +14,7 @@
 
         <!-- 统计卡片 -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
-            <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">门店商品总数</p>
@@ -23,7 +23,7 @@
                     <Icon name="lucide:package" size="32" class="opacity-80" />
                 </div>
             </div>
-            <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-green-500 to-green-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">上架商品</p>
@@ -32,7 +32,7 @@
                     <Icon name="lucide:check-circle" size="32" class="opacity-80" />
                 </div>
             </div>
-            <div class="bg-gradient-to-br from-red-500 to-red-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-red-500 to-red-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">下架商品</p>
@@ -41,7 +41,7 @@
                     <Icon name="lucide:x-circle" size="32" class="opacity-80" />
                 </div>
             </div>
-            <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">库存不足</p>
@@ -50,7 +50,7 @@
                     <Icon name="lucide:alert-triangle" size="32" class="opacity-80" />
                 </div>
             </div>
-            <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">零库存</p>
@@ -59,7 +59,7 @@
                     <Icon name="lucide:package-x" size="32" class="opacity-80" />
                 </div>
             </div>
-            <div class="bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl p-5 text-white shadow-lg">
+            <div class="bg-gradient-to-br from-cyan-500 to-cyan-600 rounded p-5 text-white shadow-lg">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm opacity-90">总库存</p>
@@ -71,7 +71,7 @@
         </div>
 
         <!-- 搜索筛选区域 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">
+        <div class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm">
             <el-form :model="queryForm" inline class="flex flex-wrap gap-4">
                 <el-form-item label="门店" class="!mb-0">
                     <el-select
@@ -146,7 +146,7 @@
         </div>
 
         <!-- 门店商品列表 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden">
+        <div class="bg-white dark:bg-slate-800 rounded shadow-sm overflow-hidden">
             <!-- 操作栏 -->
             <div class="p-4 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
                 <div class="flex items-center gap-2">
@@ -197,10 +197,10 @@
                             <el-image
                                 :src="row.productCoverImg"
                                 fit="cover"
-                                class="w-14 h-14 rounded-lg"
+                                class="w-14 h-14 rounded"
                             >
                                 <template #error>
-                                    <div class="w-14 h-14 flex items-center justify-center bg-slate-100 dark:bg-slate-700 rounded-lg">
+                                    <div class="w-14 h-14 flex items-center justify-center bg-slate-100 dark:bg-slate-700 rounded">
                                         <Icon name="lucide:image-off" size="20" class="text-slate-400" />
                                     </div>
                                 </template>

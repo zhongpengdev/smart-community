@@ -3,7 +3,7 @@
 
     <div class="flex items-center justify-between mb-3 px-1">
       <div class="flex items-center gap-2">
-        <span class="w-1 h-4 bg-[#ff5000] rounded-full"></span>
+        <span class="w-1 h-4 bg-[#ff5000] rounded"></span>
         <h2 class="text-base font-bold text-slate-800 dark:text-white">社区公告</h2>
       </div>
       <NuxtLink to="/service/community/news"
@@ -25,7 +25,7 @@
 
       <!-- Carousel (Banner) -->
       <div v-if="bannerList && bannerList.length > 0"
-        class="w-full h-[180px] rounded-lg overflow-hidden relative group shrink-0">
+        class="w-full h-[180px] rounded overflow-hidden relative group shrink-0">
         <el-carousel trigger="click" height="180px" :interval="5000" arrow="hover">
           <el-carousel-item v-for="item in bannerList" :key="item.id">
             <div class="relative w-full h-full cursor-pointer">
@@ -64,13 +64,13 @@
               <NuxtLink :to="`/service/community/news/${news.announceId}`"
                 class="flex items-center gap-2 min-w-0 pr-4 flex-1">
                 <span
-                  class="w-1.5 h-1.5 rounded-full bg-slate-200 group-hover:bg-[#1a73e8] transition-colors shrink-0 mt-0.5"></span>
+                  class="w-1.5 h-1.5 rounded bg-slate-200 group-hover:bg-[#1a73e8] transition-colors shrink-0 mt-0.5"></span>
                 <span
                   class="text-[13px] text-slate-700 dark:text-slate-300 truncate group-hover:text-[#1a73e8] transition-colors leading-normal block">
                   {{ news.title }}
                 </span>
                 <span v-if="i === 0"
-                  class="text-[9px] text-[#ff5000] border border-[#ff5000]/30 px-1 rounded-sm scale-90 origin-left shrink-0">NEW</span>
+                  class="text-[9px] text-[#ff5000] border border-[#ff5000]/30 px-1 rounded scale-90 origin-left shrink-0">NEW</span>
               </NuxtLink>
 
               <span class="text-xs text-slate-400 shrink-0 tabular-nums font-medium tracking-tight">

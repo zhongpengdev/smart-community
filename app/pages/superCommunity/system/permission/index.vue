@@ -13,7 +13,7 @@
         </div>
 
         <!-- 筛选 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm">
+        <div class="bg-white dark:bg-slate-800 rounded p-4 shadow-sm">
             <div class="flex gap-4">
                 <el-select v-model="filterType" placeholder="资源类型" clearable @change="filterPermissions">
                     <el-option label="全部类型" value="" />
@@ -30,7 +30,7 @@
         </div>
 
         <!-- 权限列表 -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden">
+        <div class="bg-white dark:bg-slate-800 rounded shadow-sm overflow-hidden">
             <el-table
                 :data="filteredPermissions"
                 v-loading="loading"

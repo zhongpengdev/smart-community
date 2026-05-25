@@ -1,8 +1,8 @@
 <template>
-    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-100 dark:border-slate-700">
+    <div class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm border border-slate-100 dark:border-slate-700">
         <div class="flex items-center justify-between mb-5">
             <h3 class="font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-cyan-50 dark:bg-cyan-900/20 flex items-center justify-center">
+                <div class="w-8 h-8 rounded bg-cyan-50 dark:bg-cyan-900/20 flex items-center justify-center">
                     <Icon name="lucide:shield-check" size="18" class="text-cyan-500" />
                 </div>
                 车位访客统计
@@ -28,7 +28,7 @@
                 </div>
                 
                 <!-- 数值概览 -->
-                <div class="flex items-center justify-between p-3 bg-cyan-50 dark:bg-cyan-900/10 rounded-lg">
+                <div class="flex items-center justify-between p-3 bg-cyan-50 dark:bg-cyan-900/10 rounded">
                     <div class="text-center flex-1">
                         <p class="text-xl font-bold text-cyan-600">{{ props.data?.totalParkingSpaces || 0 }}</p>
                         <p class="text-xs text-slate-500">登记总数</p>
@@ -43,14 +43,14 @@
                 <div class="space-y-2">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                            <span class="w-2 h-2 rounded bg-amber-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">待审核</span>
                         </div>
                         <span class="font-bold text-amber-500">{{ props.data?.pendingParkingSpaces || 0 }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-green-400"></span>
+                            <span class="w-2 h-2 rounded bg-green-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">已通过</span>
                         </div>
                         <span class="font-bold text-green-500">{{ props.data?.approvedParkingSpaces || 0 }}</span>
@@ -63,8 +63,8 @@
                         <span class="text-xs text-slate-400">审核通过率</span>
                         <span class="text-xs font-medium text-cyan-600">{{ parkingApprovalRate }}%</span>
                     </div>
-                    <div class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-                        <div class="h-full rounded-full bg-gradient-to-r from-cyan-400 to-cyan-500 transition-all duration-500"
+                    <div class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded overflow-hidden">
+                        <div class="h-full rounded bg-gradient-to-r from-cyan-400 to-cyan-500 transition-all duration-500"
                             :style="{ width: `${parkingApprovalRate}%` }"></div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                 </div>
                 
                 <!-- 数值概览 -->
-                <div class="flex items-center justify-between p-3 bg-indigo-50 dark:bg-indigo-900/10 rounded-lg">
+                <div class="flex items-center justify-between p-3 bg-indigo-50 dark:bg-indigo-900/10 rounded">
                     <div class="text-center flex-1">
                         <p class="text-xl font-bold text-indigo-600">{{ props.data?.totalVisitors || 0 }}</p>
                         <p class="text-xs text-slate-500">登记总数</p>
@@ -93,14 +93,14 @@
                 <div class="space-y-2">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                            <span class="w-2 h-2 rounded bg-amber-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">待审核</span>
                         </div>
                         <span class="font-bold text-amber-500">{{ props.data?.pendingVisitors || 0 }}</span>
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-green-400"></span>
+                            <span class="w-2 h-2 rounded bg-green-400"></span>
                             <span class="text-sm text-slate-600 dark:text-slate-300">已通过</span>
                         </div>
                         <span class="font-bold text-green-500">{{ props.data?.approvedVisitors || 0 }}</span>
@@ -113,8 +113,8 @@
                         <span class="text-xs text-slate-400">审核通过率</span>
                         <span class="text-xs font-medium text-indigo-600">{{ visitorApprovalRate }}%</span>
                     </div>
-                    <div class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-                        <div class="h-full rounded-full bg-gradient-to-r from-indigo-400 to-indigo-500 transition-all duration-500"
+                    <div class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded overflow-hidden">
+                        <div class="h-full rounded bg-gradient-to-r from-indigo-400 to-indigo-500 transition-all duration-500"
                             :style="{ width: `${visitorApprovalRate}%` }"></div>
                     </div>
                 </div>

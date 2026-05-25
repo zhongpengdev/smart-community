@@ -6,7 +6,7 @@
             <div class="max-w-[1200px] mx-auto px-4 h-14 flex items-center justify-between">
                 <div class="flex items-center gap-4">
                     <button @click="$router.back()"
-                        class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-500">
+                        class="w-8 h-8 flex items-center justify-center rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-500">
                         <Icon name="lucide:arrow-left" size="20" />
                     </button>
                     <span class="font-bold text-slate-800 dark:text-slate-100">我的帖子</span>
@@ -22,9 +22,9 @@
             <!-- Loading State -->
             <div v-if="myPostsLoading && myPosts.length === 0" class="space-y-4">
                 <div v-for="i in 5" :key="i"
-                    class="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 p-6 animate-pulse">
+                    class="bg-white dark:bg-slate-900 rounded border border-slate-100 dark:border-slate-800 p-6 animate-pulse">
                     <div class="flex gap-4">
-                        <div class="w-20 h-20 bg-slate-200 dark:bg-slate-700 rounded-lg shrink-0"></div>
+                        <div class="w-20 h-20 bg-slate-200 dark:bg-slate-700 rounded shrink-0"></div>
                         <div class="flex-1 space-y-3">
                             <div class="h-5 bg-slate-200 dark:bg-slate-700 rounded w-3/4"></div>
                             <div class="h-4 bg-slate-200 dark:bg-slate-700 rounded w-full"></div>
@@ -36,14 +36,14 @@
 
             <!-- Empty State -->
             <div v-else-if="!myPostsLoading && myPosts.length === 0"
-                class="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 p-20 text-center">
-                <div class="p-8 bg-slate-50 dark:bg-slate-800 rounded-full inline-block mb-4">
+                class="bg-white dark:bg-slate-900 rounded border border-slate-100 dark:border-slate-800 p-20 text-center">
+                <div class="p-8 bg-slate-50 dark:bg-slate-800 rounded inline-block mb-4">
                     <Icon name="lucide:file-text" size="64" class="text-slate-400" />
                 </div>
                 <h3 class="text-lg font-medium text-slate-600 dark:text-slate-300 mb-2">暂无帖子</h3>
                 <p class="text-sm text-slate-400 mb-6">快去发布你的第一篇帖子吧</p>
                 <button @click="$router.push('/service/community/forum')"
-                    class="px-6 py-2.5 bg-[#ff5000] hover:bg-[#ff6a00] text-white rounded-lg transition-all shadow-lg shadow-orange-500/20">
+                    class="px-6 py-2.5 bg-[#ff5000] hover:bg-[#ff6a00] text-white rounded transition-all shadow-lg shadow-orange-500/20">
                     前往论坛
                 </button>
             </div>
@@ -51,13 +51,13 @@
             <!-- Posts List -->
             <div v-else class="space-y-4">
                 <div v-for="post in myPosts" :key="post.postId"
-                    class="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 hover:shadow-lg hover:border-[#ff5000]/20 transition-all duration-300 overflow-hidden group">
+                    class="bg-white dark:bg-slate-900 rounded border border-slate-100 dark:border-slate-800 hover:shadow-lg hover:border-[#ff5000]/20 transition-all duration-300 overflow-hidden group">
 
                     <div class="p-6">
                         <div class="flex gap-4">
                             <!-- Thumbnail -->
                             <div v-if="post.firstImage" @click="navigateToPost(post.postId)"
-                                class="w-32 h-24 rounded-lg overflow-hidden shrink-0 cursor-pointer">
+                                class="w-32 h-24 rounded overflow-hidden shrink-0 cursor-pointer">
                                 <img :src="post.firstImage"
                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                             </div>
@@ -72,7 +72,7 @@
 
                                     <!-- Delete Button -->
                                     <button @click="handleDelete(post.postId)"
-                                        class="shrink-0 p-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 text-slate-400 hover:text-red-500 transition-colors"
+                                        class="shrink-0 p-2 rounded hover:bg-red-50 dark:hover:bg-red-900/20 text-slate-400 hover:text-red-500 transition-colors"
                                         title="删除帖子">
                                         <Icon name="lucide:trash-2" size="18" />
                                     </button>
@@ -112,9 +112,9 @@
                 <!-- Load More -->
                 <div v-if="myPostsHasMore" class="flex justify-center pt-4">
                     <button @click="loadMore" :disabled="myPostsLoading"
-                        class="px-6 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2">
+                        class="px-6 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 rounded transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2">
                         <span v-if="myPostsLoading"
-                            class="w-4 h-4 border-2 border-slate-400 border-t-transparent rounded-full animate-spin"></span>
+                            class="w-4 h-4 border-2 border-slate-400 border-t-transparent rounded animate-spin"></span>
                         {{ myPostsLoading ? '加载中...' : '加载更多' }}
                     </button>
                 </div>

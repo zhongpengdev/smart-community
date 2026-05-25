@@ -3,7 +3,7 @@
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
         <!-- Skeleton Loading -->
         <div v-if="loading && list.length === 0" v-for="i in 10" :key="`skeleton-${i}`"
-            class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden aspect-[2/3] animate-pulse border border-slate-100 dark:border-slate-800">
+            class="bg-white dark:bg-slate-800 rounded overflow-hidden aspect-[2/3] animate-pulse border border-slate-100 dark:border-slate-800">
             <div class="h-1/2 bg-slate-200 dark:bg-slate-700"></div>
             <div class="p-3 space-y-2">
                 <div class="h-4 bg-slate-100 dark:bg-slate-700 rounded w-full"></div>
@@ -13,7 +13,7 @@
 
         <!-- Product Cards -->
         <div v-for="item in list" :key="item.productId"
-            class="group bg-white dark:bg-slate-800 rounded-xl overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-300 border border-transparent dark:border-slate-800 pb-2 shadow-sm"
+            class="group bg-white dark:bg-slate-800 rounded overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-300 border border-transparent dark:border-slate-800 pb-2 shadow-sm"
             @click="goToDetail(item.productId)">
 
             <!-- Image -->
@@ -70,7 +70,7 @@
     <!-- Load More -->
     <div v-if="hasMore && list.length > 0" class="mt-6 flex justify-center">
         <button @click="$emit('loadMore')" :disabled="loading"
-            class="px-6 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-sm text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-50">
+            class="px-6 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded text-sm text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-50">
             {{ loading ? '加载中...' : '加载更多' }}
         </button>
     </div>

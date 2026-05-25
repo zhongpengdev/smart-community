@@ -17,7 +17,7 @@
                             filters.orderType === t.value
                                 ? 'text-[#ff5000] font-bold bg-orange-50 dark:bg-orange-900/20'
                                 : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
-                        ]" class="px-3 py-1.5 rounded-md text-[13px] transition-all duration-200 whitespace-nowrap">
+                        ]" class="px-3 py-1.5 rounded text-[13px] transition-all duration-200 whitespace-nowrap">
                             {{ t.label }}
                         </button>
                     </div>
@@ -31,7 +31,7 @@
                             filters.status === s.value
                                 ? 'text-[#ff5000] font-bold bg-orange-50 dark:bg-orange-900/20'
                                 : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
-                        ]" class="px-3 py-1.5 rounded-md text-[13px] transition-all duration-200 whitespace-nowrap">
+                        ]" class="px-3 py-1.5 rounded text-[13px] transition-all duration-200 whitespace-nowrap">
                             {{ s.label }}
                         </button>
                     </div>
@@ -45,24 +45,24 @@
             <!-- Loading State -->
             <div v-if="loading && orderList.length === 0" class="space-y-6">
                 <div v-for="i in 3" :key="i"
-                    class="bg-white dark:bg-slate-800 rounded-xl p-6 animate-pulse h-48 shadow-sm"></div>
+                    class="bg-white dark:bg-slate-800 rounded p-6 animate-pulse h-48 shadow-sm"></div>
             </div>
 
             <!-- Order List -->
             <div v-else-if="orderList.length > 0" class="space-y-4">
                 <div v-for="order in orderList" :key="order.orderId"
-                    class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300">
+                    class="bg-white dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300">
 
                     <!-- Compact Header -->
                     <div
                         class="px-5 py-3 border-b border-slate-50 dark:border-white/5 flex items-center justify-between bg-slate-50/30 dark:bg-white/5">
                         <div class="flex items-center gap-3">
                             <span class="text-[11px] font-mono text-slate-400">#{{ order.orderNo }}</span>
-                            <span class="h-1 w-1 rounded-full bg-slate-300"></span>
+                            <span class="h-1 w-1 rounded bg-slate-300"></span>
                             <span class="text-[11px] text-slate-500 font-medium">{{ order.orderTypeDesc }}</span>
                         </div>
                         <span :class="getStatusClass(order.status)"
-                            class="text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">
+                            class="text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider">
                             {{ order.statusDesc }}
                         </span>
                     </div>
@@ -111,15 +111,15 @@
 
                             <div class="flex gap-2">
                                 <button @click="handleViewDetail(order.orderId)"
-                                    class="px-4 py-1.5 text-xs font-bold text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 bg-slate-100 dark:bg-slate-700/50 rounded-lg transition-colors">
+                                    class="px-4 py-1.5 text-xs font-bold text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 bg-slate-100 dark:bg-slate-700/50 rounded transition-colors">
                                     详情
                                 </button>
                                 <button v-if="order.status === 0" @click="handleCancelOrder(order.orderId)"
-                                    class="px-4 py-1.5 text-xs font-bold text-red-500 hover:text-red-700 bg-red-50 hover:bg-red-100 dark:bg-red-500/10 dark:hover:bg-red-500/20 rounded-lg transition-colors">
+                                    class="px-4 py-1.5 text-xs font-bold text-red-500 hover:text-red-700 bg-red-50 hover:bg-red-100 dark:bg-red-500/10 dark:hover:bg-red-500/20 rounded transition-colors">
                                     取消
                                 </button>
                                 <button v-if="order.status === 0" @click="handleGoPay(order)"
-                                    class="px-5 py-1.5 bg-[#ff5000] text-white text-xs font-bold rounded-lg hover:bg-[#ff6a22] transition-all shadow-md shadow-orange-500/10 active:scale-95">
+                                    class="px-5 py-1.5 bg-[#ff5000] text-white text-xs font-bold rounded hover:bg-[#ff6a22] transition-all shadow-md shadow-orange-500/10 active:scale-95">
                                     去支付
                                 </button>
                             </div>
@@ -137,14 +137,14 @@
 
             <!-- Empty State -->
             <div v-else
-                class="py-24 text-center bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm">
+                class="py-24 text-center bg-white dark:bg-slate-800 rounded border border-slate-100 dark:border-slate-800 shadow-sm">
                 <div
-                    class="w-16 h-16 bg-slate-50 dark:bg-slate-700/50 rounded-full flex items-center justify-center mx-auto mb-6 text-slate-300 dark:text-slate-600">
+                    class="w-16 h-16 bg-slate-50 dark:bg-slate-700/50 rounded flex items-center justify-center mx-auto mb-6 text-slate-300 dark:text-slate-600">
                     <Icon name="lucide:inbox" size="32" />
                 </div>
                 <p class="text-slate-400 font-medium mb-6">暂无订单数据</p>
                 <NuxtLink to="/service/mall"
-                    class="inline-flex items-center justify-center px-8 py-2.5 bg-[#ff5000] text-white rounded-xl hover:bg-[#e64a00] transition-all font-bold shadow-lg shadow-orange-500/10">
+                    class="inline-flex items-center justify-center px-8 py-2.5 bg-[#ff5000] text-white rounded hover:bg-[#e64a00] transition-all font-bold shadow-lg shadow-orange-500/10">
                     前往商城
                 </NuxtLink>
             </div>

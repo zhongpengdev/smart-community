@@ -3,14 +3,14 @@
         <!-- 统计卡片 -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div v-for="stat in statCards" :key="stat.title"
-                class="bg-white dark:bg-slate-800 rounded-xl p-5 shadow-sm border border-slate-100 dark:border-slate-700">
+                class="bg-white dark:bg-slate-800 rounded p-5 shadow-sm border border-slate-100 dark:border-slate-700">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-xs text-slate-400 uppercase tracking-wider">{{ stat.title }}</p>
                         <p class="text-2xl font-bold mt-2" :class="stat.color">{{ stat.value }}</p>
                         <p v-if="stat.subtext" class="text-xs text-slate-400 mt-1">{{ stat.subtext }}</p>
                     </div>
-                    <div class="w-12 h-12 rounded-xl flex items-center justify-center" :class="stat.bgColor">
+                    <div class="w-12 h-12 rounded flex items-center justify-center" :class="stat.bgColor">
                         <Icon :name="stat.icon" size="24" :class="stat.iconColor" />
                     </div>
                 </div>
@@ -21,7 +21,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <!-- 订单状态分布 -->
             <div
-                class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-100 dark:border-slate-700">
+                class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm border border-slate-100 dark:border-slate-700">
                 <h3 class="font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
                     <Icon name="lucide:shopping-bag" size="18" class="text-blue-500" />
                     订单状态分布
@@ -31,7 +31,7 @@
 
             <!-- 订单类型占比 -->
             <div
-                class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-100 dark:border-slate-700">
+                class="bg-white dark:bg-slate-800 rounded p-6 shadow-sm border border-slate-100 dark:border-slate-700">
                 <h3 class="font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
                     <Icon name="lucide:pie-chart" size="18" class="text-green-500" />
                     订单类型占比
@@ -42,7 +42,7 @@
 
         <!-- 最近订单列表 -->
         <div
-            class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden">
+            class="bg-white dark:bg-slate-800 rounded shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden">
             <div class="p-5 border-b border-slate-100 dark:border-slate-700 flex items-center justify-between">
                 <h3 class="font-bold text-slate-800 dark:text-white flex items-center gap-2">
                     <Icon name="lucide:list" size="18" class="text-blue-500" />
@@ -81,7 +81,7 @@
                             </td>
                             <td class="px-4 py-3 font-bold text-[#ff5000]">¥{{ order.amount?.toFixed(2) }}</td>
                             <td class="px-4 py-3">
-                                <span class="px-2 py-1 rounded-full text-xs" :class="getStatusClass(order.status)">
+                                <span class="px-2 py-1 rounded text-xs" :class="getStatusClass(order.status)">
                                     {{ order.statusDesc }}
                                 </span>
                             </td>
