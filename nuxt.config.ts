@@ -9,6 +9,10 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'pinia-plugin-persistedstate/nuxt'
   ],
+  devServer: {
+    host: 'localhost',
+    port: 3001
+  },
 
   pinia: {
     storesDirs: ['./stores/**'],
