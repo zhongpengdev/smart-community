@@ -62,7 +62,7 @@
 
 <script setup lang="ts">
 import { usePost } from '~/composables/form/usePost';
-import { uploadImageApi } from '~/utils/commonApi';
+import { uploadImageApi } from '~/utils/api';
 import { checkText } from '~/utils/moderation';
 
 const props = defineProps<{
