@@ -35,6 +35,24 @@ export const agentApi = {
     }
 }
 
+// 创建新会话
+export const createNewSession = (content: string) => {
+    return $agentApi('/create_new_session', {
+        method: 'POST',
+        body: { content }
+    })
+}
+// 会话重命名
+export const renameSession = (sessionId: number, newTitle: string) => {
+    return $agentApi('/rename-session', {
+        method: 'POST',
+        body: {
+            session_id: sessionId,
+            rename_title: newTitle
+        }
+    })
+}
+
 // WebSocket 流式传输接口
 export const agentStreamApi = {
     /**
