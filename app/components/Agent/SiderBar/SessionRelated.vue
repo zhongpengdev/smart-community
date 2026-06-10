@@ -34,7 +34,7 @@
 
         <!-- Delete -->
         <button
-          @click="confirmDelete"
+          @click.stop="confirmDelete"
           class="flex items-center gap-2 px-2 py-2 text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors w-full text-left"
         >
           <Icon name="lucide:trash-2" size="14" />
@@ -42,7 +42,7 @@
         </button>
 
         <button
-          @click="handleRename"
+          @click.stop="handleRename"
           class="flex items-center gap-2 px-2 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded transition-colors w-full text-left"
         >
           <Icon name="lucide:edit-2" size="14" />
@@ -55,7 +55,7 @@
 
 <script setup lang="ts">
 import { useSession } from "~/composables/agent/useSession";
-import { renameSession } from '~/utils/API/agent'
+import { renameSession } from "~/utils/API/agent";
 
 const props = defineProps<{ sessionId: number }>();
 
@@ -90,35 +90,35 @@ const handleDelete = async () => {
 };
 
 const handleRename = async () => {
-    try {
-        const newTitle = await ElMessageBox.prompt(
-            '请输入新的会话标题',
-            '重命名会话',
-            {
-                confirmButtonText: '确定',
-                cancelButtonText: '取消',
-                inputValue: '', // 默认空
-                inputPattern: /.+/, // 不为空
-                inputErrorMessage: '标题不能为空'
-            }
-        )
+  try {
+    const newTitle = await ElMessageBox.prompt(
+      "请输入新的会话标题",
+      "重命名会话",
+      {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        inputValue: "", // 默认空
+        inputPattern: /.+/, // 不为空
+        inputErrorMessage: "标题不能为空",
+      },
+    );
 
-        if (!newTitle.value) return
+    if (!newTitle.value) return;
 
-        const res: any = await renameSession(props.sessionId, newTitle.value)
-        if (res.code === 200) {
-            ElMessage.success('修改标题成功')
-            // 刷新历史列表
-            const { fetchHistory } = useSession()
-            await fetchHistory()
-        } else {
-            ElMessage.error(res.message || '修改失败')
-        }
-    } catch (err) {
-        // 用户取消或报错
-        console.log(err)
+    const res: any = await renameSession(props.sessionId, newTitle.value);
+    if (res.code === 200) {
+      ElMessage.success("修改标题成功");
+      // 刷新历史列表
+      const { fetchHistory } = useSession();
+      await fetchHistory();
+    } else {
+      ElMessage.error(res.message || "修改失败");
     }
-}
+  } catch (err) {
+    // 用户取消或报错
+    console.log(err);
+  }
+};
 </script>
 
 <style>
