@@ -83,7 +83,8 @@ const handleDelete = async () => {
   const success = await removeSession(props.sessionId);
   if (success) {
     const currentId = Number(route.params.sessionId);
-    if (currentId && currentId === props.sessionId) {
+
+    if (!Number.isNaN(currentId) && currentId === props.sessionId) {
       await navigateTo("/agent");
     }
   }

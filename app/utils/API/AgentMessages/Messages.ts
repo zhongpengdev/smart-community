@@ -33,7 +33,7 @@ export const get_session_messages = (sessionId: string | number) => {
 // }
 export const deleteSession = (session_id: string | number) => {
     return $agentApi('/delete-session', {
-        method: 'POST',
-        body: { session_id }
+        method: 'DELETE',
+        params: { session_id }
     })
 }
