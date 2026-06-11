@@ -125,7 +125,7 @@ const handleRename = async () => {
 <style>
 /* Ensure popover background matches dark mode */
 .el-popover.dark-mode-popover {
-  background-color: #2a2b2d !important;
+  /* background-color: #2a2b2d !important; */
   border-color: #374151 !important;
 }
 </style>
