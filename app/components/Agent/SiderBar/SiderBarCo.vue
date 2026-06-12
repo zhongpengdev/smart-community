@@ -187,6 +187,7 @@ const handleSessionClick = (id: number) => {
 };
 
 const handleNewSession = async () => {
+  agentStore.clearSession();
   navigateTo(`/agent`);
 };
 
