@@ -23,12 +23,17 @@ export const get_session_messages = (sessionId: string | number) => {
 }
 
 //删除会话
+// export const deleteSession = (session_id: string | number) => {
+//     return $agentApi('/delete-session', {
+//         method: 'DELETE',
+//         query: {
+//             session_id: session_id
+//         }
+//     });
+// }
 export const deleteSession = (session_id: string | number) => {
     return $agentApi('/delete-session', {
         method: 'DELETE',
-        query: {
-            session_id: session_id
-        }
-    });
+        params: { session_id }
+    })
 }
-
