@@ -101,7 +101,6 @@
 
 <script setup lang="ts">
 import { useSession } from "~/composables/agent/useSession";
-import { createNewSession } from '~/utils/API/agent'
 
 import dayjs from "dayjs";
 
@@ -113,21 +112,7 @@ const handleSessionClick = (id: number) => {
 };
 
 const handleNewSession = async () => {
-    try {
-        const res: any = await createNewSession('') // 默认可以传空内容
-        if (res.code === 200 && res.data?.sessionId) {
-            ElMessage.success('新建会话成功')
-            // 刷新历史列表
-            await fetchHistory()
-            // 跳转到新会话
-            navigateTo(`/agent/${res.data.sessionId}`)
-        } else {
-            ElMessage.error(res.message || '新建会话失败')
-        }
-    } catch (err) {
-        ElMessage.error('服务器错误')
-        console.error(err)
-    }
+        navigateTo(`/agent`);
 }
 
 const toggleSidebar = async () => {

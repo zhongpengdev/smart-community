@@ -35,13 +35,6 @@ export const agentApi = {
     }
 }
 
-// 创建新会话
-export const createNewSession = (content: string) => {
-    return $agentApi('/create_new_session', {
-        method: 'POST',
-        body: { content }
-    })
-}
 // 会话重命名
 export const renameSession = (sessionId: number, newTitle: string) => {
     return $agentApi('/rename-session', {
