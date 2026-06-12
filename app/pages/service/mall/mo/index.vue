@@ -1,8 +1,8 @@
 <template>
-    <div class="min-h-screen bg-[#f5f7fa] dark:bg-slate-900 pb-24 transition-colors duration-300">
+    <div class="min-h-screen bg-[#f5f7fa] dark:bg-black pb-24 transition-colors duration-300">
         <!-- Header -->
         <div
-            class="sticky top-10 z-[40] bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50 transition-all">
+            class="sticky top-10 z-[40] bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50 transition-all">
             <div class="max-w-[1300px] mx-auto px-6 h-20 flex items-center justify-between gap-6">
                 <!-- Left: Title Section -->
                 <div class="flex items-center gap-4 shrink-0">

@@ -9,7 +9,7 @@
     >
         <div class="flex flex-col h-[600px]">
             <!-- 消息列表 -->
-            <div ref="messageListRef" class="flex-1 overflow-y-auto p-4 space-y-3 bg-slate-50 dark:bg-slate-900">
+            <div ref="messageListRef" class="flex-1 overflow-y-auto p-4 space-y-3 bg-slate-50 dark:bg-black">
                 <!-- Loading -->
                 <div v-if="loading" class="flex justify-center py-8">
                     <el-icon class="is-loading" size="24"><Loading /></el-icon>

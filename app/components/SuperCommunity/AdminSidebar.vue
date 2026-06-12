@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white dark:bg-slate-900 min-h-screen flex flex-col text-slate-600 dark:text-slate-300 transition-all duration-300 ease-in-out relative border-r border-slate-200 dark:border-slate-800"
+    <div class="bg-white dark:bg-black min-h-screen flex flex-col text-slate-600 dark:text-slate-300 transition-all duration-300 ease-in-out relative border-r border-slate-200 dark:border-slate-800"
         :class="isCollapsed ? 'w-20' : 'w-64'">
         <!-- Logo / Title -->
         <NuxtLink to="/superCommunity">

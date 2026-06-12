@@ -7,7 +7,7 @@
 
         <div v-else class="space-y-4">
             <div v-for="bill in bills" :key="bill.billId"
-                class="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded transition-all hover:shadow-md p-6 group">
+                class="bg-white dark:bg-black border border-slate-100 dark:border-slate-800 rounded transition-all hover:shadow-md p-6 group">
 
                 <!-- Card Header -->
                 <div

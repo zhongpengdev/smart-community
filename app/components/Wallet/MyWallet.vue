@@ -1,6 +1,6 @@
 <template>
     <NuxtLink to="/wallet"
-        class="block group relative overflow-hidden bg-white dark:bg-slate-900 rounded p-6 border border-slate-100 dark:border-slate-800 shadow-sm h-full">
+        class="block group relative overflow-hidden bg-white dark:bg-black rounded p-6 border border-slate-100 dark:border-slate-800 shadow-sm h-full">
 
         <!-- Decorative background elements -->
         <div

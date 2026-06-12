@@ -19,7 +19,7 @@
                     class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-[#ff5000] transition-colors" />
                 <input type="text" placeholder="搜索好友..." :value="searchQuery"
                     @input="emit('update:searchQuery', ($event.target as HTMLInputElement).value)"
-                    class="pl-9 pr-4 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded text-sm text-slate-700 dark:text-slate-200 focus:outline-none focus:border-[#ff5000] focus:ring-1 focus:ring-[#ff5000] w-64 transition-all" />
+                    class="pl-9 pr-4 py-2 bg-slate-50 dark:bg-black border border-slate-200 dark:border-slate-700 rounded text-sm text-slate-700 dark:text-slate-200 focus:outline-none focus:border-[#ff5000] focus:ring-1 focus:ring-[#ff5000] w-64 transition-all" />
             </div>
         </div>
 

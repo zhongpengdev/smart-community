@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white dark:bg-slate-900 rounded p-5 border border-slate-100 dark:border-slate-800 shadow-sm">
+    <div class="bg-white dark:bg-black rounded p-5 border border-slate-100 dark:border-slate-800 shadow-sm">
         <div class="flex items-center gap-2 mb-4 pb-2 border-b border-slate-50 dark:border-slate-800">
             <h3 class="font-bold text-slate-800 dark:text-slate-100">我的收藏</h3>
         </div>

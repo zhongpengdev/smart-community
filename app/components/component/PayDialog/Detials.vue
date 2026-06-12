@@ -7,11 +7,11 @@
             <!-- Dialog Content -->
             <Transition name="scale">
                 <div v-if="show"
-                    class="relative w-full max-w-md bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden">
+                    class="relative w-full max-w-md bg-white dark:bg-black rounded-[2.5rem] shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden">
 
                     <!-- Header (Order Status) -->
                     <div
-                        class="pt-10 pb-6 text-center bg-gradient-to-b from-orange-50 to-white dark:from-orange-900/10 dark:to-slate-900">
+                        class="pt-10 pb-6 text-center bg-gradient-to-b from-orange-50 to-white dark:from-orange-900/10 dark:to-black">
                         <div
                             class="w-16 h-16 mx-auto bg-orange-100 dark:bg-orange-500/20 rounded flex items-center justify-center text-[#ff5000] mb-4">
                             <Icon name="lucide:shopping-bag" size="32" />

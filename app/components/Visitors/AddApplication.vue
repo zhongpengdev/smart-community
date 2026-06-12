@@ -14,13 +14,13 @@
                 <el-col :span="12">
                     <el-form-item label="放行时间" prop="allowTime">
                         <input v-model="form.allowTime" type="datetime-local"
-                            class="w-full h-[32px] px-3 border border-[#dcdfe6] rounded bg-white dark:bg-slate-900 dark:border-slate-700 focus:border-[#ff5000] outline-none transition-colors text-sm text-slate-700 dark:text-slate-200 placeholder:text-slate-400" />
+                            class="w-full h-[32px] px-3 border border-[#dcdfe6] rounded bg-white dark:bg-black dark:border-slate-700 focus:border-[#ff5000] outline-none transition-colors text-sm text-slate-700 dark:text-slate-200 placeholder:text-slate-400" />
                     </el-form-item>
                 </el-col>
                 <el-col :span="12">
                     <el-form-item label="有效期至" prop="validDate">
                         <input v-model="form.validDate" type="datetime-local"
-                            class="w-full h-[32px] px-3 border border-[#dcdfe6] rounded bg-white dark:bg-slate-900 dark:border-slate-700 focus:border-[#ff5000] outline-none transition-colors text-sm text-slate-700 dark:text-slate-200 placeholder:text-slate-400" />
+                            class="w-full h-[32px] px-3 border border-[#dcdfe6] rounded bg-white dark:bg-black dark:border-slate-700 focus:border-[#ff5000] outline-none transition-colors text-sm text-slate-700 dark:text-slate-200 placeholder:text-slate-400" />
                     </el-form-item>
                 </el-col>
             </el-row>

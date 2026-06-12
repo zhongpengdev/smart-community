@@ -1,6 +1,6 @@
 <template>
   <footer
-    class=" bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 pt-10 pb-6 font-sans border-t border-slate-100 dark:border-slate-800 transition-colors duration-300">
+    class=" bg-white dark:bg-black text-slate-600 dark:text-slate-400 pt-10 pb-6 font-sans border-t border-slate-100 dark:border-slate-800 transition-colors duration-300">
     <div class="max-w-[1300px] mx-auto px-4">
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">

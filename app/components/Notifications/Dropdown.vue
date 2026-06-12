@@ -14,7 +14,7 @@
         </template>
 
         <!-- 通知内容 -->
-        <div class="notification-content bg-white dark:bg-slate-900">
+        <div class="notification-content bg-white dark:bg-black">
             <!-- 头部 -->
             <div
                 class="flex items-center justify-between px-4 py-3.5 border-b border-slate-100 dark:border-slate-700 bg-gradient-to-r from-slate-50 to-transparent dark:from-slate-800/50 dark:to-transparent">
@@ -291,7 +291,7 @@ const formatTime = (time: string) => {
 
 <style scoped>
 .notification-content {
-    @apply bg-white dark:bg-slate-900;
+    @apply bg-white dark:bg-black;
 }
 
 .notification-list::-webkit-scrollbar {

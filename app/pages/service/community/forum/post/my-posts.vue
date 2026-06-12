@@ -2,7 +2,7 @@
     <div class="pb-20">
         <!-- Header -->
         <div
-            class="sticky top-0 z-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50">
+            class="sticky top-0 z-20 bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50">
             <div class="max-w-[1200px] mx-auto px-4 h-14 flex items-center justify-between">
                 <div class="flex items-center gap-4">
                     <button @click="$router.back()"
@@ -22,7 +22,7 @@
             <!-- Loading State -->
             <div v-if="myPostsLoading && myPosts.length === 0" class="space-y-4">
                 <div v-for="i in 5" :key="i"
-                    class="bg-white dark:bg-slate-900 rounded border border-slate-100 dark:border-slate-800 p-6 animate-pulse">
+                    class="bg-white dark:bg-black rounded border border-slate-100 dark:border-slate-800 p-6 animate-pulse">
                     <div class="flex gap-4">
                         <div class="w-20 h-20 bg-slate-200 dark:bg-slate-700 rounded shrink-0"></div>
                         <div class="flex-1 space-y-3">
@@ -36,7 +36,7 @@
 
             <!-- Empty State -->
             <div v-else-if="!myPostsLoading && myPosts.length === 0"
-                class="bg-white dark:bg-slate-900 rounded border border-slate-100 dark:border-slate-800 p-20 text-center">
+                class="bg-white dark:bg-black rounded border border-slate-100 dark:border-slate-800 p-20 text-center">
                 <div class="p-8 bg-slate-50 dark:bg-slate-800 rounded inline-block mb-4">
                     <Icon name="lucide:file-text" size="64" class="text-slate-400" />
                 </div>
@@ -51,7 +51,7 @@
             <!-- Posts List -->
             <div v-else class="space-y-4">
                 <div v-for="post in myPosts" :key="post.postId"
-                    class="bg-white dark:bg-slate-900 rounded border border-slate-100 dark:border-slate-800 hover:shadow-lg hover:border-[#ff5000]/20 transition-all duration-300 overflow-hidden group">
+                    class="bg-white dark:bg-black rounded border border-slate-100 dark:border-slate-800 hover:shadow-lg hover:border-[#ff5000]/20 transition-all duration-300 overflow-hidden group">
 
                     <div class="p-6">
                         <div class="flex gap-4">

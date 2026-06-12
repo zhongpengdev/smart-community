@@ -1,8 +1,8 @@
 <template>
-    <div class="min-h-screen bg-[#f5f7fa] dark:bg-slate-900 pb-24 transition-colors duration-300">
+    <div class="min-h-screen bg-[#f5f7fa] dark:bg-black pb-24 transition-colors duration-300">
         <!-- Header / Top Bar -->
         <div
-            class="pt-8 pb-4 mb-6 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shadow-sm sticky top-0 z-50">
+            class="pt-8 pb-4 mb-6 bg-white dark:bg-black border-b border-slate-100 dark:border-slate-800 shadow-sm sticky top-0 z-50">
             <div class="max-w-[1300px] mx-auto px-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div class="flex items-center gap-3">
                     <div>

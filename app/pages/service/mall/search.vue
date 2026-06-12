@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-[#f4f4f4] dark:bg-slate-900 pb-10">
+    <div class="min-h-screen bg-[#f4f4f4] dark:bg-black pb-10">
         <!-- Search Header -->
         <div class="bg-white dark:bg-slate-800 p-4 shadow-sm">
             <div class="max-w-[800px] mx-auto">

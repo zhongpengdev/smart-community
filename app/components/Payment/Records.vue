@@ -7,7 +7,7 @@
 
         <div v-else class="space-y-4">
             <div v-for="record in records" :key="record.paymentId"
-                class="p-5 bg-white dark:bg-slate-900 rounded flex flex-col sm:flex-row sm:items-center justify-between border border-slate-100 dark:border-slate-800 hover:border-orange-100 dark:hover:border-orange-900/50 transition-all shadow-sm group">
+                class="p-5 bg-white dark:bg-black rounded flex flex-col sm:flex-row sm:items-center justify-between border border-slate-100 dark:border-slate-800 hover:border-orange-100 dark:hover:border-orange-900/50 transition-all shadow-sm group">
 
                 <div class="flex items-center gap-4">
                     <!-- Icon based on status -->

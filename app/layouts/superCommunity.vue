@@ -1,5 +1,5 @@
 <template>
-    <div class="flex h-screen bg-slate-50 dark:bg-slate-900 overflow-hidden">
+    <div class="flex h-screen bg-slate-50 dark:bg-black overflow-hidden">
         <!-- Loading Overlay -->
         <SuperCommunityLoader :show="shouldShowLoader" title="后台管理系统" :subtitle="loadingSubtitle" />
 

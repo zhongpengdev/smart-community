@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white dark:bg-slate-900 rounded p-5 border border-slate-100 dark:border-slate-800 shadow-sm">
+    <div class="bg-white dark:bg-black rounded p-5 border border-slate-100 dark:border-slate-800 shadow-sm">
         <div class="flex gap-4">
             <img :src="userAvatar" class="w-10 h-10 rounded object-cover bg-slate-100" />
             <div class="flex-1">

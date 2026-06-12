@@ -6,7 +6,7 @@ useHead({
         class: computed(() => (colorMode.value === "dark" ? "dark" : "")),
     },
     bodyAttrs: {
-        class: 'bg-slate-100/70 dark:bg-slate-900 text-slate-900 dark:text-slate-200 transition-colors duration-300 min-h-screen',
+        class: 'bg-slate-100/70 dark:bg-black text-slate-900 dark:text-slate-200 transition-colors duration-300 min-h-screen',
     },
 });
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+    <div class="bg-white dark:bg-black border border-slate-200 dark:border-slate-800">
         <!-- Header -->
         <div class="px-6 py-4 dark:border-slate-800">
             <h2 class="text-2xl font-bold text-slate-900 dark:text-white">探索社区</h2>

@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-[#f5f7fa] dark:bg-slate-900 pb-12">
+    <div class="min-h-screen bg-[#f5f7fa] dark:bg-black pb-12">
         <!-- Header -->
         <TopBar @create="openCreateModal" />
 

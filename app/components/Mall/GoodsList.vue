@@ -10,7 +10,7 @@
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:gap-4">
       <!-- Skeleton Loading -->
       <div v-if="loading && list.length === 0" v-for="i in 5" :key="`skeleton-${i}`"
-        class="bg-white dark:bg-slate-900 rounded overflow-hidden border border-slate-100 dark:border-slate-800 animate-pulse">
+        class="bg-white dark:bg-black rounded overflow-hidden border border-slate-100 dark:border-slate-800 animate-pulse">
         <div class="aspect-square bg-slate-200 dark:bg-slate-700"></div>
         <div class="p-3 space-y-2">
           <div class="h-4 bg-slate-200 dark:bg-slate-700 rounded w-3/4"></div>
@@ -21,7 +21,7 @@
 
       <!-- Product Cards -->
       <div v-for="item in list" :key="item.productId" @click="goToDetail(item.productId)"
-        class="group bg-white dark:bg-slate-900 rounded overflow-hidden border border-transparent cursor-pointer shadow-sm hover:shadow-md flex flex-col">
+        class="group bg-white dark:bg-black rounded overflow-hidden border border-transparent cursor-pointer shadow-sm hover:shadow-md flex flex-col">
 
         <!-- Product Image -->
         <div class="aspect-square overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
@@ -55,7 +55,7 @@
     <div v-if="loading && list.length > 0" class="mt-6">
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:gap-4">
         <div v-for="i in 5" :key="`loading-${i}`"
-          class="bg-white dark:bg-slate-900 rounded overflow-hidden border border-slate-100 dark:border-slate-800 animate-pulse">
+          class="bg-white dark:bg-black rounded overflow-hidden border border-slate-100 dark:border-slate-800 animate-pulse">
           <div class="aspect-square bg-slate-200 dark:bg-slate-700"></div>
           <div class="p-3 space-y-2">
             <div class="h-4 bg-slate-200 dark:bg-slate-700 rounded w-3/4"></div>

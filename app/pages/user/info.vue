@@ -5,7 +5,7 @@
 
         <div class="flex-1 min-w-0">
             <div
-                class="bg-white dark:bg-slate-900 rounded p-8 shadow-sm border border-slate-100 dark:border-slate-800">
+                class="bg-white dark:bg-black rounded p-8 shadow-sm border border-slate-100 dark:border-slate-800">
                 <h2 class="text-xl font-bold mb-8 flex items-center gap-2">
                     <div class="w-1 h-6 bg-[#ff5000] rounded"></div>
                     编辑个人信息

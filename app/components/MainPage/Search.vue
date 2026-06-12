@@ -1,7 +1,7 @@
 <template>
     <div class="relative w-full z-10">
         <div
-            class="flex items-center w-full h-11 pr-1 pl-4 rounded bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 shadow-sm transition-all duration-300 focus-within:bg-white dark:focus-within:bg-slate-800 focus-within:ring-2 focus-within:ring-blue-500/20">
+            class="flex items-center w-full h-11 pr-1 pl-4 rounded bg-white/60 dark:bg-zinc-800/60 backdrop-blur-sm border border-slate-200/50 dark:border-zinc-700/50 shadow-sm transition-all duration-300 focus-within:bg-white dark:focus-within:bg-zinc-800 focus-within:ring-2 focus-within:ring-blue-500/20">
 
             <Icon name="lucide:search" class="w-4 h-4 text-slate-400 mr-2" />
 
@@ -10,7 +10,7 @@
                 @keyup.enter="handleSearch" />
 
             <div v-if="searchState.query" @click="clearSearch"
-                class="cursor-pointer p-1.5 rounded hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-600 transition-colors mr-1">
+                class="cursor-pointer p-1.5 rounded hover:bg-slate-100 dark:hover:bg-zinc-700 text-slate-400 hover:text-slate-600 transition-colors mr-1">
                 <Icon name="lucide:x" class="w-3.5 h-3.5" />
             </div>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-[#f4f4f4] dark:bg-slate-900 pb-24">
+    <div class="min-h-screen bg-[#f4f4f4] dark:bg-black pb-24">
         <!-- Main Detail Container -->
         <div class="max-w-[1190px] mx-auto pt-4 px-4 md:px-0">
 
@@ -21,7 +21,7 @@
 
                     <!-- Main Image -->
                     <div
-                        class="flex-1 aspect-square bg-[#f9f9f9] dark:bg-slate-900 rounded overflow-hidden relative group border border-slate-100 dark:border-slate-700">
+                        class="flex-1 aspect-square bg-[#f9f9f9] dark:bg-black rounded overflow-hidden relative group border border-slate-100 dark:border-slate-700">
                         <img v-if="activeImage" :src="activeImage" class="w-full h-full object-contain"
                             :alt="product?.productName">
                         <div v-else-if="loading" class="w-full h-full animate-pulse bg-slate-100 dark:bg-slate-800">
@@ -37,7 +37,7 @@
                     </h1>
 
                     <p
-                        class="text-sm text-slate-500 dark:text-slate-400 mb-6 bg-slate-50 dark:bg-slate-900/50 p-3 rounded border border-slate-100 dark:border-slate-800">
+                        class="text-sm text-slate-500 dark:text-slate-400 mb-6 bg-slate-50 dark:bg-black/50 p-3 rounded border border-slate-100 dark:border-slate-800">
                         {{ product?.description }}
                     </p>
 
@@ -74,7 +74,7 @@
                                     <div v-for="store in product.availableStores" :key="store.storeId"
                                         @click="selectedStoreId = store.storeId"
                                         class="p-3 rounded border cursor-pointer transition-all"
-                                        :class="selectedStoreId === store.storeId ? 'border-[#ff5000] bg-orange-50 dark:bg-orange-900/20' : 'border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 hover:border-orange-200'">
+                                        :class="selectedStoreId === store.storeId ? 'border-[#ff5000] bg-orange-50 dark:bg-orange-900/20' : 'border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-black/50 hover:border-orange-200'">
                                         <div class="flex items-center justify-between mb-1">
                                             <div class="flex items-center gap-2">
                                                 <div class="w-3 h-3 rounded border border-slate-300 flex items-center justify-center"

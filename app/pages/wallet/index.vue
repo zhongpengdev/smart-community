@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- Header -->
-        <div class="bg-white dark:bg-slate-900 px-4 py-4 sticky top-10 z-10">
+        <div class="bg-white dark:bg-black px-4 py-4 sticky top-10 z-10">
             <div class="max-w-[1300px] mx-auto flex items-center gap-4">
                 <h1 class="text-lg font-bold text-slate-800 dark:text-slate-100">我的钱包</h1>
             </div>
@@ -35,7 +35,7 @@
                 <!-- Quick Stats -->
                 <div class="grid grid-cols-2 gap-4">
                     <div
-                        class="bg-white dark:bg-slate-900 rounded p-6 border border-slate-100 dark:border-slate-800">
+                        class="bg-white dark:bg-black rounded p-6 border border-slate-100 dark:border-slate-800">
                         <p
                             class="text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider mb-2 text-opacity-80">
                             总消费</p>
@@ -43,7 +43,7 @@
                             }}</p>
                     </div>
                     <div
-                        class="bg-white dark:bg-slate-900 rounded p-6 border border-slate-100 dark:border-slate-800">
+                        class="bg-white dark:bg-black rounded p-6 border border-slate-100 dark:border-slate-800">
                         <p
                             class="text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider mb-2 text-opacity-80">
                             总充值</p>
@@ -56,7 +56,7 @@
             <!-- Transaction History -->
             <div class="lg:col-span-2">
                 <div
-                    class="bg-white dark:bg-slate-900 rounded p-8 border border-slate-100 dark:border-slate-800 min-h-[500px]">
+                    class="bg-white dark:bg-black rounded p-8 border border-slate-100 dark:border-slate-800 min-h-[500px]">
                     <div class="flex items-center justify-between mb-8">
                         <div>
                             <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">账单明细</h3>

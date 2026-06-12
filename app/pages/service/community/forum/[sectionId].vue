@@ -3,7 +3,7 @@
     <div class="pb-20">
         <!-- Header with Back Button (reusing some style or creating simple one) -->
         <div
-            class="sticky top-0 z-10 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50">
+            class="sticky top-0 z-10 bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50">
             <div class="max-w-[1300px] mx-auto px-4 h-14 flex items-center gap-4">
                 <NuxtLink to="/service/community/forum"
                     class="w-8 h-8 flex items-center justify-center rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-500">

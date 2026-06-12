@@ -49,7 +49,7 @@
 
                     <!-- Item Image -->
                     <div
-                        class="w-28 h-28 bg-slate-50 dark:bg-slate-900 rounded overflow-hidden shrink-0 border border-slate-100 dark:border-slate-700">
+                        class="w-28 h-28 bg-slate-50 dark:bg-black rounded overflow-hidden shrink-0 border border-slate-100 dark:border-slate-700">
                         <img v-if="item.coverImg" :src="item.coverImg" class="w-full h-full object-cover" />
                         <div v-else class="w-full h-full flex items-center justify-center text-slate-300">
                             <Icon name="lucide:image" size="24" />

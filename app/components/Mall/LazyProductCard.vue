@@ -1,6 +1,6 @@
 <template>
     <div ref="cardRef"
-        class="group bg-white dark:bg-slate-900 rounded overflow-hidden border border-transparent cursor-pointer shadow-sm hover:shadow-md flex flex-col">
+        class="group bg-white dark:bg-black rounded overflow-hidden border border-transparent cursor-pointer shadow-sm hover:shadow-md flex flex-col">
         <!-- Product Image with Lazy Loading -->
         <div class="aspect-square overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
             <!-- Skeleton while loading -->

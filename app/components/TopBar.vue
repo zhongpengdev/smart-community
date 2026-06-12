@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="h-10 px-4 flex items-center justify-between bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 transition-colors z-[1000] sticky top-0">
+    class="h-10 px-4 flex items-center justify-between bg-white dark:bg-black border-b border-slate-100 dark:border-slate-800 transition-colors z-[1000] sticky top-0">
     <div class="flex items-center">
       <nuxt-link to="/">
         <div class="text-sm font-bold text-[#ff5000] flex items-center gap-2">
@@ -41,7 +41,7 @@
           <div
             class="absolute top-full left-0 pt-1.5 w-[440px] invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300 transform origin-top-left scale-95 group-hover:scale-100 z-[1001]">
             <div
-              class="bg-white dark:bg-slate-900 rounded shadow-2xl border border-slate-100 dark:border-slate-800 p-5 grid grid-cols-2 gap-6 ring-1 ring-slate-200/50 dark:ring-white/5">
+              class="bg-white dark:bg-black rounded shadow-2xl border border-slate-100 dark:border-slate-800 p-5 grid grid-cols-2 gap-6 ring-1 ring-slate-200/50 dark:ring-white/5">
               <div v-for="category in communityServices" :key="category.title" class="flex flex-col gap-3">
                 <div
                   class="flex items-center gap-2 text-[10px] font-black text-slate-400 uppercase tracking-[0.1em] pb-1.5 border-b border-slate-50 dark:border-white/5">

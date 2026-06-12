@@ -2,7 +2,7 @@
     <div class="pb-20">
         <!-- Header -->
         <div
-            class="sticky top-0 z-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50"
+            class="sticky top-0 z-20 bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50"
         >
             <div
                 class="max-w-[1300px] mx-auto px-4 h-14 flex items-center justify-between"
@@ -27,7 +27,7 @@
         >
             <!-- Main Post Area -->
             <div
-                class="min-w-0 bg-white dark:bg-slate-900 rounded shadow-sm overflow-hidden min-h-[400px]"
+                class="min-w-0 bg-white dark:bg-black rounded shadow-sm overflow-hidden min-h-[400px]"
             >
                 <!-- Loading -->
                 <div
@@ -183,7 +183,7 @@
             <!-- Right Sidebar -->
             <div class="hidden lg:block space-y-4">
                 <div
-                    class="bg-white dark:bg-slate-900 rounded shadow-sm p-4 sticky top-20"
+                    class="bg-white dark:bg-black rounded shadow-sm p-4 sticky top-20"
                 >
                     <h3
                         class="font-bold text-slate-800 dark:text-white mb-4 text-sm uppercase tracking-wider opacity-50"

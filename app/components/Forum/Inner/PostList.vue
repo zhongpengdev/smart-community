@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white dark:bg-slate-900 rounded shadow-sm overflow-hidden">
+    <div class="bg-white dark:bg-black rounded shadow-sm overflow-hidden">
         <div v-for="post in posts" :key="post.postId" @click="navigateToPost(post.postId)"
             class="p-5 border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors cursor-pointer group">
 

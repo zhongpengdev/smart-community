@@ -1,6 +1,6 @@
 <template>
     <div
-        class="w-full rounded border border-blue-200/50 dark:border-blue-500/20 bg-gradient-to-br from-blue-50/80 to-white dark:from-slate-800/50 dark:to-slate-900 p-4 shadow-sm"
+        class="w-full rounded border border-blue-200/50 dark:border-zinc-800/20 bg-gradient-to-br from-blue-50/80 to-white dark:from-zinc-900/50 dark:to-black p-4 shadow-sm"
     >
         <div class="flex gap-4 h-[320px]">
             <!-- 左侧内容区：搜索栏 + 轮播图 -->
