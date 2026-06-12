@@ -116,8 +116,8 @@ onMounted(async () => {
                 isStreaming: true
             })
         } else {
-            // Not streaming, start fresh
-            handleSendMessage(initialMessage)
+            // Not streaming, load history (which already has the message we sent)
+            await loadSessionHistory(sessionId)
         }
 
         // Remove query param to clean up URL
