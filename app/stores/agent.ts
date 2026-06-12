@@ -4,6 +4,7 @@ export const useAgentStore = defineStore('agent', {
     state: () => ({
         sessionId: null as string | number | null,
         sessionTitle: '' as string,
+        isSidebarExpanded: true,
     }),
     actions: {
         setSession(id: string | number, title: string = '') {

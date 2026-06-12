@@ -1,61 +1,46 @@
 <template>
-    <div class="flex-1 w-full max-w-3xl mx-auto overflow-y-auto p-4 space-y-6 scroll-smooth" ref="containerRef">
+    <div class="flex-1 w-full max-w-3xl mx-auto overflow-y-auto p-4 space-y-6" ref="containerRef">
         <div v-for="(msg, index) in messages" :key="index" class="flex flex-col gap-2"
             :class="[msg.role === 'user' ? 'items-end' : 'items-start']">
 
-            <!-- Avatar & Name -->
-            <div class="flex items-center gap-2" :class="[msg.role === 'user' ? 'flex-row-reverse' : 'flex-row']">
-                <div class="w-8 h-8 rounded flex items-center justify-center shrink-0 border transition-colors"
-                    :class="[msg.role === 'user' ? 'bg-blue-100 border-blue-200 dark:bg-blue-900/30 dark:border-blue-800' : 'bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:border-emerald-800']">
-                    <Icon v-if="msg.role === 'user'" name="lucide:user" size="16"
-                        class="text-blue-600 dark:text-blue-400" />
-                    <Icon v-else name="lucide:bot" size="16" class="text-emerald-600 dark:text-emerald-400" />
-                </div>
-                <!-- <span class="text-xs text-gray-500 dark:text-gray-400 font-medium">
-                    {{ msg.role === 'user' ? 'You' : 'Agent' }}
-                </span> -->
-
+            <!-- Headers / Metadata (Only for assistant messages) -->
+            <div v-if="msg.role === 'assistant'" class="w-full flex flex-col items-start gap-1.5 shrink-0">
                 <!-- Agent Status Indicator -->
-                <div v-if="msg.role === 'assistant' && msg.isStreaming && agentStatus"
-                    class="flex items-center gap-2 ml-2 transition-all animate-pulse">
+                <div v-if="msg.isStreaming && agentStatus"
+                    class="flex items-center gap-2 mb-1 transition-all animate-pulse">
                     <Icon name="lucide:loader-2" size="14" class="animate-spin text-emerald-500" />
                     <span class="text-xs text-emerald-600 dark:text-emerald-400 font-medium">{{ agentStatus }}</span>
                 </div>
-            </div>
-
-            <!-- Tool Calls History (只在最新的 assistant 消息中显示) -->
-            <div v-if="msg.role === 'assistant' && toolCalls && toolCalls.length > 0 && index === messages.length - 1"
-                class="max-w-[85%] mb-3">
-                <AgentHomepageToolCallHistory :tool-calls="toolCalls" />
-            </div>
-
-            <!-- Message Bubble -->
-            <div class="max-w-[85%] rounded px-5 py-3 text-sm leading-relaxed shadow-sm transition-all" :class="[
-                msg.role === 'user'
-                    ? 'bg-blue-600 text-white rounded-sm'
-                    : 'bg-white dark:bg-[#1E1F20] text-gray-800 dark:text-gray-200 border border-gray-100 dark:border-gray-800 rounded-sm'
-            ]">
-                <div v-if="msg.role === 'assistant'" v-html="formatMessage(msg.content)"
-                    class="prose prose-sm dark:prose-invert max-w-none prose-p:my-0 prose-ul:my-0 prose-ol:my-0 prose-li:my-0 prose-headings:my-0 prose-pre:my-0">
+                <!-- Tool Calls History (Only shown on the latest assistant message) -->
+                <div v-if="toolCalls && toolCalls.length > 0 && index === messages.length - 1"
+                    class="w-full max-w-[85%] mb-2">
+                    <AgentHomepageToolCallHistory :tool-calls="toolCalls" />
                 </div>
-                <div v-else class="whitespace-pre-wrap">{{ msg.content }}</div>
+            </div>
 
-                <!-- 光标动画 -->
-                <span v-if="msg.role === 'assistant' && msg.isStreaming && !agentStatus"
-                    class="inline-block w-1.5 h-4 ml-0.5 align-middle bg-emerald-500 animate-pulse rounded"></span>
+            <!-- Message Body -->
+            <!-- User Message: Wrapped in a nice round bubble -->
+            <div v-if="msg.role === 'user'" 
+                class="max-w-[85%] bg-gray-100 dark:bg-zinc-800 text-gray-800 dark:text-gray-200 rounded-[22px] px-5 py-3 text-[16px] leading-relaxed shadow-sm transition-all whitespace-pre-wrap"
+            >
+                {{ msg.content }}
+            </div>
+            
+            <!-- Assistant Message: Direct text rendering, no bubble -->
+            <div v-else 
+                class="w-full max-w-[95%] py-1 text-[16px] leading-relaxed text-gray-800 dark:text-gray-200 transition-all"
+            >
+                <div v-html="formatMessage(msg.content)"
+                    class="prose prose-base dark:prose-invert max-w-none prose-p:my-0 prose-ul:my-0 prose-ol:my-0 prose-li:my-0 prose-headings:my-0 prose-pre:my-0"
+                >
+                </div>
+
+                <!-- Cursor animation -->
+                <span v-if="msg.isStreaming && !agentStatus"
+                    class="inline-block w-1.5 h-4 ml-0.5 align-middle bg-emerald-500 animate-pulse rounded"
+                ></span>
             </div>
         </div>
-
-        <!-- 消息为空 -->
-        <div v-if="messages.length === 0"
-            class="h-full flex flex-col items-center justify-center text-gray-400 dark:text-gray-600 space-y-6 pb-20">
-            <div
-                class="w-20 h-20 rounded bg-gray-50 dark:bg-[#1E1F20] flex items-center justify-center border border-gray-100 dark:border-gray-800">
-                <Icon name="lucide:sparkles" size="40" class="text-gray-300 dark:text-gray-500" />
-            </div>
-            <InspiraCoTextGenerateEffect words="Ready to help, ask me anything!" class="font-medium text-2xl" />
-        </div>
-
     </div>
 </template>
 
@@ -148,22 +133,15 @@ onMounted(scrollToBottom)
 </script>
 
 <style scoped>
-/* Custom Scrollbar for Webkit */
+/* Hide Scrollbar for Webkit (Chrome, Safari, etc.) */
 div::-webkit-scrollbar {
-    width: 6px;
+    display: none;
 }
 
-div::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-div::-webkit-scrollbar-thumb {
-    background-color: rgba(156, 163, 175, 0.2);
-    border-radius: 3px;
-}
-
-div::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(156, 163, 175, 0.4);
+/* Hide Scrollbar for Firefox and IE/Edge */
+div {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 /* Aggressive spacing reset for markdown content */
