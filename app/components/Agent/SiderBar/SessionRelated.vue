@@ -55,22 +55,30 @@
 
 <script setup lang="ts">
 import { useSession } from "~/composables/agent/useSession";
-import { renameSession } from "~/utils/API/agent";
 
 const props = defineProps<{ sessionId: number }>();
 
+const emit = defineEmits<{
+  (e: "rename"): void;
+}>();
+
 const { removeSession } = useSession();
-const router = useRouter();
 const route = useRoute();
 
 const confirmDelete = () => {
-  ElMessageBox.confirm("确认删除该会话吗?", "删除会话", {
-    confirmButtonText: "删除",
-    cancelButtonText: "取消",
-    confirmButtonClass: "el-button--danger",
-    type: "warning",
-    autofocus: false,
-  })
+  ElMessageBox.confirm(
+    "删除会话后，其中的聊天记录将永久丢失且无法找回。是否确认删除？",
+    "确认删除会话",
+    {
+      confirmButtonText: "删除",
+      cancelButtonText: "取消",
+      customClass: "custom-confirm-box",
+      confirmButtonClass: "btn-delete-confirm",
+      cancelButtonClass: "btn-delete-cancel",
+      type: "warning",
+      autofocus: false,
+    }
+  )
     .then(async () => {
       await handleDelete();
     })
@@ -90,42 +98,101 @@ const handleDelete = async () => {
   }
 };
 
-const handleRename = async () => {
-  try {
-    const newTitle = await ElMessageBox.prompt(
-      "请输入新的会话标题",
-      "重命名会话",
-      {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        inputValue: "", // 默认空
-        inputPattern: /.+/, // 不为空
-        inputErrorMessage: "标题不能为空",
-      },
-    );
-
-    if (!newTitle.value) return;
-
-    const res: any = await renameSession(props.sessionId, newTitle.value);
-    if (res.code === 200) {
-      ElMessage.success("修改标题成功");
-      // 刷新历史列表
-      const { fetchHistory } = useSession();
-      await fetchHistory();
-    } else {
-      ElMessage.error(res.message || "修改失败");
-    }
-  } catch (err) {
-    // 用户取消或报错
-    console.log(err);
-  }
+const handleRename = () => {
+  emit("rename");
 };
 </script>
 
 <style>
-/* Ensure popover background matches dark mode */
-.el-popover.dark-mode-popover {
-  /* background-color: #2a2b2d !important; */
-  border-color: #374151 !important;
+/* Global MessageBox Overrides for modern minimal aesthetics */
+.custom-confirm-box {
+  border-radius: 12px !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02) !important;
+  padding: 16px 20px !important;
+}
+
+.dark .custom-confirm-box {
+  background-color: #121212 !important;
+  border-color: #27272a !important;
+  color: #f4f4f5 !important;
+}
+
+.custom-confirm-box .el-message-box__header {
+  padding: 0 0 8px 0 !important;
+}
+
+.custom-confirm-box .el-message-box__title {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+
+.dark .custom-confirm-box .el-message-box__title {
+  color: #f4f4f5 !important;
+}
+
+.custom-confirm-box .el-message-box__content {
+  padding: 0 0 16px 0 !important;
+}
+
+.custom-confirm-box .el-message-box__message {
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  color: #64748b !important;
+}
+
+.dark .custom-confirm-box .el-message-box__message {
+  color: #a1a1aa !important;
+}
+
+.custom-confirm-box .el-message-box__btns {
+  padding: 0 !important;
+}
+
+/* Custom Buttons inside MessageBox */
+.custom-confirm-box .btn-delete-confirm {
+  background-color: #ef4444 !important;
+  border-color: #ef4444 !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  padding: 6px 14px !important;
+  font-weight: 500 !important;
+}
+
+.custom-confirm-box .btn-delete-confirm:hover,
+.custom-confirm-box .btn-delete-confirm:focus {
+  background-color: #dc2626 !important;
+  border-color: #dc2626 !important;
+  color: #ffffff !important;
+}
+
+.custom-confirm-box .btn-delete-cancel {
+  background-color: transparent !important;
+  border-color: #e2e8f0 !important;
+  color: #64748b !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  padding: 6px 14px !important;
+  font-weight: 500 !important;
+}
+
+.dark .custom-confirm-box .btn-delete-cancel {
+  border-color: #27272a !important;
+  color: #a1a1aa !important;
+}
+
+.custom-confirm-box .btn-delete-cancel:hover,
+.custom-confirm-box .btn-delete-cancel:focus {
+  background-color: #f1f5f9 !important;
+  color: #1e293b !important;
+  border-color: #cbd5e1 !important;
+}
+
+.dark .custom-confirm-box .btn-delete-cancel:hover,
+.dark .custom-confirm-box .btn-delete-cancel:focus {
+  background-color: #18181b !important;
+  color: #f4f4f5 !important;
+  border-color: #3f3f46 !important;
 }
 </style>

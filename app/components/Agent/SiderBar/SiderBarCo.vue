@@ -1,11 +1,11 @@
 <template>
   <div
-    class="fixed left-4 top-20 bottom-4 z-40 flex flex-col transition-all duration-300 ease-in-out bg-white dark:bg-[#1E1F20] shadow-xl rounded border border-gray-100 dark:border-gray-800"
+    class="h-full flex flex-col transition-all duration-300 ease-in-out bg-zinc-50/80 dark:bg-zinc-950/40 border-r border-gray-200/50 dark:border-zinc-800/50 shrink-0"
     :class="[isExpanded ? 'w-64' : 'w-12']"
   >
     <!-- Toggle Button Header -->
     <div
-      class="p-2 flex items-center h-12"
+      class="p-2 flex items-center h-12 shrink-0"
       :class="[isExpanded ? 'justify-between' : 'justify-center']"
     >
       <div
@@ -13,16 +13,10 @@
         class="pl-2 font-semibold text-gray-700 dark:text-gray-200 truncate text-sm"
       >
         <span>History</span>
-        <button
-          @click="handleNewSession"
-          class="ml-2 px-2 py-1 bg-blue-500 text-white rounded text-xs hover:bg-blue-600"
-        >
-          New
-        </button>
       </div>
       <button
         @click="toggleSidebar"
-        class="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors focus:outline-none"
+        class="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-500 dark:text-gray-400 transition-colors focus:outline-none"
         :title="isExpanded ? 'Collapse' : 'Expand'"
       >
         <Icon
@@ -31,6 +25,33 @@
           "
           size="18"
         />
+      </button>
+    </div>
+
+    <!-- New Chat Button Section -->
+    <div
+      class="px-2 pb-2 shrink-0 flex flex-col border-b border-gray-200/30 dark:border-zinc-800/30"
+      :class="[isExpanded ? 'items-stretch' : 'items-center']"
+    >
+      <button
+        v-if="isExpanded"
+        @click="handleNewSession"
+        class="w-full flex items-center justify-between px-3 py-2 text-xs font-medium text-gray-700 dark:text-gray-200 border border-gray-200/50 dark:border-zinc-800/50 hover:border-gray-300 dark:hover:border-zinc-700 rounded-lg hover:bg-gray-100/60 dark:hover:bg-zinc-800/60 transition-all duration-200 focus:outline-none group"
+      >
+        <span class="flex items-center gap-2">
+          <Icon name="lucide:square-pen" size="14" class="text-gray-500 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-100" />
+          <span>New Chat</span>
+        </span>
+        <span class="text-[9px] font-mono text-gray-400 dark:text-gray-500 bg-zinc-50 dark:bg-black border border-gray-200/50 dark:border-zinc-800/50 px-1 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">New</span>
+      </button>
+      
+      <button
+        v-else
+        @click="handleNewSession"
+        class="w-8 h-8 flex items-center justify-center rounded-lg border border-gray-200/50 dark:border-zinc-800/50 hover:border-gray-300 dark:hover:border-zinc-700 hover:bg-gray-100/60 dark:hover:bg-zinc-800/60 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-all focus:outline-none"
+        title="New Chat"
+      >
+        <Icon name="lucide:plus" size="16" />
       </button>
     </div>
 
@@ -78,21 +99,37 @@
           v-for="item in historyList"
           :key="item.id"
           @click="handleSessionClick(item.id)"
-          class="p-2.5 rounded hover:bg-gray-50 dark:hover:bg-[#2A2B2D] cursor-pointer group transition-all border border-transparent hover:border-gray-100 dark:hover:border-gray-700/50 relative pr-8"
+          class="p-2.5 rounded hover:bg-gray-200/50 dark:hover:bg-zinc-800/50 cursor-pointer group transition-all border border-transparent hover:border-gray-200/30 dark:hover:border-zinc-800/30 relative pr-8"
         >
-          <div
-            class="text-xs text-gray-700 dark:text-gray-200 truncate font-medium"
-          >
-            {{ item.title || "New Chat" }}
+          <!-- Inline renaming input box -->
+          <div v-if="editingSessionId === item.id" @click.stop class="w-full flex items-center pr-2 py-0.5">
+            <input
+              ref="inputRef"
+              v-model="editingTitle"
+              type="text"
+              class="w-full text-xs px-2 py-1 bg-white dark:bg-zinc-800 text-gray-800 dark:text-gray-100 border border-blue-500 rounded outline-none focus:ring-1 focus:ring-blue-500"
+              @keydown.enter="handleSaveRename(item.id)"
+              @keydown.esc="handleCancelRename"
+              @blur="handleSaveRename(item.id)"
+            />
           </div>
-          <div
-            class="text-[10px] text-gray-400 mt-1 flex justify-between items-center opacity-70"
-          >
-            <span>{{ formatDate(item.created_at) }}</span>
-          </div>
+          
+          <!-- Default layout displaying title and timestamp -->
+          <template v-else>
+            <div
+              class="text-xs text-gray-700 dark:text-gray-200 truncate font-medium"
+            >
+              {{ item.title || "New Chat" }}
+            </div>
+            <div
+              class="text-[10px] text-gray-400 mt-1 flex justify-between items-center opacity-70"
+            >
+              <span>{{ formatDate(item.created_at) }}</span>
+            </div>
+          </template>
 
           <!-- Session context menu -->
-          <AgentSiderBarSessionRelated :session-id="item.id" />
+          <AgentSiderBarSessionRelated :session-id="item.id" @rename="startRename(item)" />
         </div>
       </div>
     </div>
@@ -101,25 +138,61 @@
 
 <script setup lang="ts">
 import { useSession } from "~/composables/agent/useSession";
-
+import { renameSession } from "~/utils/API/agent";
 import dayjs from "dayjs";
+import { useAgentStore } from "~/stores/agent";
 
-const isExpanded = ref(false);
+const agentStore = useAgentStore();
+const isExpanded = computed({
+  get: () => agentStore.isSidebarExpanded,
+  set: (val) => { agentStore.isSidebarExpanded = val }
+});
 const { historyList, loading, error, fetchHistory } = useSession();
+
+const editingSessionId = ref<number | null>(null);
+const editingTitle = ref("");
+const inputRef = ref<HTMLInputElement | null>(null);
+
+const startRename = (item: { id: number; title: string }) => {
+  editingSessionId.value = item.id;
+  editingTitle.value = item.title || "New Chat";
+  nextTick(() => {
+    inputRef.value?.focus();
+    inputRef.value?.select();
+  });
+};
+
+const handleSaveRename = async (id: number) => {
+  if (editingSessionId.value === null) return;
+  const title = editingTitle.value.trim();
+  editingSessionId.value = null; // Set to null immediately to prevent double calls (blur + enter)
+  if (!title) return;
+  
+  try {
+    const res: any = await renameSession(id, title);
+    if (res.code === 200) {
+      await fetchHistory();
+    }
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+const handleCancelRename = () => {
+  editingSessionId.value = null;
+};
 
 const handleSessionClick = (id: number) => {
   navigateTo(`/agent/${id}`);
 };
 
 const handleNewSession = async () => {
-        navigateTo(`/agent`);
-}
+  navigateTo(`/agent`);
+};
 
 const toggleSidebar = async () => {
   isExpanded.value = !isExpanded.value;
   if (isExpanded.value) {
-    // Fetch history when expanded, if we want to refresh or load first time
-    // checking length === 0 might be good, or just fetch every time to refresh
     if (historyList.value.length === 0) {
       await fetchHistory();
     }
