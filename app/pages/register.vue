@@ -3,7 +3,7 @@
     <header class="w-full max-w-[1200px] mx-auto py-6 px-4 flex justify-between items-end">
       <div class="flex items-end gap-4">
         <div class="text-[#ff5000] text-4xl font-extrabold tracking-tighter leading-none">
-          Neuedu<span class="text-3xl">智慧社区</span>
+          智里治<span class="text-3xl">智慧社区</span>
         </div>
         <span class="text-xl font-bold text-slate-700">用户注册</span>
       </div>
@@ -111,7 +111,7 @@
     </main>
 
     <footer class="py-6 text-center text-xs text-slate-400">
-      &copy; 2024 Neuedu.com 版权所有
+      &copy; 2024 智里治.com 版权所有
     </footer>
   </div>
 </template>

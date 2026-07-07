@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-[#f0f2f5] flex flex-col font-sans">
     <header class="w-full max-w-[1200px] mx-auto py-6 px-4 flex justify-between items-center">
       <div class="text-[#ff5000] text-3xl font-extrabold tracking-tighter">
-        Neuedu<span class="text-2xl ml-2">智慧社区</span>
+        智里治<span class="text-2xl ml-2">智慧社区</span>
       </div>
     </header>
 
@@ -17,7 +17,7 @@
 
           <div
             class="w-40 h-40 border border-slate-200 rounded p-2 bg-white relative group cursor-pointer shadow-sm hover:shadow-md transition-all">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.neuedu.com"
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.智里治.com"
               alt="Login QR Code"
               class="w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
           </div>

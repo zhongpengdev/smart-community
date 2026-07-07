@@ -2,7 +2,7 @@
     <div class="min-h-screen bg-[#f0f2f5] flex flex-col font-sans">
         <header class="w-full max-w-[1200px] mx-auto py-6 px-4 flex justify-between items-center">
             <div class="text-[#ff5000] text-3xl font-extrabold tracking-tighter">
-                Neuedu<span class="text-2xl ml-2">智慧社区</span>
+                智里治<span class="text-2xl ml-2">智慧社区</span>
             </div>
             <div class="flex gap-4 text-xs text-slate-500 cursor-pointer">
                 <span class="hover:text-[#ff5000]">帮助中心</span>
