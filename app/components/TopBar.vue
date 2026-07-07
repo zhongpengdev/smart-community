@@ -167,14 +167,14 @@ const roleType = computed(() => {
 
 const titleParts = computed(() => {
   const path = route.path || "";
-  const communityPrefix = "Neuedu智慧社区";
+  const communityPrefix = "智里治智慧社区";
 
   if (path.startsWith("/service/mall/chart")) {
-    return { base: "Neuedu智慧商城", sub: " - 购物车" };
+    return { base: "智里治智慧商城", sub: " - 购物车" };
   }
 
   if (path.startsWith("/service/mall")) {
-    return { base: "Neuedu智慧商城", sub: "" };
+    return { base: "智里治智慧商城", sub: "" };
   }
 
   if (path.startsWith("/service/community/news"))

@@ -245,7 +245,7 @@ const submitPwdForm = async () => {
     /* Slate-300 */
 }
 
-/* Custom Input Styling Override to match the 'neuedu' look more closely if needed */
+/* Custom Input Styling Override to match the '智里治' look more closely if needed */
 /* Custom Input Styling Override */
 :deep(.el-input__wrapper) {
     box-shadow: 0 0 0 1px #e2e8f0 inset;

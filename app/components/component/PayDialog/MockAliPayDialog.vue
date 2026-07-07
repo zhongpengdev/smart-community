@@ -21,7 +21,7 @@
             <div class="flex justify-between items-start mb-8">
                 <div>
                     <p class="mb-1 text-base">订单信息：<span class="font-bold">{{ description || '商品交易' }}</span></p>
-                    <p class="text-gray-400 text-xs text-[#999]">收款方：Neuedu智慧社区</p>
+                    <p class="text-gray-400 text-xs text-[#999]">收款方：智里治智慧社区</p>
                 </div>
                 <div class="text-right flex items-baseline justify-end gap-1">
                     <span class="text-xs text-[#4d4d4d]">订单金额</span>
