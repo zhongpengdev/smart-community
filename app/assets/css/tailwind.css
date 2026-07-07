@@ -61,6 +61,6 @@
 @layer components {
   /* 统一管控的组件卡片样式，未来如果需要换背景色、边框或阴影，直接在这里修改即可 */
   .community-card {
-    @apply bg-red-200 dark:bg-white/5 rounded border border-slate-100 dark:border-white/5 shadow-sm transition-all duration-200;
+    @apply bg-white dark:bg-white/5 rounded border border-slate-100 dark:border-white/5 shadow-sm transition-all duration-200;
   }
 }
