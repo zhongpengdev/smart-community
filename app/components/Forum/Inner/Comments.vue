@@ -141,7 +141,6 @@
 import { useComments } from "~/composables/form/useComments";
 import { useIntersectionObserver } from "~/utils/lazyLoading";
 import type { Comment } from "~/utils/Post/comments";
-import { checkText } from "~/utils/moderation";
 
 const props = defineProps<{
     postId: string | number;
@@ -238,8 +237,6 @@ const cancelReply = () => {
 
 const handleSubmit = async () => {
     if (!commentContent.value.trim()) return;
-
-    if (!(await checkText(commentContent.value))) return;
 
     const params = {
         postId: props.postId,

@@ -63,7 +63,6 @@
 <script setup lang="ts">
 import { usePost } from '~/composables/form/usePost';
 import { uploadImageApi } from '~/utils/api';
-import { checkText } from '~/utils/moderation';
 
 const props = defineProps<{
     sectionId: string | number;
@@ -113,10 +112,6 @@ const handleSubmit = async () => {
     if (!isFormValid.value) return;
 
     try {
-
-        const titleIsSafe = await checkText(title.value + content.value);
-
-        if (!titleIsSafe) return;
 
         await createPost({
             sectionId: props.sectionId,
