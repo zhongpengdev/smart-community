@@ -148,6 +148,22 @@ const isExpanded = computed({
   set: (val) => { agentStore.isSidebarExpanded = val }
 });
 const { historyList, loading, error, fetchHistory } = useSession();
+const userStore = useUserStore();
+
+onMounted(async () => {
+  if (isExpanded.value) {
+    await fetchHistory();
+  }
+});
+
+watch(
+  () => userStore.userInfo?.userId,
+  async (newId) => {
+    if (newId && isExpanded.value && historyList.value.length === 0) {
+      await fetchHistory();
+    }
+  }
+);
 
 const editingSessionId = ref<number | null>(null);
 const editingTitle = ref("");
