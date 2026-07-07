@@ -26,9 +26,26 @@
 </template>
 
 <script setup lang="ts">
+import { watch } from 'vue'
+import { useDebounceFn } from '@vueuse/core'
 import { useGlobalSearch } from '~/composables/useGlobalSearch'
 
 const { searchState, performSearch, clearSearch } = useGlobalSearch()
+
+// Automatically trigger search while typing with a 300ms debounce
+const debouncedSearch = useDebounceFn(() => {
+    if (searchState.query.trim()) {
+        performSearch()
+    } else {
+        searchState.results = { services: [], news: [], forum: [] }
+        searchState.hasSearched = false
+    }
+}, 300)
+
+watch(() => searchState.query, () => {
+    searchState.isOpen = true
+    debouncedSearch()
+})
 
 const handleSearch = () => {
     if (searchState.query && !searchState.loading) {

@@ -8,7 +8,7 @@
         <div class="space-y-3">
           <div class="flex items-center gap-2">
             <div class="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tighter transition-colors">
-              Neuedu<span class="text-[#ff5000]">智慧社区</span>
+              智里治<span class="text-[#ff5000]">智慧社区</span>
             </div>
           </div>
           <p class="text-xs text-slate-500 dark:text-slate-500 leading-relaxed">
@@ -26,7 +26,7 @@
               <div
                 class="absolute bottom-full left-0 mb-2 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300 z-10 shadow-lg">
                 <div class="bg-white p-2 rounded border border-slate-100">
-                  <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=Neuedu" class="w-20 h-20" />
+                  <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=智里治" class="w-20 h-20" />
                 </div>
               </div>
             </div>
@@ -78,7 +78,7 @@
             <div class="flex items-center gap-2 text-xs">
               <Icon name="lucide:mail" class="text-slate-400" size="14" />
               <span
-                class="hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer">contact@neuedu.com</span>
+                class="hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer">contact@智里治.com</span>
             </div>
 
             <div class="flex items-start gap-2 text-xs">
@@ -96,7 +96,7 @@
         class="flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-slate-400 dark:text-slate-500">
 
         <div class="flex flex-wrap justify-center md:justify-start items-center gap-2 md:gap-4">
-          <span>&copy; 2024 Neuedu.com</span>
+          <span>&copy; 2024 智里治.com</span>
           <span class="hidden md:inline w-px h-3 bg-slate-300 dark:bg-slate-700"></span>
           <a href="#" class="hover:text-slate-600 dark:hover:text-slate-300 transition-colors">辽ICP备12345678号</a>
           <span class="hidden md:inline w-px h-3 bg-slate-300 dark:bg-slate-700"></span>

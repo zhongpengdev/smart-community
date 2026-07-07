@@ -1,6 +1,6 @@
 <template>
     <div
-        class="h-full bg-slate-50 dark:bg-zinc-800/50 rounded overflow-hidden border border-slate-200 dark:border-zinc-700 flex flex-col relative w-[320px] shrink-0">
+        class="h-full bg-white dark:bg-zinc-900 flex flex-col relative w-full">
         <!-- 加载状态 -->
         <div v-if="searchState.loading" class="p-6 space-y-6 flex-1 overflow-y-auto custom-scrollbar">
             <div v-for="i in 5" :key="i" class="space-y-3 animate-pulse">
@@ -20,7 +20,7 @@
                     社区服务 ({{ searchState.results.services.length }})
                 </div>
                 <div v-for="item in searchState.results.services" :key="item.id" @click="handleSelect(item)"
-                    class="px-4 py-3 flex items-start gap-3 hover:bg-white dark:hover:bg-zinc-700/50 cursor-pointer transition-colors border-b border-slate-100 dark:border-zinc-700/30 last:border-0">
+                    class="px-4 py-3 flex items-start gap-3 hover:bg-slate-50 dark:hover:bg-zinc-800/50 cursor-pointer transition-colors border-b border-slate-100 dark:border-zinc-800/30 last:border-0">
                     <div
                         class="w-8 h-8 rounded bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-500 shrink-0">
                         <Icon :name="item.icon || 'lucide:grid'" class="w-4 h-4" />
@@ -40,7 +40,7 @@
                     公告新闻 ({{ searchState.results.news.length }})
                 </div>
                 <div v-for="item in searchState.results.news" :key="item.id" @click="handleSelect(item)"
-                    class="px-4 py-3 flex items-start gap-3 hover:bg-white dark:hover:bg-zinc-700/50 cursor-pointer transition-colors border-b border-slate-100 dark:border-zinc-700/30 last:border-0">
+                    class="px-4 py-3 flex items-start gap-3 hover:bg-slate-50 dark:hover:bg-zinc-800/50 cursor-pointer transition-colors border-b border-slate-100 dark:border-zinc-800/30 last:border-0">
                     <div
                         class="w-8 h-8 rounded bg-orange-50 dark:bg-orange-900/30 flex items-center justify-center text-orange-500 shrink-0">
                         <Icon name="lucide:newspaper" class="w-4 h-4" />
@@ -62,7 +62,7 @@
                     论坛帖子 ({{ searchState.results.forum.length }})
                 </div>
                 <div v-for="item in searchState.results.forum" :key="item.id" @click="handleSelect(item)"
-                    class="px-4 py-3 flex items-start gap-3 hover:bg-white dark:hover:bg-zinc-700/50 cursor-pointer transition-colors border-b border-slate-100 dark:border-zinc-700/30 last:border-0">
+                    class="px-4 py-3 flex items-start gap-3 hover:bg-slate-50 dark:hover:bg-zinc-800/50 cursor-pointer transition-colors border-b border-slate-100 dark:border-zinc-800/30 last:border-0">
                     <div
                         class="w-8 h-8 rounded bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-500 shrink-0">
                         <Icon name="lucide:message-circle" class="w-4 h-4" />
