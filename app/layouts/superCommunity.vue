@@ -108,7 +108,7 @@ onMounted(async () => {
         }
 
         // 开始加载流程
-        await startLoading(2300)
+        await startLoading(0)
     } catch (error: any) {
         console.error('后台管理加载失败:', error)
         // 只有非认证相关的错误才在这里提示

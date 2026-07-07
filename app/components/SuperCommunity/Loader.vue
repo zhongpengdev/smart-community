@@ -79,7 +79,7 @@
             <!-- Bottom Info -->
             <div class="absolute bottom-8 text-center">
                 <p class="text-xs text-slate-500 tracking-widest uppercase">
-                    Powered by Neuedu Smart Community Platform
+                    Powered by 智里治 Smart Community Platform
                 </p>
             </div>
         </div>

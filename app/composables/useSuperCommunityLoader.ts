@@ -5,33 +5,19 @@
 
 export const useSuperCommunityLoader = () => {
     const isLoading = useState('superCommunityLoading', () => false)
-    const isInitialized = useState('superCommunityInitialized', () => false)
+    const isInitialized = useState('superCommunityInitialized', () => true)
 
     /**
      * 开始加载流程
      * @param minDuration 最小加载时长（毫秒），确保用户能看到加载动画
      */
-    const startLoading = async (minDuration: number = 2300) => {
-        isLoading.value = true
-        const startTime = Date.now()
-
+    const startLoading = async (minDuration: number = 0) => {
         try {
-            // 这里可以添加需要预加载的数据或初始化逻辑
-            // 例如：验证权限、加载用户配置等
+            // 进行静默初始化/权限验证
             await performInitialization()
-
-            // 确保加载动画至少显示指定时长
-            const elapsed = Date.now() - startTime
-            if (elapsed < minDuration) {
-                await new Promise(resolve => setTimeout(resolve, minDuration - elapsed))
-            }
-
-            isInitialized.value = true
         } catch (error) {
             console.error('后台管理初始化失败:', error)
             throw error
-        } finally {
-            isLoading.value = false
         }
     }
 
@@ -54,7 +40,7 @@ export const useSuperCommunityLoader = () => {
 
         // 可以在这里添加更多初始化逻辑
         // 例如：预加载常用数据、初始化配置等
-        await new Promise(resolve => setTimeout(resolve, 100))
+        // 直接返回，不进行人工延迟
     }
 
     /**
@@ -69,7 +55,7 @@ export const useSuperCommunityLoader = () => {
      * 检查是否需要显示加载动画
      */
     const shouldShowLoader = computed(() => {
-        return isLoading.value || !isInitialized.value
+        return false // 直接禁用加载动画显示
     })
 
     return {
